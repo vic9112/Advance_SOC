@@ -423,8 +423,8 @@ FSIC #(
                 $display($time, "=> Enable UserProject 1...");
 		soc_cfg_write(32'h3000_5000, 4'b0001, 1); // Enable UserProj1
                 $display($time, "=>Done");
-                // test1(); // FIR initialization from SOC side
-                test2(); // FIR initialization from FPGA side
+                test1(); // FIR initialization from SOC side
+                //test2(); // FIR initialization from FPGA side
 
 
 //		test001();	//soc cfg write/read test
@@ -447,6 +447,11 @@ FSIC #(
 		$display("=============================================================================================");
 		$finish;
         
+    end
+
+    initial begin
+        $dumpfile("fir_sim.vcd");
+        $dumpvars(0, tb_fsic);
     end
 
 /*------------------------------------------------------------------------*/
@@ -495,13 +500,13 @@ FSIC #(
             // Check the expect value in Mailbox
             if (soc_to_fpga_mailbox_write_data_expect_value != soc_to_fpga_mailbox_write_data_captured) begin
                 $display("=============================================================================================");
-                $display($time, "Mailbox Data Fail!!!");
+                $display($time, "=> Mailbox Data Fail!!!");
                 $display("=============================================================================================");
                 error_cnt = error_cnt + 1;
             end 
             else begin
                 $display("=============================================================================================");
-                $display($time, "Mailbox Data Pass!!!");
+                $display($time, "=> Mailbox Data Pass!!!");
                 $display("=============================================================================================");
             end
     // Step 3. FIR data X, Y stream data from FPGA side
