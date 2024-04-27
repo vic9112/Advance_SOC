@@ -1,8 +1,12 @@
 # Lab3 Synopsys Project - Cell-Based IC Design Flow
 
+Notice that `report.pdf` cannot not be preview on github since it is large. Please open it after downloading.
+
 ## Introduction
 
 This lab covers the entire process from front-end design using Design Compiler, through the back-end processes using tools such as IC Compiler 2, StarRC, and PrimeTime, to verification using IC Validator and Formality. The lab includes several modules, each focused on different aspects of the design and validation process.
+
+![Cell-Based Design Flow](https://github.com/vic9112/Advance_SOC/assets/137171415/82066954-3f93-4b6d-aaff-06a2d9927631)
 
 ## Table of Contents:
 - Environment Settings: Setting up the EDA environment and libraries for your design.
@@ -15,5 +19,3 @@ This lab covers the entire process from front-end design using Design Compiler, 
 - Lab IC Validator - DRC: Verifying the design rule check for the target technology.
 - Lab IC Validator - LVS: Ensuring layout versus schematic matches the design.
 - Lab Formality: Verifying the behavior of the circuit and layout.
-
-
