@@ -1,6 +1,6 @@
 # Lab3 Synopsys Project - Cell-Based IC Design Flow
 
-Notice that `report.pdf` cannot not be preview on github since it is large. Please open it after downloading.
+Notice that the `report.pdf` cannot be previewed on github since it is large. Please open it after downloading.
 
 ## Introduction
 
