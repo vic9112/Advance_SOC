@@ -20,14 +20,16 @@ $ cd lab04\ -\ fsic_fpga/vivado
 $ ./run_vivado_fsic_sim
 ```
 - Above will run FIR on FSIC-FPGA using DMA to stream-in/out the data
-- The input and the output of DMA will write into `firDMA_in.log` and `firDMA_out.log` respectively.
+- The input and the output of DMA will write into `./vivado/firDMA_in.log` and `./vivado/firDMA_out.log` respectively.
 
 
 ### Caravel-FSIC FPGA Validation
 
 ``` bash=
+$ git clone https://github.com/vic9112/Advance_SOC
+$ cd lab04\ -\ fsic_fpga/vivado
 $ ./run_vivado_fsic
 ```
 
-- Above will generate bitstream and hardware header file into `./jupyter_notebook`, which has finished connecting DMA into block design.
+- Above will generate bitstream and hardware header file into `./vivado/jupyter_notebook`, which has finished connecting DMA into block design.
 
