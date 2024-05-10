@@ -231,6 +231,7 @@ module fsic_tb();
     endtask
 
     // Refer to SocLa2DmaPath
+    // Configurate DMA
     task cnfg_firDMA;
     	begin
             $display($time, "=> =======================================================================");
@@ -431,7 +432,7 @@ module fsic_tb();
             end
 
             // Write coefficient
-            for(i = 0; i < 11; i = i+1) begin
+            for(i = 0; i < 11; i = i + 1) begin
             	$display($time, "=> Fpga2Soc_Write: SOC_UP");
             	offset = 12'h20 + 4 * i;
             	data = coef[i];
