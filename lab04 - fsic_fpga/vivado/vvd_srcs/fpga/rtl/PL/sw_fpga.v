@@ -241,16 +241,6 @@ assign axi_arready = 1;
 // axis_switch  always output axi_rvalid = 1 and axi_rdata =  { 28'b0, TH_reg}
 assign axi_rvalid = 1;
 assign axi_rdata =  { 28'b0, TH_reg };
-
-reg is_as_tready_reg;
-
-always @(posedge axis_clk or negedge axi_reset_n) begin 
-    if (!axi_reset_n) begin
-        is_as_tready_reg <= 0;
-    end else begin
-        is_as_tready_reg <=  is_as_tready;
-    end
-end
 //for Abiter
 assign  req[0] = up_as_tvalid & req_mask[0];
 assign  req[1] = aa_as_tvalid & req_mask[1];
@@ -265,9 +255,7 @@ assign  as_is_tdata     = m_axis_tdata_reg;
 assign  as_is_tstrb     = m_axis_tstrb_reg;
 assign  as_is_tkeep     = m_axis_tkeep_reg; 
 assign  as_is_tlast     = m_axis_tlast_reg;        
-assign  as_is_tvalid    = is_as_tready_reg ? m_axis_tvalid_reg : 1'b0;        //use is_as_tready  is a flow control signal
-                                                                              // 1. when is_as_ready = 0 then output as_is_tvalid = 0
-                                                                              // 2. use is_as_tready_reg to delay 1T to avoid send the same data twice issue when is_as_ready from 0 to 1.
+assign  as_is_tvalid    = m_axis_tvalid_reg;
 assign  as_is_tuser     = m_axis_tuser_reg;   
 assign  as_is_tid       = m_axis_tid_reg;
 assign as_up_tready = grant_reg[0] && is_as_tready;    
