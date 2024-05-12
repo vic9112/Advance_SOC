@@ -59,8 +59,6 @@
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/auto_cc/include"/>
                                     									
-                                    <listOptionValue builtIn="false" value="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma"/>
-                                    									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/systemc/include"/>
                                     								
                                 </option>
@@ -94,8 +92,6 @@
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/auto_cc/include"/>
-                                    									
-                                    <listOptionValue builtIn="false" value="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma"/>
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/systemc/include"/>
                                     								
@@ -261,8 +257,6 @@
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/auto_cc/include"/>
                                     									
-                                    <listOptionValue builtIn="false" value="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma"/>
-                                    									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/systemc/include"/>
                                     								
                                 </option>
@@ -286,8 +280,6 @@
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/auto_cc/include"/>
-                                    									
-                                    <listOptionValue builtIn="false" value="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma"/>
                                     									
                                     <listOptionValue builtIn="false" value="/tools/Xilinx/Vitis_HLS/2022.1/lnx64/tools/systemc/include"/>
                                     								

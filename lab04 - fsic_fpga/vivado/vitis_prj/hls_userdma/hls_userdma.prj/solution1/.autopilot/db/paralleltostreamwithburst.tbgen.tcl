@@ -19,7 +19,7 @@ set C_modelArgList {
 	{ in_Img_width int 32 regular  }
 	{ in_m2s_len int 32 regular  }
 	{ outbuf int 40 regular {fifo 1 volatile }  }
-	{ outcount48 int 32 regular {fifo 1 volatile }  }
+	{ outcount44 int 32 regular {fifo 1 volatile }  }
 	{ m2s_enb_clrsts_c int 1 regular {fifo 1}  }
 }
 set C_modelArgMapList {[ 
@@ -29,7 +29,7 @@ set C_modelArgMapList {[
  	{ "Name" : "in_Img_width", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "in_m2s_len", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "outbuf", "interface" : "fifo", "bitwidth" : 40, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "outcount48", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "outcount44", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "m2s_enb_clrsts_c", "interface" : "fifo", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 72
@@ -96,11 +96,11 @@ set portList {
 	{ outbuf_fifo_cap sc_in sc_lv 11 signal 5 } 
 	{ outbuf_full_n sc_in sc_logic 1 signal 5 } 
 	{ outbuf_write sc_out sc_logic 1 signal 5 } 
-	{ outcount48_din sc_out sc_lv 32 signal 6 } 
-	{ outcount48_num_data_valid sc_in sc_lv 7 signal 6 } 
-	{ outcount48_fifo_cap sc_in sc_lv 7 signal 6 } 
-	{ outcount48_full_n sc_in sc_logic 1 signal 6 } 
-	{ outcount48_write sc_out sc_logic 1 signal 6 } 
+	{ outcount44_din sc_out sc_lv 32 signal 6 } 
+	{ outcount44_num_data_valid sc_in sc_lv 7 signal 6 } 
+	{ outcount44_fifo_cap sc_in sc_lv 7 signal 6 } 
+	{ outcount44_full_n sc_in sc_logic 1 signal 6 } 
+	{ outcount44_write sc_out sc_logic 1 signal 6 } 
 	{ m2s_enb_clrsts_c_din sc_out sc_lv 1 signal 7 } 
 	{ m2s_enb_clrsts_c_num_data_valid sc_in sc_lv 2 signal 7 } 
 	{ m2s_enb_clrsts_c_fifo_cap sc_in sc_lv 2 signal 7 } 
@@ -170,11 +170,11 @@ set NewPortList {[
  	{ "name": "outbuf_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "outbuf", "role": "fifo_cap" }} , 
  	{ "name": "outbuf_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outbuf", "role": "full_n" }} , 
  	{ "name": "outbuf_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outbuf", "role": "write" }} , 
- 	{ "name": "outcount48_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "outcount48", "role": "din" }} , 
- 	{ "name": "outcount48_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outcount48", "role": "num_data_valid" }} , 
- 	{ "name": "outcount48_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outcount48", "role": "fifo_cap" }} , 
- 	{ "name": "outcount48_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outcount48", "role": "full_n" }} , 
- 	{ "name": "outcount48_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outcount48", "role": "write" }} , 
+ 	{ "name": "outcount44_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "outcount44", "role": "din" }} , 
+ 	{ "name": "outcount44_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outcount44", "role": "num_data_valid" }} , 
+ 	{ "name": "outcount44_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outcount44", "role": "fifo_cap" }} , 
+ 	{ "name": "outcount44_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outcount44", "role": "full_n" }} , 
+ 	{ "name": "outcount44_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outcount44", "role": "write" }} , 
  	{ "name": "m2s_enb_clrsts_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "m2s_enb_clrsts_c", "role": "din" }} , 
  	{ "name": "m2s_enb_clrsts_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "m2s_enb_clrsts_c", "role": "num_data_valid" }} , 
  	{ "name": "m2s_enb_clrsts_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "m2s_enb_clrsts_c", "role": "fifo_cap" }} , 
@@ -201,32 +201,32 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"}],
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173", "Port" : "gmem1", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
+					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173", "Port" : "gmem1", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
 			{"Name" : "in_memory", "Type" : "None", "Direction" : "I"},
 			{"Name" : "in_en_clrsts", "Type" : "None", "Direction" : "I"},
 			{"Name" : "in_Img_width", "Type" : "None", "Direction" : "I"},
 			{"Name" : "in_m2s_len", "Type" : "None", "Direction" : "I"},
 			{"Name" : "outbuf", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "1024", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173", "Port" : "outbuf", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
-			{"Name" : "outcount48", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
+					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173", "Port" : "outbuf", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
+			{"Name" : "outcount44", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"BlockSignal" : [
-					{"Name" : "outcount48_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "outcount44_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "m2s_enb_clrsts_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "m2s_enb_clrsts_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "first", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "m2s_len", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173", "Port" : "m2s_len", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
+					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173", "Port" : "m2s_len", "Inst_start_state" : "20", "Inst_end_state" : "21"}]},
 			{"Name" : "Img_width_count", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173", "Port" : "Img_width_count", "Inst_start_state" : "20", "Inst_end_state" : "21"}]}],
+					{"ID" : "1", "SubInstance" : "grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173", "Port" : "Img_width_count", "Inst_start_state" : "20", "Inst_end_state" : "21"}]}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_98_1", "PipelineType" : "no",
+			{"Name" : "VITIS_LOOP_95_1", "PipelineType" : "no",
 				"LoopDec" : {"FSMBitwidth" : "22", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state22"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173", "Parent" : "0", "Child" : ["2"],
-		"CDFG" : "paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2",
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173", "Parent" : "0", "Child" : ["2"],
+		"CDFG" : "paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -243,7 +243,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]},
-			{"Name" : "sext_ln106", "Type" : "None", "Direction" : "I"},
+			{"Name" : "sext_ln103", "Type" : "None", "Direction" : "I"},
 			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sub", "Type" : "None", "Direction" : "I"},
 			{"Name" : "in_m2s_len", "Type" : "None", "Direction" : "I"},
@@ -255,9 +255,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "m2s_len", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "Img_width_count", "Type" : "OVld", "Direction" : "IO"}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_106_2", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_103_2", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2_fu_173.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"}]}
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -268,14 +268,14 @@ set ArgLastReadFirstWriteLatency {
 		in_Img_width {Type I LastRead 0 FirstWrite -1}
 		in_m2s_len {Type I LastRead 0 FirstWrite -1}
 		outbuf {Type O LastRead -1 FirstWrite 2}
-		outcount48 {Type O LastRead -1 FirstWrite 20}
+		outcount44 {Type O LastRead -1 FirstWrite 20}
 		m2s_enb_clrsts_c {Type O LastRead -1 FirstWrite 0}
 		first {Type IO LastRead -1 FirstWrite -1}
 		m2s_len {Type IO LastRead -1 FirstWrite -1}
 		Img_width_count {Type IO LastRead -1 FirstWrite -1}}
-	paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2 {
+	paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2 {
 		gmem1 {Type I LastRead 1 FirstWrite -1}
-		sext_ln106 {Type I LastRead 0 FirstWrite -1}
+		sext_ln103 {Type I LastRead 0 FirstWrite -1}
 		trunc_ln {Type I LastRead 0 FirstWrite -1}
 		sub {Type I LastRead 0 FirstWrite -1}
 		in_m2s_len {Type I LastRead 0 FirstWrite -1}
@@ -302,6 +302,6 @@ set Spec2ImplPortList {
 	in_Img_width { ap_none {  { in_Img_width in_data 0 32 } } }
 	in_m2s_len { ap_none {  { in_m2s_len in_data 0 32 } } }
 	outbuf { ap_fifo {  { outbuf_din fifo_port_we 1 40 }  { outbuf_num_data_valid fifo_status_num_data_valid 0 11 }  { outbuf_fifo_cap fifo_update 0 11 }  { outbuf_full_n fifo_status 0 1 }  { outbuf_write fifo_data 1 1 } } }
-	outcount48 { ap_fifo {  { outcount48_din fifo_port_we 1 32 }  { outcount48_num_data_valid fifo_status_num_data_valid 0 7 }  { outcount48_fifo_cap fifo_update 0 7 }  { outcount48_full_n fifo_status 0 1 }  { outcount48_write fifo_data 1 1 } } }
+	outcount44 { ap_fifo {  { outcount44_din fifo_port_we 1 32 }  { outcount44_num_data_valid fifo_status_num_data_valid 0 7 }  { outcount44_fifo_cap fifo_update 0 7 }  { outcount44_full_n fifo_status 0 1 }  { outcount44_write fifo_data 1 1 } } }
 	m2s_enb_clrsts_c { ap_fifo {  { m2s_enb_clrsts_c_din fifo_port_we 1 1 }  { m2s_enb_clrsts_c_num_data_valid fifo_status_num_data_valid 0 2 }  { m2s_enb_clrsts_c_fifo_cap fifo_update 0 2 }  { m2s_enb_clrsts_c_full_n fifo_status 0 1 }  { m2s_enb_clrsts_c_write fifo_data 1 1 } } }
 }

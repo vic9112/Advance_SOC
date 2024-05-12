@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 58 \
+    id 55 \
     name gmem1 \
     type other \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 59 \
+    id 56 \
     name in_memory \
     type other \
     dir I \
@@ -40,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 60 \
+    id 57 \
     name in_en_clrsts \
     type other \
     dir I \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 61 \
+    id 58 \
     name in_Img_width \
     type other \
     dir I \
@@ -70,7 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 62 \
+    id 59 \
     name in_m2s_len \
     type other \
     dir I \
@@ -85,7 +85,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 63 \
+    id 60 \
     name outbuf \
     type fifo \
     dir O \
@@ -100,22 +100,22 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 64 \
-    name outcount48 \
+    id 61 \
+    name outcount44 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_outcount48 \
+    corename dc_outcount44 \
     op interface \
-    ports { outcount48_din { O 32 vector } outcount48_num_data_valid { I 7 vector } outcount48_fifo_cap { I 7 vector } outcount48_full_n { I 1 bit } outcount48_write { O 1 bit } } \
+    ports { outcount44_din { O 32 vector } outcount44_num_data_valid { I 7 vector } outcount44_fifo_cap { I 7 vector } outcount44_full_n { I 1 bit } outcount44_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 65 \
+    id 62 \
     name m2s_enb_clrsts_c \
     type fifo \
     dir O \

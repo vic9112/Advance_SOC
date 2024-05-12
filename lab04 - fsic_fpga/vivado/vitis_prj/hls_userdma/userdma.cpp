@@ -6,7 +6,7 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
   data  in_val;
 
   int count;
-  static bool out_sts=0;
+  static bool out_sts = 0;
   static ap_uint<32> final_s2m_len=0;
 
   if(in_en_clrsts) {
@@ -17,6 +17,7 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
 	  }
 	  buf_sts = out_sts;
   } else {
+
 	  do {
 		  count = in_counts.read();
 
@@ -33,38 +34,34 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
 		  }
 
 		  buf_sts = out_sts;
-	  } while(final_s2m_len < BUF_LEN);
+	  } while(final_s2m_len < in_s2m_len);
+
+
   }
 }
 
-void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap_uint<32> in_s2m_len, bool &s2m_err, ap_uint<32> in_Img_width,
-			hls::stream<data > &out_stream, hls::stream<int>& out_counts)	
+void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap_uint<32> in_s2m_len,
+				 ap_uint<2> &s2m_err, ap_uint<32> in_Img_width,
+				 hls::stream<data > &out_stream, hls::stream<int>& out_counts)
 {
       int count = 0;
       static ap_uint<32> in_len = 0;
       trans_pkt in_val;
       static int width_count = 0;	
-      if(!in_en_clrsts){
+      if (!in_en_clrsts){
     	  do {
 			#pragma HLS PIPELINE
-			  in_val = in_stream.read();
+    		  in_val = in_stream.read();
 			  data out_val = {in_val.data, in_val.last};
 			  out_stream.write(out_val);
 
-			  s2m_err=0;
+			  s2m_err = 0;
 
-			  if((in_len==0)&&(in_val.user(2,2)!=1))
-				s2m_err=1;
-			  if((in_len!=0)&&(in_val.user(2,2)==1))
-				s2m_err=1;					  
+			  if ((in_len < in_s2m_len - 1) && (in_val.last == 1)) // t_last asserted but DMA hasn't reach stream length
+				  s2m_err = 1;
 
-			  if((width_count==in_Img_width-1)&&(in_val.user(3,3)!=1))
-				s2m_err=1;
-			 
-			  if(width_count==in_Img_width-1)			  
-			 	width_count = 0; 
-  		 	  else
-			  	width_count++;
+			  if ((in_len == in_s2m_len - 1) && (in_val.last != 1)) // reach stream length but t_last not asserted
+				  s2m_err = 2;
 
 			  count++;
 			  in_len++;
@@ -74,8 +71,8 @@ void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap
 			  }
 		  } while(in_len < in_s2m_len);
       } else {
-    	  in_len=0;
-    	  s2m_err=0;	
+    	  in_len = 0;
+    	  s2m_err = 0;
       }
 }
 
@@ -162,18 +159,18 @@ void sendoutstream(hls::stream<out_data> &in_stream, hls::stream<int> &in_counts
 }
 
 void userdma(hls::stream<trans_pkt >& inStreamTop,
-		bool *s2m_buf_sts,
-		bool s2m_sts_clear,
-		ap_uint<32> s2m_len,
-		ap_uint<1> s2m_enb_clrsts,
+		bool 		*s2m_buf_sts,
+		bool 		s2m_sts_clear,
+		ap_uint<32> s2m_len,		// 0x28: stream to memory length
+		ap_uint<1> 	s2m_enb_clrsts,
 		ap_uint<32> s2mbuf[BUF_LEN],
-		bool *s2m_err,	
+		ap_uint<2>  *s2m_err, 		// 0: pass, 1: configuration error, 2: stream-in length error
 		ap_uint<32>	Img_width,	
 		ap_uint<32> m2sbuf[BUF_LEN],
-		bool *m2s_buf_sts,
-		bool m2s_sts_clear,
-		int m2s_len,
-		ap_uint<1> m2s_enb_clrsts,
+		bool 		*m2s_buf_sts,
+		bool 		m2s_sts_clear,
+		int 		m2s_len,		// 0x80: memory to stream length
+		ap_uint<1>  m2s_enb_clrsts,
 		hls::stream<trans_pkt >& outStreamTop) {
 #pragma HLS INTERFACE axis register_mode=both register port=inStreamTop
 #pragma HLS INTERFACE m_axi max_write_burst_length=64 latency=10 depth=1024 bundle=gmem0 port=s2mbuf offset = slave

@@ -20,11 +20,11 @@ module userdma_sendoutstream (
         outbuf_fifo_cap,
         outbuf_empty_n,
         outbuf_read,
-        outcount48_dout,
-        outcount48_num_data_valid,
-        outcount48_fifo_cap,
-        outcount48_empty_n,
-        outcount48_read,
+        outcount44_dout,
+        outcount44_num_data_valid,
+        outcount44_fifo_cap,
+        outcount44_empty_n,
+        outcount44_read,
         in_en_clrsts_dout,
         in_en_clrsts_num_data_valid,
         in_en_clrsts_fifo_cap,
@@ -64,11 +64,11 @@ input  [10:0] outbuf_num_data_valid;
 input  [10:0] outbuf_fifo_cap;
 input   outbuf_empty_n;
 output   outbuf_read;
-input  [31:0] outcount48_dout;
-input  [6:0] outcount48_num_data_valid;
-input  [6:0] outcount48_fifo_cap;
-input   outcount48_empty_n;
-output   outcount48_read;
+input  [31:0] outcount44_dout;
+input  [6:0] outcount44_num_data_valid;
+input  [6:0] outcount44_fifo_cap;
+input   outcount44_empty_n;
+output   outcount44_read;
 input  [0:0] in_en_clrsts_dout;
 input  [1:0] in_en_clrsts_num_data_valid;
 input  [1:0] in_en_clrsts_fifo_cap;
@@ -93,7 +93,7 @@ reg ap_done;
 reg ap_idle;
 reg ap_ready;
 reg outbuf_read;
-reg outcount48_read;
+reg outcount44_read;
 reg in_en_clrsts_read;
 reg[0:0] m2s_buf_sts;
 reg m2s_buf_sts_ap_vld;
@@ -102,28 +102,28 @@ reg sts_clear_read;
 reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg    outcount48_blk_n;
+reg    outcount44_blk_n;
 wire    ap_CS_fsm_state2;
 reg    in_en_clrsts_blk_n;
 reg    sts_clear_blk_n;
 wire   [0:0] in_en_clrsts_read_read_fu_74_p2;
 reg   [0:0] in_en_clrsts_read_reg_138;
 reg   [31:0] tmp_reg_151;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_done;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_idle;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_ready;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outbuf_read;
-wire   [31:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TDATA;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TREADY;
-wire   [3:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TKEEP;
-wire   [3:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TSTRB;
-wire   [6:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TUSER;
-wire   [0:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TLAST;
-wire   [0:0] grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out;
-wire    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out_ap_vld;
-reg    grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_done;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_idle;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_ready;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outbuf_read;
+wire   [31:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TDATA;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TREADY;
+wire   [3:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TKEEP;
+wire   [3:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TSTRB;
+wire   [6:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TUSER;
+wire   [0:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TLAST;
+wire   [0:0] grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out;
+wire    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out_ap_vld;
+reg    grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state4;
 reg   [0:0] p_phi_loc_fu_66;
@@ -161,33 +161,33 @@ wire    ap_ce_reg;
 initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 5'd1;
-#0 grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg = 1'b0;
+#0 grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg = 1'b0;
 #0 m2s_buf_sts_preg = 1'd0;
 end
 
-userdma_sendoutstream_Pipeline_VITIS_LOOP_149_2 grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101(
+userdma_sendoutstream_Pipeline_VITIS_LOOP_146_2 grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start),
-    .ap_done(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_done),
-    .ap_idle(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_idle),
-    .ap_ready(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_ready),
+    .ap_start(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start),
+    .ap_done(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_done),
+    .ap_idle(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_idle),
+    .ap_ready(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_ready),
     .out_val_last_V(out_val_last_V_fu_70),
     .tmp(tmp_reg_151),
     .outbuf_dout(outbuf_dout),
     .outbuf_num_data_valid(11'd0),
     .outbuf_fifo_cap(11'd0),
     .outbuf_empty_n(outbuf_empty_n),
-    .outbuf_read(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outbuf_read),
-    .outStreamTop_TDATA(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TDATA),
-    .outStreamTop_TVALID(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
-    .outStreamTop_TREADY(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TREADY),
-    .outStreamTop_TKEEP(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TKEEP),
-    .outStreamTop_TSTRB(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TSTRB),
-    .outStreamTop_TUSER(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TUSER),
-    .outStreamTop_TLAST(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TLAST),
-    .p_phi_out(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out),
-    .p_phi_out_ap_vld(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out_ap_vld)
+    .outbuf_read(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outbuf_read),
+    .outStreamTop_TDATA(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TDATA),
+    .outStreamTop_TVALID(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
+    .outStreamTop_TREADY(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TREADY),
+    .outStreamTop_TKEEP(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TKEEP),
+    .outStreamTop_TSTRB(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TSTRB),
+    .outStreamTop_TUSER(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TUSER),
+    .outStreamTop_TLAST(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TLAST),
+    .p_phi_out(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out),
+    .p_phi_out_ap_vld(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out_ap_vld)
 );
 
 userdma_regslice_both #(
@@ -195,8 +195,8 @@ userdma_regslice_both #(
 regslice_both_outStreamTop_V_data_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TDATA),
-    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
+    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TDATA),
+    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
     .ack_in(outStreamTop_TREADY_int_regslice),
     .data_out(outStreamTop_TDATA),
     .vld_out(regslice_both_outStreamTop_V_data_V_U_vld_out),
@@ -209,8 +209,8 @@ userdma_regslice_both #(
 regslice_both_outStreamTop_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TKEEP),
-    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
+    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TKEEP),
+    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
     .ack_in(regslice_both_outStreamTop_V_keep_V_U_ack_in_dummy),
     .data_out(outStreamTop_TKEEP),
     .vld_out(regslice_both_outStreamTop_V_keep_V_U_vld_out),
@@ -223,8 +223,8 @@ userdma_regslice_both #(
 regslice_both_outStreamTop_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TSTRB),
-    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
+    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TSTRB),
+    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
     .ack_in(regslice_both_outStreamTop_V_strb_V_U_ack_in_dummy),
     .data_out(outStreamTop_TSTRB),
     .vld_out(regslice_both_outStreamTop_V_strb_V_U_vld_out),
@@ -237,8 +237,8 @@ userdma_regslice_both #(
 regslice_both_outStreamTop_V_user_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TUSER),
-    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
+    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TUSER),
+    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
     .ack_in(regslice_both_outStreamTop_V_user_V_U_ack_in_dummy),
     .data_out(outStreamTop_TUSER),
     .vld_out(regslice_both_outStreamTop_V_user_V_U_vld_out),
@@ -251,8 +251,8 @@ userdma_regslice_both #(
 regslice_both_outStreamTop_V_last_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TLAST),
-    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID),
+    .data_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TLAST),
+    .vld_in(grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID),
     .ack_in(regslice_both_outStreamTop_V_last_V_U_ack_in_dummy),
     .data_out(outStreamTop_TLAST),
     .vld_out(regslice_both_outStreamTop_V_last_V_U_vld_out),
@@ -282,12 +282,12 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg <= 1'b0;
+        grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg <= 1'b1;
-        end else if ((grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_ready == 1'b1)) begin
-            grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg <= 1'b0;
+            grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg <= 1'b1;
+        end else if ((grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_ready == 1'b1)) begin
+            grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg <= 1'b0;
         end
     end
 end
@@ -317,14 +317,14 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
-        p_phi_loc_fu_66 <= grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_p_phi_out;
+    if (((grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+        p_phi_loc_fu_66 <= grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_p_phi_out;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        tmp_reg_151 <= outcount48_dout;
+        tmp_reg_151 <= outcount44_dout;
     end
 end
 
@@ -337,7 +337,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((outcount48_empty_n == 1'b0)) begin
+    if ((outcount44_empty_n == 1'b0)) begin
         ap_ST_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_fsm_state2_blk = 1'b0;
@@ -347,7 +347,7 @@ end
 assign ap_ST_fsm_state3_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_done == 1'b0)) begin
+    if ((grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_done == 1'b0)) begin
         ap_ST_fsm_state4_blk = 1'b1;
     end else begin
         ap_ST_fsm_state4_blk = 1'b0;
@@ -422,7 +422,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        outbuf_read = grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outbuf_read;
+        outbuf_read = grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outbuf_read;
     end else begin
         outbuf_read = 1'b0;
     end
@@ -430,17 +430,17 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        outcount48_blk_n = outcount48_empty_n;
+        outcount44_blk_n = outcount44_empty_n;
     end else begin
-        outcount48_blk_n = 1'b1;
+        outcount44_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if (((outcount48_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-        outcount48_read = 1'b1;
+    if (((outcount44_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        outcount44_read = 1'b1;
     end else begin
-        outcount48_read = 1'b0;
+        outcount44_read = 1'b0;
     end
 end
 
@@ -472,7 +472,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((outcount48_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((outcount44_empty_n == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -482,7 +482,7 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+            if (((grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
@@ -517,15 +517,15 @@ always @ (*) begin
     ap_block_state1 = ((sts_clear_empty_n == 1'b0) | (in_en_clrsts_empty_n == 1'b0) | (ap_done_reg == 1'b1) | (ap_start == 1'b0));
 end
 
-assign grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start = grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_ap_start_reg;
+assign grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start = grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_ap_start_reg;
 
-assign grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TREADY = (outStreamTop_TREADY_int_regslice & ap_CS_fsm_state4);
+assign grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TREADY = (outStreamTop_TREADY_int_regslice & ap_CS_fsm_state4);
 
 assign in_en_clrsts_read_read_fu_74_p2 = in_en_clrsts_dout;
 
 assign outStreamTop_TVALID = regslice_both_outStreamTop_V_data_V_U_vld_out;
 
-assign outStreamTop_TVALID_int_regslice = grp_sendoutstream_Pipeline_VITIS_LOOP_149_2_fu_101_outStreamTop_TVALID;
+assign outStreamTop_TVALID_int_regslice = grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101_outStreamTop_TVALID;
 
 assign p_phi_loc_load_load_fu_124_p1 = p_phi_loc_fu_66;
 

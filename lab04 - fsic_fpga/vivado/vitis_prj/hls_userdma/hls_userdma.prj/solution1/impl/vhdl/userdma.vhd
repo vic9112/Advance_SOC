@@ -166,16 +166,16 @@ end;
 architecture behav of userdma is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "userdma_userdma,hls_ip_2022_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=9,HLS_SYN_DSP=0,HLS_SYN_FF=4316,HLS_SYN_LUT=8141,HLS_VERSION=2022_1}";
+    "userdma_userdma,hls_ip_2022_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=9,HLS_SYN_DSP=0,HLS_SYN_FF=4250,HLS_SYN_LUT=8114,HLS_VERSION=2022_1}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant C_M_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant ap_const_logic_0 : STD_LOGIC := '0';
+    constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_const_lv2_0 : STD_LOGIC_VECTOR (1 downto 0) := "00";
     constant ap_const_lv9_0 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
@@ -185,7 +185,6 @@ architecture behav of userdma is
     signal s2m_len : STD_LOGIC_VECTOR (31 downto 0);
     signal s2m_enb_clrsts : STD_LOGIC_VECTOR (0 downto 0);
     signal s2mbuf : STD_LOGIC_VECTOR (63 downto 0);
-    signal s2m_err : STD_LOGIC;
     signal Img_width : STD_LOGIC_VECTOR (31 downto 0);
     signal m2sbuf : STD_LOGIC_VECTOR (63 downto 0);
     signal m2s_buf_sts : STD_LOGIC;
@@ -239,12 +238,12 @@ architecture behav of userdma is
     signal getinstream_U0_ap_idle : STD_LOGIC;
     signal getinstream_U0_ap_ready : STD_LOGIC;
     signal getinstream_U0_inStreamTop_TREADY : STD_LOGIC;
-    signal getinstream_U0_s2m_err : STD_LOGIC_VECTOR (0 downto 0);
+    signal getinstream_U0_s2m_err : STD_LOGIC_VECTOR (1 downto 0);
     signal getinstream_U0_s2m_err_ap_vld : STD_LOGIC;
     signal getinstream_U0_inbuf_din : STD_LOGIC_VECTOR (32 downto 0);
     signal getinstream_U0_inbuf_write : STD_LOGIC;
-    signal getinstream_U0_incount47_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal getinstream_U0_incount47_write : STD_LOGIC;
+    signal getinstream_U0_incount43_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal getinstream_U0_incount43_write : STD_LOGIC;
     signal getinstream_U0_s2m_len_c_din : STD_LOGIC_VECTOR (31 downto 0);
     signal getinstream_U0_s2m_len_c_write : STD_LOGIC;
     signal getinstream_U0_s2m_enb_clrsts_c_din : STD_LOGIC_VECTOR (0 downto 0);
@@ -255,7 +254,7 @@ architecture behav of userdma is
     signal streamtoparallelwithburst_U0_ap_idle : STD_LOGIC;
     signal streamtoparallelwithburst_U0_ap_ready : STD_LOGIC;
     signal streamtoparallelwithburst_U0_inbuf_read : STD_LOGIC;
-    signal streamtoparallelwithburst_U0_incount47_read : STD_LOGIC;
+    signal streamtoparallelwithburst_U0_incount43_read : STD_LOGIC;
     signal streamtoparallelwithburst_U0_in_en_clrsts_read : STD_LOGIC;
     signal streamtoparallelwithburst_U0_s2m_buf_sts : STD_LOGIC_VECTOR (0 downto 0);
     signal streamtoparallelwithburst_U0_s2m_buf_sts_ap_vld : STD_LOGIC;
@@ -333,8 +332,8 @@ architecture behav of userdma is
     signal paralleltostreamwithburst_U0_m_axi_gmem1_BREADY : STD_LOGIC;
     signal paralleltostreamwithburst_U0_outbuf_din : STD_LOGIC_VECTOR (39 downto 0);
     signal paralleltostreamwithburst_U0_outbuf_write : STD_LOGIC;
-    signal paralleltostreamwithburst_U0_outcount48_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal paralleltostreamwithburst_U0_outcount48_write : STD_LOGIC;
+    signal paralleltostreamwithburst_U0_outcount44_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal paralleltostreamwithburst_U0_outcount44_write : STD_LOGIC;
     signal paralleltostreamwithburst_U0_m2s_enb_clrsts_c_din : STD_LOGIC_VECTOR (0 downto 0);
     signal paralleltostreamwithburst_U0_m2s_enb_clrsts_c_write : STD_LOGIC;
     signal sendoutstream_U0_ap_start : STD_LOGIC;
@@ -343,7 +342,7 @@ architecture behav of userdma is
     signal sendoutstream_U0_ap_idle : STD_LOGIC;
     signal sendoutstream_U0_ap_ready : STD_LOGIC;
     signal sendoutstream_U0_outbuf_read : STD_LOGIC;
-    signal sendoutstream_U0_outcount48_read : STD_LOGIC;
+    signal sendoutstream_U0_outcount44_read : STD_LOGIC;
     signal sendoutstream_U0_in_en_clrsts_read : STD_LOGIC;
     signal sendoutstream_U0_m2s_buf_sts : STD_LOGIC_VECTOR (0 downto 0);
     signal sendoutstream_U0_m2s_buf_sts_ap_vld : STD_LOGIC;
@@ -473,19 +472,18 @@ architecture behav of userdma is
         inStreamTop_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         in_en_clrsts : IN STD_LOGIC_VECTOR (0 downto 0);
         in_s2m_len : IN STD_LOGIC_VECTOR (31 downto 0);
-        s2m_err : OUT STD_LOGIC_VECTOR (0 downto 0);
+        s2m_err : OUT STD_LOGIC_VECTOR (1 downto 0);
         s2m_err_ap_vld : OUT STD_LOGIC;
-        in_Img_width : IN STD_LOGIC_VECTOR (31 downto 0);
         inbuf_din : OUT STD_LOGIC_VECTOR (32 downto 0);
         inbuf_num_data_valid : IN STD_LOGIC_VECTOR (10 downto 0);
         inbuf_fifo_cap : IN STD_LOGIC_VECTOR (10 downto 0);
         inbuf_full_n : IN STD_LOGIC;
         inbuf_write : OUT STD_LOGIC;
-        incount47_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        incount47_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
-        incount47_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
-        incount47_full_n : IN STD_LOGIC;
-        incount47_write : OUT STD_LOGIC;
+        incount43_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        incount43_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        incount43_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        incount43_full_n : IN STD_LOGIC;
+        incount43_write : OUT STD_LOGIC;
         s2m_len_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
         s2m_len_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
         s2m_len_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -513,11 +511,11 @@ architecture behav of userdma is
         inbuf_fifo_cap : IN STD_LOGIC_VECTOR (10 downto 0);
         inbuf_empty_n : IN STD_LOGIC;
         inbuf_read : OUT STD_LOGIC;
-        incount47_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        incount47_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
-        incount47_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
-        incount47_empty_n : IN STD_LOGIC;
-        incount47_read : OUT STD_LOGIC;
+        incount43_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        incount43_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        incount43_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        incount43_empty_n : IN STD_LOGIC;
+        incount43_read : OUT STD_LOGIC;
         in_en_clrsts_dout : IN STD_LOGIC_VECTOR (0 downto 0);
         in_en_clrsts_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
         in_en_clrsts_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -653,11 +651,11 @@ architecture behav of userdma is
         outbuf_fifo_cap : IN STD_LOGIC_VECTOR (10 downto 0);
         outbuf_full_n : IN STD_LOGIC;
         outbuf_write : OUT STD_LOGIC;
-        outcount48_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        outcount48_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
-        outcount48_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
-        outcount48_full_n : IN STD_LOGIC;
-        outcount48_write : OUT STD_LOGIC;
+        outcount44_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        outcount44_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        outcount44_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        outcount44_full_n : IN STD_LOGIC;
+        outcount44_write : OUT STD_LOGIC;
         m2s_enb_clrsts_c_din : OUT STD_LOGIC_VECTOR (0 downto 0);
         m2s_enb_clrsts_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
         m2s_enb_clrsts_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -680,11 +678,11 @@ architecture behav of userdma is
         outbuf_fifo_cap : IN STD_LOGIC_VECTOR (10 downto 0);
         outbuf_empty_n : IN STD_LOGIC;
         outbuf_read : OUT STD_LOGIC;
-        outcount48_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        outcount48_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
-        outcount48_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
-        outcount48_empty_n : IN STD_LOGIC;
-        outcount48_read : OUT STD_LOGIC;
+        outcount44_dout : IN STD_LOGIC_VECTOR (31 downto 0);
+        outcount44_num_data_valid : IN STD_LOGIC_VECTOR (6 downto 0);
+        outcount44_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
+        outcount44_empty_n : IN STD_LOGIC;
+        outcount44_read : OUT STD_LOGIC;
         in_en_clrsts_dout : IN STD_LOGIC_VECTOR (0 downto 0);
         in_en_clrsts_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
         in_en_clrsts_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -887,7 +885,7 @@ architecture behav of userdma is
         s2m_len : OUT STD_LOGIC_VECTOR (31 downto 0);
         s2m_enb_clrsts : OUT STD_LOGIC_VECTOR (0 downto 0);
         s2mbuf : OUT STD_LOGIC_VECTOR (63 downto 0);
-        s2m_err : IN STD_LOGIC;
+        s2m_err : IN STD_LOGIC_VECTOR (1 downto 0);
         s2m_err_ap_vld : IN STD_LOGIC;
         Img_width : OUT STD_LOGIC_VECTOR (31 downto 0);
         m2sbuf : OUT STD_LOGIC_VECTOR (63 downto 0);
@@ -1121,7 +1119,7 @@ begin
         s2m_len => s2m_len,
         s2m_enb_clrsts => s2m_enb_clrsts,
         s2mbuf => s2mbuf,
-        s2m_err => s2m_err,
+        s2m_err => getinstream_U0_s2m_err,
         s2m_err_ap_vld => getinstream_U0_s2m_err_ap_vld,
         Img_width => Img_width,
         m2sbuf => m2sbuf,
@@ -1367,17 +1365,16 @@ begin
         in_s2m_len => s2m_len,
         s2m_err => getinstream_U0_s2m_err,
         s2m_err_ap_vld => getinstream_U0_s2m_err_ap_vld,
-        in_Img_width => Img_width,
         inbuf_din => getinstream_U0_inbuf_din,
         inbuf_num_data_valid => inbuf_num_data_valid,
         inbuf_fifo_cap => inbuf_fifo_cap,
         inbuf_full_n => inbuf_full_n,
         inbuf_write => getinstream_U0_inbuf_write,
-        incount47_din => getinstream_U0_incount47_din,
-        incount47_num_data_valid => incount_num_data_valid,
-        incount47_fifo_cap => incount_fifo_cap,
-        incount47_full_n => incount_full_n,
-        incount47_write => getinstream_U0_incount47_write,
+        incount43_din => getinstream_U0_incount43_din,
+        incount43_num_data_valid => incount_num_data_valid,
+        incount43_fifo_cap => incount_fifo_cap,
+        incount43_full_n => incount_full_n,
+        incount43_write => getinstream_U0_incount43_write,
         s2m_len_c_din => getinstream_U0_s2m_len_c_din,
         s2m_len_c_num_data_valid => s2m_len_c_num_data_valid,
         s2m_len_c_fifo_cap => s2m_len_c_fifo_cap,
@@ -1403,11 +1400,11 @@ begin
         inbuf_fifo_cap => inbuf_fifo_cap,
         inbuf_empty_n => inbuf_empty_n,
         inbuf_read => streamtoparallelwithburst_U0_inbuf_read,
-        incount47_dout => incount_dout,
-        incount47_num_data_valid => incount_num_data_valid,
-        incount47_fifo_cap => incount_fifo_cap,
-        incount47_empty_n => incount_empty_n,
-        incount47_read => streamtoparallelwithburst_U0_incount47_read,
+        incount43_dout => incount_dout,
+        incount43_num_data_valid => incount_num_data_valid,
+        incount43_fifo_cap => incount_fifo_cap,
+        incount43_empty_n => incount_empty_n,
+        incount43_read => streamtoparallelwithburst_U0_incount43_read,
         in_en_clrsts_dout => s2m_enb_clrsts_c_dout,
         in_en_clrsts_num_data_valid => s2m_enb_clrsts_c_num_data_valid,
         in_en_clrsts_fifo_cap => s2m_enb_clrsts_c_fifo_cap,
@@ -1541,11 +1538,11 @@ begin
         outbuf_fifo_cap => outbuf_fifo_cap,
         outbuf_full_n => outbuf_full_n,
         outbuf_write => paralleltostreamwithburst_U0_outbuf_write,
-        outcount48_din => paralleltostreamwithburst_U0_outcount48_din,
-        outcount48_num_data_valid => outcount_num_data_valid,
-        outcount48_fifo_cap => outcount_fifo_cap,
-        outcount48_full_n => outcount_full_n,
-        outcount48_write => paralleltostreamwithburst_U0_outcount48_write,
+        outcount44_din => paralleltostreamwithburst_U0_outcount44_din,
+        outcount44_num_data_valid => outcount_num_data_valid,
+        outcount44_fifo_cap => outcount_fifo_cap,
+        outcount44_full_n => outcount_full_n,
+        outcount44_write => paralleltostreamwithburst_U0_outcount44_write,
         m2s_enb_clrsts_c_din => paralleltostreamwithburst_U0_m2s_enb_clrsts_c_din,
         m2s_enb_clrsts_c_num_data_valid => m2s_enb_clrsts_c_num_data_valid,
         m2s_enb_clrsts_c_fifo_cap => m2s_enb_clrsts_c_fifo_cap,
@@ -1566,11 +1563,11 @@ begin
         outbuf_fifo_cap => outbuf_fifo_cap,
         outbuf_empty_n => outbuf_empty_n,
         outbuf_read => sendoutstream_U0_outbuf_read,
-        outcount48_dout => outcount_dout,
-        outcount48_num_data_valid => outcount_num_data_valid,
-        outcount48_fifo_cap => outcount_fifo_cap,
-        outcount48_empty_n => outcount_empty_n,
-        outcount48_read => sendoutstream_U0_outcount48_read,
+        outcount44_dout => outcount_dout,
+        outcount44_num_data_valid => outcount_num_data_valid,
+        outcount44_fifo_cap => outcount_fifo_cap,
+        outcount44_empty_n => outcount_empty_n,
+        outcount44_read => sendoutstream_U0_outcount44_read,
         in_en_clrsts_dout => m2s_enb_clrsts_c_dout,
         in_en_clrsts_num_data_valid => m2s_enb_clrsts_c_num_data_valid,
         in_en_clrsts_fifo_cap => m2s_enb_clrsts_c_fifo_cap,
@@ -1657,14 +1654,14 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => getinstream_U0_incount47_din,
+        if_din => getinstream_U0_incount43_din,
         if_full_n => incount_full_n,
-        if_write => getinstream_U0_incount47_write,
+        if_write => getinstream_U0_incount43_write,
         if_dout => incount_dout,
         if_num_data_valid => incount_num_data_valid,
         if_fifo_cap => incount_fifo_cap,
         if_empty_n => incount_empty_n,
-        if_read => streamtoparallelwithburst_U0_incount47_read);
+        if_read => streamtoparallelwithburst_U0_incount43_read);
 
     s2m_len_c_U : component userdma_fifo_w32_d2_S
     port map (
@@ -1717,14 +1714,14 @@ begin
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => paralleltostreamwithburst_U0_outcount48_din,
+        if_din => paralleltostreamwithburst_U0_outcount44_din,
         if_full_n => outcount_full_n,
-        if_write => paralleltostreamwithburst_U0_outcount48_write,
+        if_write => paralleltostreamwithburst_U0_outcount44_write,
         if_dout => outcount_dout,
         if_num_data_valid => outcount_num_data_valid,
         if_fifo_cap => outcount_fifo_cap,
         if_empty_n => outcount_empty_n,
-        if_read => sendoutstream_U0_outcount48_read);
+        if_read => sendoutstream_U0_outcount44_read);
 
     m2s_enb_clrsts_c_U : component userdma_fifo_w1_d2_S
     port map (
@@ -1857,7 +1854,6 @@ begin
     paralleltostreamwithburst_U0_ap_continue <= ap_const_logic_1;
     paralleltostreamwithburst_U0_ap_start <= ((ap_sync_reg_paralleltostreamwithburst_U0_ap_ready xor ap_const_logic_1) and ap_start);
     s2m_buf_sts <= streamtoparallelwithburst_U0_s2m_buf_sts(0);
-    s2m_err <= getinstream_U0_s2m_err(0);
     sendoutstream_U0_ap_continue <= ap_sync_done;
     sendoutstream_U0_ap_start <= start_for_sendoutstream_U0_empty_n;
     start_for_sendoutstream_U0_din <= (0=>ap_const_logic_1, others=>'-');

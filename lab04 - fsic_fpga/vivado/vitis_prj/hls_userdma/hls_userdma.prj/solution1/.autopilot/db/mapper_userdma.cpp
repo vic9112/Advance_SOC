@@ -214,7 +214,7 @@ extern "C" void userdma(int*, int*, volatile void *, volatile void *, volatile v
 extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V_data_V, volatile void * __xlx_apatb_param_inStreamTop_V_keep_V, volatile void * __xlx_apatb_param_inStreamTop_V_strb_V, volatile void * __xlx_apatb_param_inStreamTop_V_user_V, volatile void * __xlx_apatb_param_inStreamTop_V_last_V, volatile void * __xlx_apatb_param_s2m_buf_sts, char __xlx_apatb_param_s2m_sts_clear, __cosim_s4__* __xlx_apatb_param_s2m_len, __cosim_s1__* __xlx_apatb_param_s2m_enb_clrsts, volatile void * __xlx_apatb_param_s2mbuf, volatile void * __xlx_apatb_param_s2m_err, __cosim_s4__* __xlx_apatb_param_Img_width, volatile void * __xlx_apatb_param_m2sbuf, volatile void * __xlx_apatb_param_m2s_buf_sts, char __xlx_apatb_param_m2s_sts_clear, int __xlx_apatb_param_m2s_len, __cosim_s1__* __xlx_apatb_param_m2s_enb_clrsts, volatile void * __xlx_apatb_param_outStreamTop_V_data_V, volatile void * __xlx_apatb_param_outStreamTop_V_keep_V, volatile void * __xlx_apatb_param_outStreamTop_V_strb_V, volatile void * __xlx_apatb_param_outStreamTop_V_user_V, volatile void * __xlx_apatb_param_outStreamTop_V_last_V) {
   // Collect __xlx_s2mbuf__tmp_vec
   vector<sc_bv<32> >__xlx_s2mbuf__tmp_vec;
-  for (int j = 0, e = 64; j != e; ++j) {
+  for (int j = 0, e = 57600; j != e; ++j) {
     sc_bv<32> _xlx_tmp_sc;
     _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+0];
     _xlx_tmp_sc.range(15, 8) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+1];
@@ -222,7 +222,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
     _xlx_tmp_sc.range(31, 24) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+3];
     __xlx_s2mbuf__tmp_vec.push_back(_xlx_tmp_sc);
   }
-  int __xlx_size_param_s2mbuf = 64;
+  int __xlx_size_param_s2mbuf = 57600;
   int __xlx_offset_param_s2mbuf = 0;
   int __xlx_offset_byte_param_s2mbuf = 0*4;
   int* __xlx_s2mbuf__input_buffer= new int[__xlx_s2mbuf__tmp_vec.size()];
@@ -231,7 +231,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
   }
   // Collect __xlx_m2sbuf__tmp_vec
   vector<sc_bv<32> >__xlx_m2sbuf__tmp_vec;
-  for (int j = 0, e = 64; j != e; ++j) {
+  for (int j = 0, e = 57600; j != e; ++j) {
     sc_bv<32> _xlx_tmp_sc;
     _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+0];
     _xlx_tmp_sc.range(15, 8) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+1];
@@ -239,7 +239,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
     _xlx_tmp_sc.range(31, 24) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+3];
     __xlx_m2sbuf__tmp_vec.push_back(_xlx_tmp_sc);
   }
-  int __xlx_size_param_m2sbuf = 64;
+  int __xlx_size_param_m2sbuf = 57600;
   int __xlx_offset_param_m2sbuf = 0;
   int __xlx_offset_byte_param_m2sbuf = 0*4;
   int* __xlx_m2sbuf__input_buffer= new int[__xlx_m2sbuf__tmp_vec.size()];

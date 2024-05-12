@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1715256089813">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1715523023252">
   <ports id="1" name="s2m_sts_clear" type="PortType" coreId="0" bitwidth="1">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
   <ports id="2" name="s2m_sts_clear_c" type="PortType" coreName="FIFO_SRL" coreId="0" bitwidth="1" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="3" name="s2mbuf" type="PortType" coreId="864070208" bitwidth="64">
+  <ports id="3" name="s2mbuf" type="PortType" coreId="0" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="s2mbuf_c" type="PortType" coreName="FIFO_SRL" coreId="877831152" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
+  <ports id="4" name="s2mbuf_c" type="PortType" coreName="FIFO_SRL" coreId="2087015568" bitwidth="64" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="5" name="m2s_sts_clear" type="PortType" coreId="1702065467" bitwidth="1">
+  <ports id="5" name="m2s_sts_clear" type="PortType" coreId="997420912" bitwidth="1">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="6" name="m2s_sts_clear_c" type="PortType" coreName="FIFO_SRL" coreId="893282720" bitwidth="1" direction="DirOut" iftype="IfTypeRom">
+  <ports id="6" name="m2s_sts_clear_c" type="PortType" coreName="FIFO_SRL" coreId="30" bitwidth="1" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
   <edges id="20" source_obj="//@ports.4" sink_obj="//@blocks.0/@node_objs.0"/>
@@ -28,7 +28,7 @@
   <edges id="35" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@ports.1"/>
   <edges id="36" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.5"/>
   <blocks id="17" name="entry_proc" type="BlockType">
-    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="m2s_sts_clear_read" coreId="896500616" bitwidth="1" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="m2s_sts_clear_read" coreId="2106044312" bitwidth="1" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
       <dataInputObjs>m2s_sts_clear</dataInputObjs>
       <dataOutputObjs>write</dataOutputObjs>
     </node_objs>
@@ -36,7 +36,7 @@
       <dataInputObjs>s2mbuf</dataInputObjs>
       <dataOutputObjs>write</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="s2m_sts_clear_read" coreId="0" bitwidth="1" opcode="read" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="s2m_sts_clear_read" coreId="2190581232" bitwidth="1" opcode="read" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
       <dataInputObjs>s2m_sts_clear</dataInputObjs>
       <dataOutputObjs>write</dataOutputObjs>
     </node_objs>

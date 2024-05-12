@@ -44,7 +44,7 @@ s2mbuf {
 }
 s2m_err { 
 	dir O
-	width 1
+	width 2
 	depth 1
 	mode ap_vld
 	offset 68

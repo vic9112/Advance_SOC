@@ -40,8 +40,8 @@
 //        bit 31~0 - s2mbuf[63:32] (Read/Write)
 // 0x40 : reserved
 // 0x44 : Data signal of s2m_err
-//        bit 0  - s2m_err[0] (Read)
-//        others - reserved
+//        bit 1~0 - s2m_err[1:0] (Read)
+//        others  - reserved
 // 0x48 : Control signal of s2m_err
 //        bit 0  - s2m_err_ap_vld (Read/COR)
 //        others - reserved
@@ -88,7 +88,7 @@
 #define CONTROL_ADDR_S2MBUF_DATA         0x38
 #define CONTROL_BITS_S2MBUF_DATA         64
 #define CONTROL_ADDR_S2M_ERR_DATA        0x44
-#define CONTROL_BITS_S2M_ERR_DATA        1
+#define CONTROL_BITS_S2M_ERR_DATA        2
 #define CONTROL_ADDR_S2M_ERR_CTRL        0x48
 #define CONTROL_ADDR_IMG_WIDTH_DATA      0x54
 #define CONTROL_BITS_IMG_WIDTH_DATA      32

@@ -39,7 +39,7 @@ port (
     s2m_len               :out  STD_LOGIC_VECTOR(31 downto 0);
     s2m_enb_clrsts        :out  STD_LOGIC_VECTOR(0 downto 0);
     s2mbuf                :out  STD_LOGIC_VECTOR(63 downto 0);
-    s2m_err               :in   STD_LOGIC_VECTOR(0 downto 0);
+    s2m_err               :in   STD_LOGIC_VECTOR(1 downto 0);
     s2m_err_ap_vld        :in   STD_LOGIC;
     Img_width             :out  STD_LOGIC_VECTOR(31 downto 0);
     m2sbuf                :out  STD_LOGIC_VECTOR(63 downto 0);
@@ -98,8 +98,8 @@ end entity userdma_control_s_axi;
 --        bit 31~0 - s2mbuf[63:32] (Read/Write)
 -- 0x40 : reserved
 -- 0x44 : Data signal of s2m_err
---        bit 0  - s2m_err[0] (Read)
---        others - reserved
+--        bit 1~0 - s2m_err[1:0] (Read)
+--        others  - reserved
 -- 0x48 : Control signal of s2m_err
 --        bit 0  - s2m_err_ap_vld (Read/COR)
 --        others - reserved
@@ -200,7 +200,7 @@ architecture behave of userdma_control_s_axi is
     signal int_s2m_enb_clrsts  : UNSIGNED(0 downto 0) := (others => '0');
     signal int_s2mbuf          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_s2m_err_ap_vld  : STD_LOGIC;
-    signal int_s2m_err         : UNSIGNED(0 downto 0) := (others => '0');
+    signal int_s2m_err         : UNSIGNED(1 downto 0) := (others => '0');
     signal int_Img_width       : UNSIGNED(31 downto 0) := (others => '0');
     signal int_m2sbuf          : UNSIGNED(63 downto 0) := (others => '0');
     signal int_m2s_buf_sts_ap_vld : STD_LOGIC;
@@ -351,7 +351,7 @@ begin
                     when ADDR_S2MBUF_DATA_1 =>
                         rdata_data <= RESIZE(int_s2mbuf(63 downto 32), 32);
                     when ADDR_S2M_ERR_DATA_0 =>
-                        rdata_data <= RESIZE(int_s2m_err(0 downto 0), 32);
+                        rdata_data <= RESIZE(int_s2m_err(1 downto 0), 32);
                     when ADDR_S2M_ERR_CTRL =>
                         rdata_data(0) <= int_s2m_err_ap_vld;
                     when ADDR_IMG_WIDTH_DATA_0 =>

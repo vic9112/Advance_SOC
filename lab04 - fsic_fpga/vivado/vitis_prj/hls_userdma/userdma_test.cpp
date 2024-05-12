@@ -22,7 +22,7 @@ int main() {
   bool	s2m_sts_clear;
   bool	m2s_buf_sts;
   bool	m2s_sts_clear;
-  bool	s2m_err; 
+  ap_uint<2> s2m_err;
   bool  m2s_sof_err=0; 
   bool  m2s_eol_err=0; 
 

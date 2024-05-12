@@ -1756,9 +1756,9 @@
           </spirit:reset>
           <spirit:field>
             <spirit:name>s2m_err</spirit:name>
-            <spirit:description>Bit 0 to 0 of s2m_err</spirit:description>
+            <spirit:description>Bit 1 to 0 of s2m_err</spirit:description>
             <spirit:bitOffset>0</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">1</spirit:bitWidth>
+            <spirit:bitWidth spirit:format="long">2</spirit:bitWidth>
             <spirit:access>read-only</spirit:access>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
@@ -1770,8 +1770,8 @@
           <spirit:field>
             <spirit:name>RESERVED</spirit:name>
             <spirit:description>Reserved.  0s on read.</spirit:description>
-            <spirit:bitOffset>1</spirit:bitOffset>
-            <spirit:bitWidth spirit:format="long">31</spirit:bitWidth>
+            <spirit:bitOffset>2</spirit:bitOffset>
+            <spirit:bitWidth spirit:format="long">30</spirit:bitWidth>
             <spirit:access>read-only</spirit:access>
             <spirit:writeValueConstraint>
               <spirit:minimum>0</spirit:minimum>
@@ -2073,7 +2073,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d9e6ea86</spirit:value>
+            <spirit:value>5887c9bc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2089,7 +2089,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7d068875</spirit:value>
+            <spirit:value>1650a6fd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2105,7 +2105,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>922407f6</spirit:value>
+            <spirit:value>4bd76ac5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2121,7 +2121,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>74634027</spirit:value>
+            <spirit:value>c908fd13</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2135,7 +2135,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ca2c6271</spirit:value>
+            <spirit:value>ca5713ed</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -4561,7 +4561,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_getinstream_Pipeline_VITIS_LOOP_48_1.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_getinstream_Pipeline_VITIS_LOOP_52_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4597,7 +4597,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4609,7 +4609,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_sendoutstream_Pipeline_VITIS_LOOP_149_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_sendoutstream_Pipeline_VITIS_LOOP_146_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4625,7 +4625,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_23_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4691,7 +4691,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_getinstream_Pipeline_VITIS_LOOP_48_1.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_getinstream_Pipeline_VITIS_LOOP_52_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4736,7 +4736,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4751,7 +4751,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_sendoutstream_Pipeline_VITIS_LOOP_149_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_sendoutstream_Pipeline_VITIS_LOOP_146_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4771,7 +4771,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_23_2.v</spirit:name>
+        <spirit:name>hdl/verilog/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4833,7 +4833,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_getinstream_Pipeline_VITIS_LOOP_48_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_getinstream_Pipeline_VITIS_LOOP_52_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4849,7 +4849,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4861,7 +4861,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_sendoutstream_Pipeline_VITIS_LOOP_149_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_sendoutstream_Pipeline_VITIS_LOOP_146_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4877,13 +4877,13 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_23_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/userdma.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b669ab77</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_332febf2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -4944,7 +4944,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_getinstream_Pipeline_VITIS_LOOP_48_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_getinstream_Pipeline_VITIS_LOOP_52_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4964,7 +4964,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_106_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4979,7 +4979,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_sendoutstream_Pipeline_VITIS_LOOP_149_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_sendoutstream_Pipeline_VITIS_LOOP_146_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4999,7 +4999,7 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_23_2.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/userdma_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -5331,8 +5331,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Userdma</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2113549742</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-05-09T12:03:08Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113554191</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-05-12T14:11:35Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -5342,8 +5342,8 @@
       <xilinx:xilinxVersion>2022.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="b1bb579e"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="9a83c657"/>
-      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="30d89d7b"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="31119559"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="5fb1770b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bd9220c3"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="8e04b03d"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="831dc9dc"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="7d4dc43a"/>

@@ -36,7 +36,7 @@ module userdma_control_s_axi
     output wire [31:0]                   s2m_len,
     output wire [0:0]                    s2m_enb_clrsts,
     output wire [63:0]                   s2mbuf,
-    input  wire [0:0]                    s2m_err,
+    input  wire [1:0]                    s2m_err,
     input  wire                          s2m_err_ap_vld,
     output wire [31:0]                   Img_width,
     output wire [63:0]                   m2sbuf,
@@ -93,8 +93,8 @@ module userdma_control_s_axi
 //        bit 31~0 - s2mbuf[63:32] (Read/Write)
 // 0x40 : reserved
 // 0x44 : Data signal of s2m_err
-//        bit 0  - s2m_err[0] (Read)
-//        others - reserved
+//        bit 1~0 - s2m_err[1:0] (Read)
+//        others  - reserved
 // 0x48 : Control signal of s2m_err
 //        bit 0  - s2m_err_ap_vld (Read/COR)
 //        others - reserved
@@ -200,7 +200,7 @@ localparam
     reg  [0:0]                    int_s2m_enb_clrsts = 'b0;
     reg  [63:0]                   int_s2mbuf = 'b0;
     reg                           int_s2m_err_ap_vld;
-    reg  [0:0]                    int_s2m_err = 'b0;
+    reg  [1:0]                    int_s2m_err = 'b0;
     reg  [31:0]                   int_Img_width = 'b0;
     reg  [63:0]                   int_m2sbuf = 'b0;
     reg                           int_m2s_buf_sts_ap_vld;
@@ -339,7 +339,7 @@ always @(posedge ACLK) begin
                     rdata <= int_s2mbuf[63:32];
                 end
                 ADDR_S2M_ERR_DATA_0: begin
-                    rdata <= int_s2m_err[0:0];
+                    rdata <= int_s2m_err[1:0];
                 end
                 ADDR_S2M_ERR_CTRL: begin
                     rdata[0] <= int_s2m_err_ap_vld;

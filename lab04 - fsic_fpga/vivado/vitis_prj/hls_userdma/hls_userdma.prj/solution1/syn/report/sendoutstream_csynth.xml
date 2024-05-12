@@ -32,14 +32,14 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_147_1>
+<VITIS_LOOP_144_1>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
 <IterationLatency>undef</IterationLatency>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_147_1>
+</VITIS_LOOP_144_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
@@ -194,8 +194,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outcount48_dout</name>
-<Object>outcount48</Object>
+<name>outcount44_dout</name>
+<Object>outcount44</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -205,8 +205,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outcount48_num_data_valid</name>
-<Object>outcount48</Object>
+<name>outcount44_num_data_valid</name>
+<Object>outcount44</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -216,8 +216,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outcount48_fifo_cap</name>
-<Object>outcount48</Object>
+<name>outcount44_fifo_cap</name>
+<Object>outcount44</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -227,8 +227,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outcount48_empty_n</name>
-<Object>outcount48</Object>
+<name>outcount44_empty_n</name>
+<Object>outcount44</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -238,8 +238,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>outcount48_read</name>
-<Object>outcount48</Object>
+<name>outcount44_read</name>
+<Object>outcount44</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>

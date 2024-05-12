@@ -6279,23 +6279,27 @@ private:
 
 }
 # 3 "./userdma.h" 2
-# 13 "./userdma.h"
+
+
+
+
+
 typedef ap_axiu<32, 7, 0, 0> trans_pkt;
 
 __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt >& inStreamTop,
-  bool *s2m_buf_sts,
-  bool s2m_sts_clear,
-  ap_uint<32> s2m_len,
-  ap_uint<1> s2m_enb_clrsts,
-  ap_uint<32> s2mbuf[64],
-  bool *s2m_err,
-  ap_uint<32> Img_width,
-  ap_uint<32> m2sbuf[64],
-  bool *m2s_buf_sts,
-  bool m2s_sts_clear,
-  int m2s_len,
-  ap_uint<1> m2s_enb_clrsts,
-  hls::stream<trans_pkt >& outStreamTop);
+    bool *s2m_buf_sts,
+    bool s2m_sts_clear,
+    ap_uint<32> s2m_len,
+    ap_uint<1> s2m_enb_clrsts,
+    ap_uint<32> s2mbuf[360*160],
+    ap_uint<2> *s2m_err,
+    ap_uint<32> Img_width,
+    ap_uint<32> m2sbuf[360*160],
+    bool *m2s_buf_sts,
+    bool m2s_sts_clear,
+    int m2s_len,
+    ap_uint<1> m2s_enb_clrsts,
+    hls::stream<trans_pkt >& outStreamTop);
 
 
 static constexpr int MAX_BURST_LENGTH = 16;
@@ -6323,7 +6327,7 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
   data in_val;
 
   int count;
-  static bool out_sts=0;
+  static bool out_sts = 0;
   static ap_uint<32> final_s2m_len=0;
 
   if(in_en_clrsts) {
@@ -6334,10 +6338,11 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
    }
    buf_sts = out_sts;
   } else {
-   VITIS_LOOP_20_1: do {
+
+   VITIS_LOOP_21_1: do {
     count = in_counts.read();
 
-    VITIS_LOOP_23_2: for (int i = 0; i < count; ++i) {
+    VITIS_LOOP_24_2: for (int i = 0; i < count; ++i) {
 #pragma HLS PIPELINE
  in_val = in_stream.read();
      out_memory[i] = in_val.data_filed;
@@ -6350,38 +6355,34 @@ void streamtoparallelwithburst(hls::stream<data> &in_stream, hls::stream<int> &i
     }
 
     buf_sts = out_sts;
-   } while(final_s2m_len < 64);
+   } while(final_s2m_len < in_s2m_len);
+
+
   }
 }
 
-void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap_uint<32> in_s2m_len, bool &s2m_err, ap_uint<32> in_Img_width,
-   hls::stream<data > &out_stream, hls::stream<int>& out_counts)
+void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap_uint<32> in_s2m_len,
+     ap_uint<2> &s2m_err, ap_uint<32> in_Img_width,
+     hls::stream<data > &out_stream, hls::stream<int>& out_counts)
 {
       int count = 0;
       static ap_uint<32> in_len = 0;
       trans_pkt in_val;
       static int width_count = 0;
-      if(!in_en_clrsts){
-       VITIS_LOOP_48_1: do {
+      if (!in_en_clrsts){
+       VITIS_LOOP_52_1: do {
 #pragma HLS PIPELINE
  in_val = in_stream.read();
      data out_val = {in_val.data, in_val.last};
      out_stream.write(out_val);
 
-     s2m_err=0;
+     s2m_err = 0;
 
-     if((in_len==0)&&(in_val.user(2,2)!=1))
-    s2m_err=1;
-     if((in_len!=0)&&(in_val.user(2,2)==1))
-    s2m_err=1;
+     if ((in_len < in_s2m_len - 1) && (in_val.last == 1))
+      s2m_err = 1;
 
-     if((width_count==in_Img_width-1)&&(in_val.user(3,3)!=1))
-    s2m_err=1;
-
-     if(width_count==in_Img_width-1)
-     width_count = 0;
-        else
-      width_count++;
+     if ((in_len == in_s2m_len - 1) && (in_val.last != 1))
+      s2m_err = 2;
 
      count++;
      in_len++;
@@ -6391,8 +6392,8 @@ void getinstream(hls::stream<trans_pkt >& in_stream, ap_uint<1> in_en_clrsts, ap
      }
     } while(in_len < in_s2m_len);
       } else {
-       in_len=0;
-       s2m_err=0;
+       in_len = 0;
+       s2m_err = 0;
       }
 }
 
@@ -6412,7 +6413,7 @@ void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, 
     m2s_len = in_m2s_len;
     first = 0;
    }
-   VITIS_LOOP_98_1: do {
+   VITIS_LOOP_95_1: do {
       if(m2s_len > MAX_BURST_LENGTH){
      count = MAX_BURST_LENGTH;
     }else{
@@ -6420,7 +6421,7 @@ void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, 
      first = 1;
     }
 
-    VITIS_LOOP_106_2: for (int i = 0; i < count; ++i) {
+    VITIS_LOOP_103_2: for (int i = 0; i < count; ++i) {
 #pragma HLS PIPELINE
  out_val.data_filed = in_memory[i];
      out_val.upsb = 0;
@@ -6461,9 +6462,9 @@ void sendoutstream(hls::stream<out_data> &in_stream, hls::stream<int> &in_counts
         buf_sts = 0;
 
       } else {
-    VITIS_LOOP_147_1: do {
+    VITIS_LOOP_144_1: do {
      count = in_counts.read();
-     VITIS_LOOP_149_2: for (int i = 0; i < count; ++i) {
+     VITIS_LOOP_146_2: for (int i = 0; i < count; ++i) {
 #pragma HLS PIPELINE
  out_data in_data = in_stream.read();
       out_val.data = in_data.data_filed;
@@ -6483,10 +6484,10 @@ __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt >& 
   bool s2m_sts_clear,
   ap_uint<32> s2m_len,
   ap_uint<1> s2m_enb_clrsts,
-  ap_uint<32> s2mbuf[64],
-  bool *s2m_err,
+  ap_uint<32> s2mbuf[360*160],
+  ap_uint<2> *s2m_err,
   ap_uint<32> Img_width,
-  ap_uint<32> m2sbuf[64],
+  ap_uint<32> m2sbuf[360*160],
   bool *m2s_buf_sts,
   bool m2s_sts_clear,
   int m2s_len,
@@ -6494,11 +6495,11 @@ __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt >& 
   hls::stream<trans_pkt >& outStreamTop) {
 #line 16 "/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma/hls_userdma.prj/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=userdma
-# 177 "userdma.cpp"
+# 174 "userdma.cpp"
 
 #line 6 "/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma/hls_userdma.prj/solution1/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=userdma
-# 177 "userdma.cpp"
+# 174 "userdma.cpp"
 
 #pragma HLS INTERFACE axis register_mode=both register port=inStreamTop
 #pragma HLS INTERFACE m_axi max_write_burst_length=64 latency=10 depth=1024 bundle=gmem0 port=s2mbuf offset = slave

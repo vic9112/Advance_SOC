@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="userdma_userdma,hls_ip_2022_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=9,HLS_SYN_DSP=0,HLS_SYN_FF=4316,HLS_SYN_LUT=8141,HLS_VERSION=2022_1}" *)
+(* CORE_GENERATION_INFO="userdma_userdma,hls_ip_2022_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=7.300000,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=9,HLS_SYN_DSP=0,HLS_SYN_FF=4250,HLS_SYN_LUT=8114,HLS_VERSION=2022_1}" *)
 
 module userdma (
         s_axi_control_AWVALID,
@@ -300,7 +300,6 @@ wire    s2m_sts_clear;
 wire   [31:0] s2m_len;
 wire   [0:0] s2m_enb_clrsts;
 wire   [63:0] s2mbuf;
-wire    s2m_err;
 wire   [31:0] Img_width;
 wire   [63:0] m2sbuf;
 wire    m2s_buf_sts;
@@ -354,12 +353,12 @@ wire    getinstream_U0_ap_continue;
 wire    getinstream_U0_ap_idle;
 wire    getinstream_U0_ap_ready;
 wire    getinstream_U0_inStreamTop_TREADY;
-wire   [0:0] getinstream_U0_s2m_err;
+wire   [1:0] getinstream_U0_s2m_err;
 wire    getinstream_U0_s2m_err_ap_vld;
 wire   [32:0] getinstream_U0_inbuf_din;
 wire    getinstream_U0_inbuf_write;
-wire   [31:0] getinstream_U0_incount47_din;
-wire    getinstream_U0_incount47_write;
+wire   [31:0] getinstream_U0_incount43_din;
+wire    getinstream_U0_incount43_write;
 wire   [31:0] getinstream_U0_s2m_len_c_din;
 wire    getinstream_U0_s2m_len_c_write;
 wire   [0:0] getinstream_U0_s2m_enb_clrsts_c_din;
@@ -370,7 +369,7 @@ wire    streamtoparallelwithburst_U0_ap_continue;
 wire    streamtoparallelwithburst_U0_ap_idle;
 wire    streamtoparallelwithburst_U0_ap_ready;
 wire    streamtoparallelwithburst_U0_inbuf_read;
-wire    streamtoparallelwithburst_U0_incount47_read;
+wire    streamtoparallelwithburst_U0_incount43_read;
 wire    streamtoparallelwithburst_U0_in_en_clrsts_read;
 wire   [0:0] streamtoparallelwithburst_U0_s2m_buf_sts;
 wire    streamtoparallelwithburst_U0_s2m_buf_sts_ap_vld;
@@ -448,8 +447,8 @@ wire    paralleltostreamwithburst_U0_m_axi_gmem1_RREADY;
 wire    paralleltostreamwithburst_U0_m_axi_gmem1_BREADY;
 wire   [39:0] paralleltostreamwithburst_U0_outbuf_din;
 wire    paralleltostreamwithburst_U0_outbuf_write;
-wire   [31:0] paralleltostreamwithburst_U0_outcount48_din;
-wire    paralleltostreamwithburst_U0_outcount48_write;
+wire   [31:0] paralleltostreamwithburst_U0_outcount44_din;
+wire    paralleltostreamwithburst_U0_outcount44_write;
 wire   [0:0] paralleltostreamwithburst_U0_m2s_enb_clrsts_c_din;
 wire    paralleltostreamwithburst_U0_m2s_enb_clrsts_c_write;
 wire    sendoutstream_U0_ap_start;
@@ -458,7 +457,7 @@ wire    sendoutstream_U0_ap_continue;
 wire    sendoutstream_U0_ap_idle;
 wire    sendoutstream_U0_ap_ready;
 wire    sendoutstream_U0_outbuf_read;
-wire    sendoutstream_U0_outcount48_read;
+wire    sendoutstream_U0_outcount44_read;
 wire    sendoutstream_U0_in_en_clrsts_read;
 wire   [0:0] sendoutstream_U0_m2s_buf_sts;
 wire    sendoutstream_U0_m2s_buf_sts_ap_vld;
@@ -574,7 +573,7 @@ control_s_axi_U(
     .s2m_len(s2m_len),
     .s2m_enb_clrsts(s2m_enb_clrsts),
     .s2mbuf(s2mbuf),
-    .s2m_err(s2m_err),
+    .s2m_err(getinstream_U0_s2m_err),
     .s2m_err_ap_vld(getinstream_U0_s2m_err_ap_vld),
     .Img_width(Img_width),
     .m2sbuf(m2sbuf),
@@ -820,17 +819,16 @@ userdma_getinstream getinstream_U0(
     .in_s2m_len(s2m_len),
     .s2m_err(getinstream_U0_s2m_err),
     .s2m_err_ap_vld(getinstream_U0_s2m_err_ap_vld),
-    .in_Img_width(Img_width),
     .inbuf_din(getinstream_U0_inbuf_din),
     .inbuf_num_data_valid(inbuf_num_data_valid),
     .inbuf_fifo_cap(inbuf_fifo_cap),
     .inbuf_full_n(inbuf_full_n),
     .inbuf_write(getinstream_U0_inbuf_write),
-    .incount47_din(getinstream_U0_incount47_din),
-    .incount47_num_data_valid(incount_num_data_valid),
-    .incount47_fifo_cap(incount_fifo_cap),
-    .incount47_full_n(incount_full_n),
-    .incount47_write(getinstream_U0_incount47_write),
+    .incount43_din(getinstream_U0_incount43_din),
+    .incount43_num_data_valid(incount_num_data_valid),
+    .incount43_fifo_cap(incount_fifo_cap),
+    .incount43_full_n(incount_full_n),
+    .incount43_write(getinstream_U0_incount43_write),
     .s2m_len_c_din(getinstream_U0_s2m_len_c_din),
     .s2m_len_c_num_data_valid(s2m_len_c_num_data_valid),
     .s2m_len_c_fifo_cap(s2m_len_c_fifo_cap),
@@ -856,11 +854,11 @@ userdma_streamtoparallelwithburst streamtoparallelwithburst_U0(
     .inbuf_fifo_cap(inbuf_fifo_cap),
     .inbuf_empty_n(inbuf_empty_n),
     .inbuf_read(streamtoparallelwithburst_U0_inbuf_read),
-    .incount47_dout(incount_dout),
-    .incount47_num_data_valid(incount_num_data_valid),
-    .incount47_fifo_cap(incount_fifo_cap),
-    .incount47_empty_n(incount_empty_n),
-    .incount47_read(streamtoparallelwithburst_U0_incount47_read),
+    .incount43_dout(incount_dout),
+    .incount43_num_data_valid(incount_num_data_valid),
+    .incount43_fifo_cap(incount_fifo_cap),
+    .incount43_empty_n(incount_empty_n),
+    .incount43_read(streamtoparallelwithburst_U0_incount43_read),
     .in_en_clrsts_dout(s2m_enb_clrsts_c_dout),
     .in_en_clrsts_num_data_valid(s2m_enb_clrsts_c_num_data_valid),
     .in_en_clrsts_fifo_cap(s2m_enb_clrsts_c_fifo_cap),
@@ -994,11 +992,11 @@ userdma_paralleltostreamwithburst paralleltostreamwithburst_U0(
     .outbuf_fifo_cap(outbuf_fifo_cap),
     .outbuf_full_n(outbuf_full_n),
     .outbuf_write(paralleltostreamwithburst_U0_outbuf_write),
-    .outcount48_din(paralleltostreamwithburst_U0_outcount48_din),
-    .outcount48_num_data_valid(outcount_num_data_valid),
-    .outcount48_fifo_cap(outcount_fifo_cap),
-    .outcount48_full_n(outcount_full_n),
-    .outcount48_write(paralleltostreamwithburst_U0_outcount48_write),
+    .outcount44_din(paralleltostreamwithburst_U0_outcount44_din),
+    .outcount44_num_data_valid(outcount_num_data_valid),
+    .outcount44_fifo_cap(outcount_fifo_cap),
+    .outcount44_full_n(outcount_full_n),
+    .outcount44_write(paralleltostreamwithburst_U0_outcount44_write),
     .m2s_enb_clrsts_c_din(paralleltostreamwithburst_U0_m2s_enb_clrsts_c_din),
     .m2s_enb_clrsts_c_num_data_valid(m2s_enb_clrsts_c_num_data_valid),
     .m2s_enb_clrsts_c_fifo_cap(m2s_enb_clrsts_c_fifo_cap),
@@ -1019,11 +1017,11 @@ userdma_sendoutstream sendoutstream_U0(
     .outbuf_fifo_cap(outbuf_fifo_cap),
     .outbuf_empty_n(outbuf_empty_n),
     .outbuf_read(sendoutstream_U0_outbuf_read),
-    .outcount48_dout(outcount_dout),
-    .outcount48_num_data_valid(outcount_num_data_valid),
-    .outcount48_fifo_cap(outcount_fifo_cap),
-    .outcount48_empty_n(outcount_empty_n),
-    .outcount48_read(sendoutstream_U0_outcount48_read),
+    .outcount44_dout(outcount_dout),
+    .outcount44_num_data_valid(outcount_num_data_valid),
+    .outcount44_fifo_cap(outcount_fifo_cap),
+    .outcount44_empty_n(outcount_empty_n),
+    .outcount44_read(sendoutstream_U0_outcount44_read),
     .in_en_clrsts_dout(m2s_enb_clrsts_c_dout),
     .in_en_clrsts_num_data_valid(m2s_enb_clrsts_c_num_data_valid),
     .in_en_clrsts_fifo_cap(m2s_enb_clrsts_c_fifo_cap),
@@ -1110,14 +1108,14 @@ userdma_fifo_w32_d64_A incount_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(getinstream_U0_incount47_din),
+    .if_din(getinstream_U0_incount43_din),
     .if_full_n(incount_full_n),
-    .if_write(getinstream_U0_incount47_write),
+    .if_write(getinstream_U0_incount43_write),
     .if_dout(incount_dout),
     .if_num_data_valid(incount_num_data_valid),
     .if_fifo_cap(incount_fifo_cap),
     .if_empty_n(incount_empty_n),
-    .if_read(streamtoparallelwithburst_U0_incount47_read)
+    .if_read(streamtoparallelwithburst_U0_incount43_read)
 );
 
 userdma_fifo_w32_d2_S s2m_len_c_U(
@@ -1170,14 +1168,14 @@ userdma_fifo_w32_d64_A outcount_U(
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(paralleltostreamwithburst_U0_outcount48_din),
+    .if_din(paralleltostreamwithburst_U0_outcount44_din),
     .if_full_n(outcount_full_n),
-    .if_write(paralleltostreamwithburst_U0_outcount48_write),
+    .if_write(paralleltostreamwithburst_U0_outcount44_write),
     .if_dout(outcount_dout),
     .if_num_data_valid(outcount_num_data_valid),
     .if_fifo_cap(outcount_fifo_cap),
     .if_empty_n(outcount_empty_n),
-    .if_read(sendoutstream_U0_outcount48_read)
+    .if_read(sendoutstream_U0_outcount44_read)
 );
 
 userdma_fifo_w1_d2_S m2s_enb_clrsts_c_U(
@@ -1326,8 +1324,6 @@ assign paralleltostreamwithburst_U0_ap_continue = 1'b1;
 assign paralleltostreamwithburst_U0_ap_start = ((ap_sync_reg_paralleltostreamwithburst_U0_ap_ready ^ 1'b1) & ap_start);
 
 assign s2m_buf_sts = streamtoparallelwithburst_U0_s2m_buf_sts;
-
-assign s2m_err = getinstream_U0_s2m_err;
 
 assign sendoutstream_U0_ap_continue = ap_sync_done;
 
