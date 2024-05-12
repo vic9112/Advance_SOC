@@ -215,10 +215,19 @@ module fsic_tb();
 
                     last_y = slave_agent2.mem_model.backdoor_memory_read_4byte(addro + (4 * 63));
                     $display($time, "=> -----------------------------------------------------------------------");
+                    axil_cycles_gen(ReadCyc, PL_UPDMA, 32'h0000_0044, data, 0); // 0x44: s2m_err
+                    $display($time, "=> *----------------------------*--------*");
+                    $display($time, "=> |     Stream to Memory Error | Status |");
+                    $display($time, "=> *----------------------------*--------*");
+                    $display($time, "=> |                     Passed |      0 |");
+                    $display($time, "=> | Stream-in less than length |      1 |");
+                    $display($time, "=> | Stream-in more than length |      2 |");
+                    $display($time, "=> *----------------------------*--------*");
+                    $display($time, "=> Stream to Memory error status: %2d", data);
                     if (last_y == 10614)
-                        $display($time, "=> FIR PASS, last Y: %d", last_y);
+                        $display($time, "=> FIR PASS, last Y: %5d", last_y);
                     else
-                        $display($time, "=> FIR Failed, last Y: %d", last_y);
+                        $display($time, "=> FIR Failed, last Y: %5d", last_y);
                     $display($time, "=> -----------------------------------------------------------------------");
                     $fclose(fd);
                 end
@@ -231,7 +240,6 @@ module fsic_tb();
     endtask
 
     // Refer to SocLa2DmaPath
-    // Configurate DMA
     task cnfg_firDMA;
     	begin
             $display($time, "=> =======================================================================");
@@ -432,7 +440,7 @@ module fsic_tb();
             end
 
             // Write coefficient
-            for(i = 0; i < 11; i = i + 1) begin
+            for(i = 0; i < 11; i = i+1) begin
             	$display($time, "=> Fpga2Soc_Write: SOC_UP");
             	offset = 12'h20 + 4 * i;
             	data = coef[i];
