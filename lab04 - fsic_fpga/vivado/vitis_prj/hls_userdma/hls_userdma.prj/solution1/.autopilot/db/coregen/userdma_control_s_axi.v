@@ -6,7 +6,7 @@
 `timescale 1ns/1ps
 module userdma_control_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 8,
+    C_S_AXI_ADDR_WIDTH = 7,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -32,17 +32,14 @@ module userdma_control_s_axi
     output wire                          interrupt,
     input  wire [0:0]                    s2m_buf_sts,
     input  wire                          s2m_buf_sts_ap_vld,
-    output wire [0:0]                    s2m_sts_clear,
     output wire [31:0]                   s2m_len,
     output wire [0:0]                    s2m_enb_clrsts,
     output wire [63:0]                   s2mbuf,
     input  wire [1:0]                    s2m_err,
     input  wire                          s2m_err_ap_vld,
-    output wire [31:0]                   Img_width,
     output wire [63:0]                   m2sbuf,
     input  wire [0:0]                    m2s_buf_sts,
     input  wire                          m2s_buf_sts_ap_vld,
-    output wire [0:0]                    m2s_sts_clear,
     output wire [31:0]                   m2s_len,
     output wire [0:0]                    m2s_enb_clrsts,
     output wire                          ap_start,
@@ -76,87 +73,70 @@ module userdma_control_s_axi
 // 0x14 : Control signal of s2m_buf_sts
 //        bit 0  - s2m_buf_sts_ap_vld (Read/COR)
 //        others - reserved
-// 0x20 : Data signal of s2m_sts_clear
-//        bit 0  - s2m_sts_clear[0] (Read/Write)
-//        others - reserved
-// 0x24 : reserved
-// 0x28 : Data signal of s2m_len
+// 0x20 : Data signal of s2m_len
 //        bit 31~0 - s2m_len[31:0] (Read/Write)
-// 0x2c : reserved
-// 0x30 : Data signal of s2m_enb_clrsts
+// 0x24 : reserved
+// 0x28 : Data signal of s2m_enb_clrsts
 //        bit 0  - s2m_enb_clrsts[0] (Read/Write)
 //        others - reserved
-// 0x34 : reserved
-// 0x38 : Data signal of s2mbuf
+// 0x2c : reserved
+// 0x30 : Data signal of s2mbuf
 //        bit 31~0 - s2mbuf[31:0] (Read/Write)
-// 0x3c : Data signal of s2mbuf
+// 0x34 : Data signal of s2mbuf
 //        bit 31~0 - s2mbuf[63:32] (Read/Write)
-// 0x40 : reserved
-// 0x44 : Data signal of s2m_err
+// 0x38 : reserved
+// 0x3c : Data signal of s2m_err
 //        bit 1~0 - s2m_err[1:0] (Read)
 //        others  - reserved
-// 0x48 : Control signal of s2m_err
+// 0x40 : Control signal of s2m_err
 //        bit 0  - s2m_err_ap_vld (Read/COR)
 //        others - reserved
-// 0x54 : Data signal of Img_width
-//        bit 31~0 - Img_width[31:0] (Read/Write)
-// 0x58 : reserved
-// 0x5c : Data signal of m2sbuf
+// 0x4c : Data signal of m2sbuf
 //        bit 31~0 - m2sbuf[31:0] (Read/Write)
-// 0x60 : Data signal of m2sbuf
+// 0x50 : Data signal of m2sbuf
 //        bit 31~0 - m2sbuf[63:32] (Read/Write)
-// 0x64 : reserved
-// 0x68 : Data signal of m2s_buf_sts
+// 0x54 : reserved
+// 0x58 : Data signal of m2s_buf_sts
 //        bit 0  - m2s_buf_sts[0] (Read)
 //        others - reserved
-// 0x6c : Control signal of m2s_buf_sts
+// 0x5c : Control signal of m2s_buf_sts
 //        bit 0  - m2s_buf_sts_ap_vld (Read/COR)
 //        others - reserved
-// 0x78 : Data signal of m2s_sts_clear
-//        bit 0  - m2s_sts_clear[0] (Read/Write)
-//        others - reserved
-// 0x7c : reserved
-// 0x80 : Data signal of m2s_len
+// 0x68 : Data signal of m2s_len
 //        bit 31~0 - m2s_len[31:0] (Read/Write)
-// 0x84 : reserved
-// 0x88 : Data signal of m2s_enb_clrsts
+// 0x6c : reserved
+// 0x70 : Data signal of m2s_enb_clrsts
 //        bit 0  - m2s_enb_clrsts[0] (Read/Write)
 //        others - reserved
-// 0x8c : reserved
+// 0x74 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL               = 8'h00,
-    ADDR_GIE                   = 8'h04,
-    ADDR_IER                   = 8'h08,
-    ADDR_ISR                   = 8'h0c,
-    ADDR_S2M_BUF_STS_DATA_0    = 8'h10,
-    ADDR_S2M_BUF_STS_CTRL      = 8'h14,
-    ADDR_S2M_STS_CLEAR_DATA_0  = 8'h20,
-    ADDR_S2M_STS_CLEAR_CTRL    = 8'h24,
-    ADDR_S2M_LEN_DATA_0        = 8'h28,
-    ADDR_S2M_LEN_CTRL          = 8'h2c,
-    ADDR_S2M_ENB_CLRSTS_DATA_0 = 8'h30,
-    ADDR_S2M_ENB_CLRSTS_CTRL   = 8'h34,
-    ADDR_S2MBUF_DATA_0         = 8'h38,
-    ADDR_S2MBUF_DATA_1         = 8'h3c,
-    ADDR_S2MBUF_CTRL           = 8'h40,
-    ADDR_S2M_ERR_DATA_0        = 8'h44,
-    ADDR_S2M_ERR_CTRL          = 8'h48,
-    ADDR_IMG_WIDTH_DATA_0      = 8'h54,
-    ADDR_IMG_WIDTH_CTRL        = 8'h58,
-    ADDR_M2SBUF_DATA_0         = 8'h5c,
-    ADDR_M2SBUF_DATA_1         = 8'h60,
-    ADDR_M2SBUF_CTRL           = 8'h64,
-    ADDR_M2S_BUF_STS_DATA_0    = 8'h68,
-    ADDR_M2S_BUF_STS_CTRL      = 8'h6c,
-    ADDR_M2S_STS_CLEAR_DATA_0  = 8'h78,
-    ADDR_M2S_STS_CLEAR_CTRL    = 8'h7c,
-    ADDR_M2S_LEN_DATA_0        = 8'h80,
-    ADDR_M2S_LEN_CTRL          = 8'h84,
-    ADDR_M2S_ENB_CLRSTS_DATA_0 = 8'h88,
-    ADDR_M2S_ENB_CLRSTS_CTRL   = 8'h8c,
+    ADDR_AP_CTRL               = 7'h00,
+    ADDR_GIE                   = 7'h04,
+    ADDR_IER                   = 7'h08,
+    ADDR_ISR                   = 7'h0c,
+    ADDR_S2M_BUF_STS_DATA_0    = 7'h10,
+    ADDR_S2M_BUF_STS_CTRL      = 7'h14,
+    ADDR_S2M_LEN_DATA_0        = 7'h20,
+    ADDR_S2M_LEN_CTRL          = 7'h24,
+    ADDR_S2M_ENB_CLRSTS_DATA_0 = 7'h28,
+    ADDR_S2M_ENB_CLRSTS_CTRL   = 7'h2c,
+    ADDR_S2MBUF_DATA_0         = 7'h30,
+    ADDR_S2MBUF_DATA_1         = 7'h34,
+    ADDR_S2MBUF_CTRL           = 7'h38,
+    ADDR_S2M_ERR_DATA_0        = 7'h3c,
+    ADDR_S2M_ERR_CTRL          = 7'h40,
+    ADDR_M2SBUF_DATA_0         = 7'h4c,
+    ADDR_M2SBUF_DATA_1         = 7'h50,
+    ADDR_M2SBUF_CTRL           = 7'h54,
+    ADDR_M2S_BUF_STS_DATA_0    = 7'h58,
+    ADDR_M2S_BUF_STS_CTRL      = 7'h5c,
+    ADDR_M2S_LEN_DATA_0        = 7'h68,
+    ADDR_M2S_LEN_CTRL          = 7'h6c,
+    ADDR_M2S_ENB_CLRSTS_DATA_0 = 7'h70,
+    ADDR_M2S_ENB_CLRSTS_CTRL   = 7'h74,
     WRIDLE                     = 2'd0,
     WRDATA                     = 2'd1,
     WRRESP                     = 2'd2,
@@ -164,7 +144,7 @@ localparam
     RDIDLE                     = 2'd0,
     RDDATA                     = 2'd1,
     RDRESET                    = 2'd2,
-    ADDR_BITS                = 8;
+    ADDR_BITS                = 7;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -195,17 +175,14 @@ localparam
     reg  [1:0]                    int_isr = 2'b0;
     reg                           int_s2m_buf_sts_ap_vld;
     reg  [0:0]                    int_s2m_buf_sts = 'b0;
-    reg  [0:0]                    int_s2m_sts_clear = 'b0;
     reg  [31:0]                   int_s2m_len = 'b0;
     reg  [0:0]                    int_s2m_enb_clrsts = 'b0;
     reg  [63:0]                   int_s2mbuf = 'b0;
     reg                           int_s2m_err_ap_vld;
     reg  [1:0]                    int_s2m_err = 'b0;
-    reg  [31:0]                   int_Img_width = 'b0;
     reg  [63:0]                   int_m2sbuf = 'b0;
     reg                           int_m2s_buf_sts_ap_vld;
     reg  [0:0]                    int_m2s_buf_sts = 'b0;
-    reg  [0:0]                    int_m2s_sts_clear = 'b0;
     reg  [31:0]                   int_m2s_len = 'b0;
     reg  [0:0]                    int_m2s_enb_clrsts = 'b0;
 
@@ -323,9 +300,6 @@ always @(posedge ACLK) begin
                 ADDR_S2M_BUF_STS_CTRL: begin
                     rdata[0] <= int_s2m_buf_sts_ap_vld;
                 end
-                ADDR_S2M_STS_CLEAR_DATA_0: begin
-                    rdata <= int_s2m_sts_clear[0:0];
-                end
                 ADDR_S2M_LEN_DATA_0: begin
                     rdata <= int_s2m_len[31:0];
                 end
@@ -344,9 +318,6 @@ always @(posedge ACLK) begin
                 ADDR_S2M_ERR_CTRL: begin
                     rdata[0] <= int_s2m_err_ap_vld;
                 end
-                ADDR_IMG_WIDTH_DATA_0: begin
-                    rdata <= int_Img_width[31:0];
-                end
                 ADDR_M2SBUF_DATA_0: begin
                     rdata <= int_m2sbuf[31:0];
                 end
@@ -358,9 +329,6 @@ always @(posedge ACLK) begin
                 end
                 ADDR_M2S_BUF_STS_CTRL: begin
                     rdata[0] <= int_m2s_buf_sts_ap_vld;
-                end
-                ADDR_M2S_STS_CLEAR_DATA_0: begin
-                    rdata <= int_m2s_sts_clear[0:0];
                 end
                 ADDR_M2S_LEN_DATA_0: begin
                     rdata <= int_m2s_len[31:0];
@@ -380,13 +348,10 @@ assign ap_start          = int_ap_start;
 assign task_ap_done      = (ap_done && !auto_restart_status) || auto_restart_done;
 assign task_ap_ready     = ap_ready && !int_auto_restart;
 assign auto_restart_done = auto_restart_status && (ap_idle && !int_ap_idle);
-assign s2m_sts_clear     = int_s2m_sts_clear;
 assign s2m_len           = int_s2m_len;
 assign s2m_enb_clrsts    = int_s2m_enb_clrsts;
 assign s2mbuf            = int_s2mbuf;
-assign Img_width         = int_Img_width;
 assign m2sbuf            = int_m2sbuf;
-assign m2s_sts_clear     = int_m2s_sts_clear;
 assign m2s_len           = int_m2s_len;
 assign m2s_enb_clrsts    = int_m2s_enb_clrsts;
 // int_interrupt
@@ -543,16 +508,6 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_s2m_sts_clear[0:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_s2m_sts_clear[0:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_S2M_STS_CLEAR_DATA_0)
-            int_s2m_sts_clear[0:0] <= (WDATA[31:0] & wmask) | (int_s2m_sts_clear[0:0] & ~wmask);
-    end
-end
-
 // int_s2m_len[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -615,16 +570,6 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_Img_width[31:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_Img_width[31:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_IMG_WIDTH_DATA_0)
-            int_Img_width[31:0] <= (WDATA[31:0] & wmask) | (int_Img_width[31:0] & ~wmask);
-    end
-end
-
 // int_m2sbuf[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -664,16 +609,6 @@ always @(posedge ACLK) begin
             int_m2s_buf_sts_ap_vld <= 1'b1;
         else if (ar_hs && raddr == ADDR_M2S_BUF_STS_CTRL)
             int_m2s_buf_sts_ap_vld <= 1'b0; // clear on read
-    end
-end
-
-// int_m2s_sts_clear[0:0]
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_m2s_sts_clear[0:0] <= 0;
-    else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_M2S_STS_CLEAR_DATA_0)
-            int_m2s_sts_clear[0:0] <= (WDATA[31:0] & wmask) | (int_m2s_sts_clear[0:0] & ~wmask);
     end
 end
 

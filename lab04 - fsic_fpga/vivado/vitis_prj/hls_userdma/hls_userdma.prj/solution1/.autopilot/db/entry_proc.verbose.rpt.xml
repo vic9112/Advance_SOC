@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'entry_proc'" level="0">
-<item name = "Date">Sun May 12 10:10:23 2024
+<item name = "Date">Fri May 17 03:16:50 2024
 </item>
 <item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)</item>
 <item name = "Project">hls_userdma.prj</item>
@@ -51,7 +51,7 @@
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 45, -</column>
+<column name="Multiplexer">-, -, -, 27, -</column>
 <column name="Register">-, -, 3, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
@@ -83,9 +83,7 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done">9, 2, 1, 2</column>
-<column name="m2s_sts_clear_c_blk_n">9, 2, 1, 2</column>
 <column name="real_start">9, 2, 1, 2</column>
-<column name="s2m_sts_clear_c_blk_n">9, 2, 1, 2</column>
 <column name="s2mbuf_c_blk_n">9, 2, 1, 2</column>
 </table>
 </item>
@@ -113,24 +111,12 @@
 <column name="ap_ready">out, 1, ap_ctrl_hs, entry_proc, return value</column>
 <column name="start_out">out, 1, ap_ctrl_hs, entry_proc, return value</column>
 <column name="start_write">out, 1, ap_ctrl_hs, entry_proc, return value</column>
-<column name="s2m_sts_clear">in, 1, ap_none, s2m_sts_clear, scalar</column>
-<column name="s2m_sts_clear_c_din">out, 1, ap_fifo, s2m_sts_clear_c, pointer</column>
-<column name="s2m_sts_clear_c_num_data_valid">in, 3, ap_fifo, s2m_sts_clear_c, pointer</column>
-<column name="s2m_sts_clear_c_fifo_cap">in, 3, ap_fifo, s2m_sts_clear_c, pointer</column>
-<column name="s2m_sts_clear_c_full_n">in, 1, ap_fifo, s2m_sts_clear_c, pointer</column>
-<column name="s2m_sts_clear_c_write">out, 1, ap_fifo, s2m_sts_clear_c, pointer</column>
 <column name="s2mbuf">in, 64, ap_none, s2mbuf, scalar</column>
 <column name="s2mbuf_c_din">out, 64, ap_fifo, s2mbuf_c, pointer</column>
 <column name="s2mbuf_c_num_data_valid">in, 3, ap_fifo, s2mbuf_c, pointer</column>
 <column name="s2mbuf_c_fifo_cap">in, 3, ap_fifo, s2mbuf_c, pointer</column>
 <column name="s2mbuf_c_full_n">in, 1, ap_fifo, s2mbuf_c, pointer</column>
 <column name="s2mbuf_c_write">out, 1, ap_fifo, s2mbuf_c, pointer</column>
-<column name="m2s_sts_clear">in, 1, ap_none, m2s_sts_clear, scalar</column>
-<column name="m2s_sts_clear_c_din">out, 1, ap_fifo, m2s_sts_clear_c, pointer</column>
-<column name="m2s_sts_clear_c_num_data_valid">in, 3, ap_fifo, m2s_sts_clear_c, pointer</column>
-<column name="m2s_sts_clear_c_fifo_cap">in, 3, ap_fifo, m2s_sts_clear_c, pointer</column>
-<column name="m2s_sts_clear_c_full_n">in, 1, ap_fifo, m2s_sts_clear_c, pointer</column>
-<column name="m2s_sts_clear_c_write">out, 1, ap_fifo, m2s_sts_clear_c, pointer</column>
 </table>
 </item>
 </section>

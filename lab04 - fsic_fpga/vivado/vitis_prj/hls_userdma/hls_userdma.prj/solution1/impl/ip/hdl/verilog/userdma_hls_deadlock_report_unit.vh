@@ -268,18 +268,6 @@
                 0 : begin
                     case(index2)
                     2: begin
-                        if (~entry_proc_U0.s2m_sts_clear_c_blk_n) begin
-                            if (~s2m_sts_clear_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'userdma_userdma.s2m_sts_clear_c_U' written by process 'userdma_userdma.streamtoparallelwithburst_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.s2m_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~s2m_sts_clear_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'userdma_userdma.s2m_sts_clear_c_U' read by process 'userdma_userdma.streamtoparallelwithburst_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.s2m_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
                         if (~entry_proc_U0.s2mbuf_c_blk_n) begin
                             if (~s2mbuf_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.s2mbuf_c_U' written by process 'userdma_userdma.streamtoparallelwithburst_U0'");
@@ -294,23 +282,6 @@
                         end
                         if (~start_for_streamtoparallelwithburst_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_streamtoparallelwithburst_U0_U.if_read) begin
                             $display("//      Blocked by full output start propagation FIFO 'userdma_userdma.start_for_streamtoparallelwithburst_U0_U' read by process 'userdma_userdma.streamtoparallelwithburst_U0',");
-                        end
-                    end
-                    4: begin
-                        if (~entry_proc_U0.m2s_sts_clear_c_blk_n) begin
-                            if (~m2s_sts_clear_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'userdma_userdma.m2s_sts_clear_c_U' written by process 'userdma_userdma.sendoutstream_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.m2s_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~m2s_sts_clear_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'userdma_userdma.m2s_sts_clear_c_U' read by process 'userdma_userdma.sendoutstream_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.m2s_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~start_for_sendoutstream_U0_U.if_full_n & entry_proc_U0.ap_start & ~entry_proc_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_sendoutstream_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'userdma_userdma.start_for_sendoutstream_U0_U' read by process 'userdma_userdma.sendoutstream_U0',");
                         end
                     end
                     1: begin
@@ -328,7 +299,7 @@
                 1 : begin
                     case(index2)
                     2: begin
-                        if (~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.inbuf_blk_n) begin
+                        if (~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.inbuf_blk_n) begin
                             if (~inbuf_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.inbuf_U' written by process 'userdma_userdma.streamtoparallelwithburst_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.inbuf_U");
@@ -340,7 +311,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.incount43_blk_n) begin
+                        if (~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.incount40_blk_n) begin
                             if (~incount_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.incount_U' written by process 'userdma_userdma.streamtoparallelwithburst_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.incount_U");
@@ -400,7 +371,7 @@
                 2 : begin
                     case(index2)
                     1: begin
-                        if (~streamtoparallelwithburst_U0.grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2_fu_146.inbuf_blk_n) begin
+                        if (~streamtoparallelwithburst_U0.grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2_fu_138.inbuf_blk_n) begin
                             if (~inbuf_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.inbuf_U' written by process 'userdma_userdma.getinstream_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.inbuf_U");
@@ -412,7 +383,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~streamtoparallelwithburst_U0.incount43_blk_n) begin
+                        if (~streamtoparallelwithburst_U0.incount40_blk_n) begin
                             if (~incount_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.incount_U' written by process 'userdma_userdma.getinstream_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.incount_U");
@@ -453,18 +424,6 @@
                         end
                     end
                     0: begin
-                        if (~streamtoparallelwithburst_U0.sts_clear_blk_n) begin
-                            if (~s2m_sts_clear_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'userdma_userdma.s2m_sts_clear_c_U' written by process 'userdma_userdma.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.s2m_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~s2m_sts_clear_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'userdma_userdma.s2m_sts_clear_c_U' read by process 'userdma_userdma.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.s2m_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
                         if (~streamtoparallelwithburst_U0.out_memory_blk_n) begin
                             if (~s2mbuf_c_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.s2mbuf_c_U' written by process 'userdma_userdma.entry_proc_U0'");
@@ -491,7 +450,7 @@
                 3 : begin
                     case(index2)
                     4: begin
-                        if (~paralleltostreamwithburst_U0.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173.outbuf_blk_n) begin
+                        if (~paralleltostreamwithburst_U0.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2_fu_133.outbuf_blk_n) begin
                             if (~outbuf_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.outbuf_U' written by process 'userdma_userdma.sendoutstream_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.outbuf_U");
@@ -503,7 +462,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~paralleltostreamwithburst_U0.outcount44_blk_n) begin
+                        if (~paralleltostreamwithburst_U0.outcount41_blk_n) begin
                             if (~outcount_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.outcount_U' written by process 'userdma_userdma.sendoutstream_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.outcount_U");
@@ -527,6 +486,9 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
+                        if (~start_for_sendoutstream_U0_U.if_full_n & paralleltostreamwithburst_U0.ap_start & ~paralleltostreamwithburst_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~start_for_sendoutstream_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'userdma_userdma.start_for_sendoutstream_U0_U' read by process 'userdma_userdma.sendoutstream_U0',");
+                        end
                     end
                     0: begin
                         if (ap_sync_paralleltostreamwithburst_U0_ap_ready & paralleltostreamwithburst_U0.ap_idle & ~ap_sync_entry_proc_U0_ap_ready) begin
@@ -543,7 +505,7 @@
                 4 : begin
                     case(index2)
                     3: begin
-                        if (~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101.outbuf_blk_n) begin
+                        if (~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89.outbuf_blk_n) begin
                             if (~outbuf_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.outbuf_U' written by process 'userdma_userdma.paralleltostreamwithburst_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.outbuf_U");
@@ -555,7 +517,7 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~sendoutstream_U0.outcount44_blk_n) begin
+                        if (~sendoutstream_U0.outcount41_blk_n) begin
                             if (~outcount_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'userdma_userdma.outcount_U' written by process 'userdma_userdma.paralleltostreamwithburst_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path userdma_userdma.outcount_U");
@@ -579,22 +541,8 @@
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                    end
-                    0: begin
-                        if (~sendoutstream_U0.sts_clear_blk_n) begin
-                            if (~m2s_sts_clear_c_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'userdma_userdma.m2s_sts_clear_c_U' written by process 'userdma_userdma.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.m2s_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~m2s_sts_clear_c_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'userdma_userdma.m2s_sts_clear_c_U' read by process 'userdma_userdma.entry_proc_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path userdma_userdma.m2s_sts_clear_c_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
                         if (~start_for_sendoutstream_U0_U.if_empty_n & sendoutstream_U0.ap_idle & ~start_for_sendoutstream_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'userdma_userdma.start_for_sendoutstream_U0_U' written by process 'userdma_userdma.entry_proc_U0',");
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'userdma_userdma.start_for_sendoutstream_U0_U' written by process 'userdma_userdma.paralleltostreamwithburst_U0',");
                         end
                     end
                     1: begin

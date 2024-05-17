@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'getinstream'" level="0">
-<item name = "Date">Sun May 12 10:10:23 2024
+<item name = "Date">Fri May 17 03:16:50 2024
 </item>
 <item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)</item>
 <item name = "Project">hls_userdma.prj</item>
@@ -31,7 +31,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116">getinstream_Pipeline_VITIS_LOOP_52_1, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113">getinstream_Pipeline_VITIS_LOOP_49_1, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,10 +50,10 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 215, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 104, 192, -</column>
+<column name="Instance">-, -, 104, 208, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 106, -</column>
-<column name="Register">-, -, 73, -, -</column>
+<column name="Multiplexer">-, -, -, 101, -</column>
+<column name="Register">-, -, 106, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
@@ -62,7 +62,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116">getinstream_Pipeline_VITIS_LOOP_52_1, 0, 0, 104, 192, 0</column>
+<column name="grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113">getinstream_Pipeline_VITIS_LOOP_49_1, 0, 0, 104, 208, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -79,44 +79,46 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln52_1_fu_169_p2">+, 0, 0, 39, 32, 2</column>
-<column name="add_ln52_fu_143_p2">+, 0, 0, 39, 32, 1</column>
-<column name="sub_i_i51_fu_177_p2">+, 0, 0, 40, 33, 2</column>
-<column name="and_ln60_fu_207_p2">and, 0, 0, 2, 1, 1</column>
-<column name="and_ln63_fu_222_p2">and, 0, 0, 2, 1, 1</column>
-<column name="empty_fu_149_p2">icmp, 0, 0, 18, 32, 32</column>
-<column name="icmp_ln1065_fu_193_p2">icmp, 0, 0, 18, 33, 33</column>
-<column name="icmp_ln1073_fu_187_p2">icmp, 0, 0, 18, 33, 33</column>
+<column name="add_ln49_1_fu_163_p2">+, 0, 0, 39, 32, 2</column>
+<column name="add_ln49_fu_146_p2">+, 0, 0, 39, 32, 1</column>
+<column name="sub_i_i53_fu_172_p2">+, 0, 0, 40, 33, 2</column>
+<column name="and_ln57_fu_203_p2">and, 0, 0, 2, 1, 1</column>
+<column name="and_ln60_fu_218_p2">and, 0, 0, 2, 1, 1</column>
+<column name="empty_fu_152_p2">icmp, 0, 0, 18, 32, 32</column>
+<column name="icmp_ln1065_fu_188_p2">icmp, 0, 0, 18, 33, 33</column>
+<column name="icmp_ln1073_fu_182_p2">icmp, 0, 0, 18, 33, 33</column>
 <column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln63_fu_227_p3">select, 0, 0, 3, 1, 3</column>
-<column name="umax_fu_155_p3">select, 0, 0, 32, 1, 32</column>
-<column name="xor_ln1069_fu_216_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="select_ln60_fu_223_p3">select, 0, 0, 3, 1, 3</column>
+<column name="umax_fu_158_p3">select, 0, 0, 32, 1, 32</column>
+<column name="xor_ln1069_fu_212_p2">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">20, 4, 1, 4</column>
 <column name="ap_done">9, 2, 1, 2</column>
+<column name="ap_sig_allocacmp_in_len_V_load">9, 2, 32, 64</column>
 <column name="inStreamTop_TREADY_int_regslice">9, 2, 1, 2</column>
 <column name="in_len_V">9, 2, 32, 64</column>
 <column name="inbuf_write">9, 2, 1, 2</column>
-<column name="incount43_write">9, 2, 1, 2</column>
+<column name="incount40_write">9, 2, 1, 2</column>
 <column name="s2m_enb_clrsts_c_blk_n">9, 2, 1, 2</column>
-<column name="s2m_err">14, 3, 2, 6</column>
-<column name="s2m_err_preg">9, 2, 2, 4</column>
+<column name="s2m_err">9, 2, 2, 4</column>
 <column name="s2m_len_c_blk_n">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="add_ln49_reg_253">32, 0, 32, 0</column>
 <column name="ap_CS_fsm">3, 0, 3, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116_ap_start_reg">1, 0, 1, 0</column>
+<column name="empty_reg_258">1, 0, 1, 0</column>
+<column name="grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_ap_start_reg">1, 0, 1, 0</column>
 <column name="icmp_ln1065_reg_268">1, 0, 1, 0</column>
 <column name="icmp_ln1073_reg_263">1, 0, 1, 0</column>
 <column name="in_len_V">32, 0, 32, 0</column>
+<column name="in_len_V_load_reg_248">32, 0, 32, 0</column>
 <column name="s2m_err_preg">2, 0, 2, 0</column>
-<column name="umax_reg_257">32, 0, 32, 0</column>
 </table>
 </item>
 </section>
@@ -145,15 +147,15 @@
 <column name="s2m_err">out, 2, ap_vld, s2m_err, pointer</column>
 <column name="s2m_err_ap_vld">out, 1, ap_vld, s2m_err, pointer</column>
 <column name="inbuf_din">out, 33, ap_fifo, inbuf, pointer</column>
-<column name="inbuf_num_data_valid">in, 11, ap_fifo, inbuf, pointer</column>
-<column name="inbuf_fifo_cap">in, 11, ap_fifo, inbuf, pointer</column>
+<column name="inbuf_num_data_valid">in, 7, ap_fifo, inbuf, pointer</column>
+<column name="inbuf_fifo_cap">in, 7, ap_fifo, inbuf, pointer</column>
 <column name="inbuf_full_n">in, 1, ap_fifo, inbuf, pointer</column>
 <column name="inbuf_write">out, 1, ap_fifo, inbuf, pointer</column>
-<column name="incount43_din">out, 32, ap_fifo, incount43, pointer</column>
-<column name="incount43_num_data_valid">in, 7, ap_fifo, incount43, pointer</column>
-<column name="incount43_fifo_cap">in, 7, ap_fifo, incount43, pointer</column>
-<column name="incount43_full_n">in, 1, ap_fifo, incount43, pointer</column>
-<column name="incount43_write">out, 1, ap_fifo, incount43, pointer</column>
+<column name="incount40_din">out, 32, ap_fifo, incount40, pointer</column>
+<column name="incount40_num_data_valid">in, 3, ap_fifo, incount40, pointer</column>
+<column name="incount40_fifo_cap">in, 3, ap_fifo, incount40, pointer</column>
+<column name="incount40_full_n">in, 1, ap_fifo, incount40, pointer</column>
+<column name="incount40_write">out, 1, ap_fifo, incount40, pointer</column>
 <column name="s2m_len_c_din">out, 32, ap_fifo, s2m_len_c, pointer</column>
 <column name="s2m_len_c_num_data_valid">in, 2, ap_fifo, s2m_len_c, pointer</column>
 <column name="s2m_len_c_fifo_cap">in, 2, ap_fifo, s2m_len_c, pointer</column>

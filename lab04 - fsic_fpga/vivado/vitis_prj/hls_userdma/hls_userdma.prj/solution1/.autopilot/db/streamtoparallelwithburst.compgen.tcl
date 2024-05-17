@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 38 \
+    id 34 \
     name inbuf \
     type fifo \
     dir I \
@@ -18,29 +18,29 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_inbuf \
     op interface \
-    ports { inbuf_dout { I 33 vector } inbuf_num_data_valid { I 11 vector } inbuf_fifo_cap { I 11 vector } inbuf_empty_n { I 1 bit } inbuf_read { O 1 bit } } \
+    ports { inbuf_dout { I 33 vector } inbuf_num_data_valid { I 7 vector } inbuf_fifo_cap { I 7 vector } inbuf_empty_n { I 1 bit } inbuf_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
-    name incount43 \
+    id 35 \
+    name incount40 \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_incount43 \
+    corename dc_incount40 \
     op interface \
-    ports { incount43_dout { I 32 vector } incount43_num_data_valid { I 7 vector } incount43_fifo_cap { I 7 vector } incount43_empty_n { I 1 bit } incount43_read { O 1 bit } } \
+    ports { incount40_dout { I 32 vector } incount40_num_data_valid { I 3 vector } incount40_fifo_cap { I 3 vector } incount40_empty_n { I 1 bit } incount40_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 36 \
     name in_en_clrsts \
     type fifo \
     dir I \
@@ -55,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 41 \
+    id 37 \
     name s2m_buf_sts \
     type other \
     dir O \
@@ -70,22 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 42 \
-    name sts_clear \
-    type fifo \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_sts_clear \
-    op interface \
-    ports { sts_clear_dout { I 1 vector } sts_clear_num_data_valid { I 3 vector } sts_clear_fifo_cap { I 3 vector } sts_clear_empty_n { I 1 bit } sts_clear_read { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 43 \
+    id 38 \
     name in_s2m_len \
     type fifo \
     dir I \
@@ -100,7 +85,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 44 \
+    id 39 \
     name gmem0 \
     type other \
     dir O \
@@ -115,7 +100,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 45 \
+    id 40 \
     name out_memory \
     type fifo \
     dir I \

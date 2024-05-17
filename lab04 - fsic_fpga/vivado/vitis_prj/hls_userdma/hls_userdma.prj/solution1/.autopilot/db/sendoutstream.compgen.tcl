@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 77 \
+    id 68 \
     name outStreamTop_V_data_V \
     reset_level 1 \
     sync_rst true \
@@ -30,7 +30,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 78 \
+    id 69 \
     name outStreamTop_V_keep_V \
     reset_level 1 \
     sync_rst true \
@@ -49,7 +49,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 79 \
+    id 70 \
     name outStreamTop_V_strb_V \
     reset_level 1 \
     sync_rst true \
@@ -68,7 +68,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 80 \
+    id 71 \
     name outStreamTop_V_user_V \
     reset_level 1 \
     sync_rst true \
@@ -87,7 +87,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 81 \
+    id 72 \
     name outStreamTop_V_last_V \
     reset_level 1 \
     sync_rst true \
@@ -105,7 +105,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 72 \
+    id 64 \
     name outbuf \
     type fifo \
     dir I \
@@ -113,29 +113,29 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_outbuf \
     op interface \
-    ports { outbuf_dout { I 40 vector } outbuf_num_data_valid { I 11 vector } outbuf_fifo_cap { I 11 vector } outbuf_empty_n { I 1 bit } outbuf_read { O 1 bit } } \
+    ports { outbuf_dout { I 40 vector } outbuf_num_data_valid { I 7 vector } outbuf_fifo_cap { I 7 vector } outbuf_empty_n { I 1 bit } outbuf_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 73 \
-    name outcount44 \
+    id 65 \
+    name outcount41 \
     type fifo \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_outcount44 \
+    corename dc_outcount41 \
     op interface \
-    ports { outcount44_dout { I 32 vector } outcount44_num_data_valid { I 7 vector } outcount44_fifo_cap { I 7 vector } outcount44_empty_n { I 1 bit } outcount44_read { O 1 bit } } \
+    ports { outcount41_dout { I 32 vector } outcount41_num_data_valid { I 3 vector } outcount41_fifo_cap { I 3 vector } outcount41_empty_n { I 1 bit } outcount41_read { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 74 \
+    id 66 \
     name in_en_clrsts \
     type fifo \
     dir I \
@@ -150,7 +150,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 75 \
+    id 67 \
     name m2s_buf_sts \
     type other \
     dir O \
@@ -159,21 +159,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_m2s_buf_sts \
     op interface \
     ports { m2s_buf_sts { O 1 vector } m2s_buf_sts_ap_vld { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 76 \
-    name sts_clear \
-    type fifo \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_sts_clear \
-    op interface \
-    ports { sts_clear_dout { I 1 vector } sts_clear_num_data_valid { I 3 vector } sts_clear_fifo_cap { I 3 vector } sts_clear_empty_n { I 1 bit } sts_clear_read { O 1 bit } } \
 } "
 }
 
@@ -242,7 +227,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 
 
 # RegSlice definition:
-set ID 82
+set ID 73
 set RegSliceName userdma_regslice_both
 set RegSliceInstName userdma_regslice_both_U
 set CoreName ap_simcore_userdma_regslice_both
@@ -265,7 +250,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check you
 
 
 # RegSlice definition:
-set ID 83
+set ID 74
 set RegSliceName userdma_regslice_both
 set RegSliceInstName userdma_regslice_both_U
 set CoreName ap_simcore_userdma_regslice_both
@@ -288,7 +273,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check you
 
 
 # RegSlice definition:
-set ID 84
+set ID 75
 set RegSliceName userdma_regslice_both
 set RegSliceInstName userdma_regslice_both_U
 set CoreName ap_simcore_userdma_regslice_both
@@ -311,7 +296,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check you
 
 
 # RegSlice definition:
-set ID 85
+set ID 76
 set RegSliceName userdma_regslice_both
 set RegSliceInstName userdma_regslice_both_U
 set CoreName ap_simcore_userdma_regslice_both
@@ -334,7 +319,7 @@ puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check you
 
 
 # RegSlice definition:
-set ID 86
+set ID 77
 set RegSliceName userdma_regslice_both
 set RegSliceInstName userdma_regslice_both_U
 set CoreName ap_simcore_userdma_regslice_both

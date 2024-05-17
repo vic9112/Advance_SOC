@@ -94,18 +94,6 @@ set Interface "wire"
 set DataType "void"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
-set PortName "s2m_sts_clear"
-set BitWidth "1"
-set ArrayOpt ""
-set Const "0"
-set Volatile "0"
-set Pointer "0"
-set Reference "0"
-set Dims [list 0]
-set Interface "wire"
-set DataType "char"
-set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
-lappend PortList $Port
 set PortName "s2m_len"
 set BitWidth "32"
 set ArrayOpt ""
@@ -154,18 +142,6 @@ set Interface "wire"
 set DataType "void"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
-set PortName "Img_width"
-set BitWidth "32"
-set ArrayOpt ""
-set Const "0"
-set Volatile "0"
-set Pointer "0"
-set Reference "0"
-set Dims [list 0]
-set Interface "wire"
-set DataType "int"
-set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
-lappend PortList $Port
 set PortName "m2sbuf"
 set BitWidth "64"
 set ArrayOpt ""
@@ -188,18 +164,6 @@ set Reference "0"
 set Dims [list 0]
 set Interface "wire"
 set DataType "void"
-set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
-lappend PortList $Port
-set PortName "m2s_sts_clear"
-set BitWidth "1"
-set ArrayOpt ""
-set Const "0"
-set Volatile "0"
-set Pointer "0"
-set Reference "0"
-set Dims [list 0]
-set Interface "wire"
-set DataType "char"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
 set PortName "m2s_len"

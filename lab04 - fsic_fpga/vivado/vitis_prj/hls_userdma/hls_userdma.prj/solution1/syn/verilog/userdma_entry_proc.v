@@ -18,24 +18,12 @@ module userdma_entry_proc (
         ap_ready,
         start_out,
         start_write,
-        s2m_sts_clear,
-        s2m_sts_clear_c_din,
-        s2m_sts_clear_c_num_data_valid,
-        s2m_sts_clear_c_fifo_cap,
-        s2m_sts_clear_c_full_n,
-        s2m_sts_clear_c_write,
         s2mbuf,
         s2mbuf_c_din,
         s2mbuf_c_num_data_valid,
         s2mbuf_c_fifo_cap,
         s2mbuf_c_full_n,
-        s2mbuf_c_write,
-        m2s_sts_clear,
-        m2s_sts_clear_c_din,
-        m2s_sts_clear_c_num_data_valid,
-        m2s_sts_clear_c_fifo_cap,
-        m2s_sts_clear_c_full_n,
-        m2s_sts_clear_c_write
+        s2mbuf_c_write
 );
 
 parameter    ap_ST_fsm_state1 = 1'd1;
@@ -50,31 +38,17 @@ output   ap_idle;
 output   ap_ready;
 output   start_out;
 output   start_write;
-input  [0:0] s2m_sts_clear;
-output  [0:0] s2m_sts_clear_c_din;
-input  [2:0] s2m_sts_clear_c_num_data_valid;
-input  [2:0] s2m_sts_clear_c_fifo_cap;
-input   s2m_sts_clear_c_full_n;
-output   s2m_sts_clear_c_write;
 input  [63:0] s2mbuf;
 output  [63:0] s2mbuf_c_din;
 input  [2:0] s2mbuf_c_num_data_valid;
 input  [2:0] s2mbuf_c_fifo_cap;
 input   s2mbuf_c_full_n;
 output   s2mbuf_c_write;
-input  [0:0] m2s_sts_clear;
-output  [0:0] m2s_sts_clear_c_din;
-input  [2:0] m2s_sts_clear_c_num_data_valid;
-input  [2:0] m2s_sts_clear_c_fifo_cap;
-input   m2s_sts_clear_c_full_n;
-output   m2s_sts_clear_c_write;
 
 reg ap_done;
 reg ap_idle;
 reg start_write;
-reg s2m_sts_clear_c_write;
 reg s2mbuf_c_write;
-reg m2s_sts_clear_c_write;
 
 reg    real_start;
 reg    start_once_reg;
@@ -82,9 +56,7 @@ reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    internal_ap_ready;
-reg    s2m_sts_clear_c_blk_n;
 reg    s2mbuf_c_blk_n;
-reg    m2s_sts_clear_c_blk_n;
 reg    ap_block_state1;
 reg   [0:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
@@ -111,7 +83,7 @@ always @ (posedge ap_clk) begin
     end else begin
         if ((ap_continue == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+        end else if ((~((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -130,7 +102,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
+    if (((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1))) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -138,7 +110,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = ap_done_reg;
@@ -154,26 +126,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         internal_ap_ready = 1'b1;
     end else begin
         internal_ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        m2s_sts_clear_c_blk_n = m2s_sts_clear_c_full_n;
-    end else begin
-        m2s_sts_clear_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        m2s_sts_clear_c_write = 1'b1;
-    end else begin
-        m2s_sts_clear_c_write = 1'b0;
     end
 end
 
@@ -187,22 +143,6 @@ end
 
 always @ (*) begin
     if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        s2m_sts_clear_c_blk_n = s2m_sts_clear_c_full_n;
-    end else begin
-        s2m_sts_clear_c_blk_n = 1'b1;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        s2m_sts_clear_c_write = 1'b1;
-    end else begin
-        s2m_sts_clear_c_write = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         s2mbuf_c_blk_n = s2mbuf_c_full_n;
     end else begin
         s2mbuf_c_blk_n = 1'b1;
@@ -210,7 +150,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
+    if ((~((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
         s2mbuf_c_write = 1'b1;
     end else begin
         s2mbuf_c_write = 1'b0;
@@ -239,14 +179,10 @@ end
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 always @ (*) begin
-    ap_block_state1 = ((real_start == 1'b0) | (m2s_sts_clear_c_full_n == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (s2m_sts_clear_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
+    ap_block_state1 = ((real_start == 1'b0) | (s2mbuf_c_full_n == 1'b0) | (ap_done_reg == 1'b1));
 end
 
 assign ap_ready = internal_ap_ready;
-
-assign m2s_sts_clear_c_din = m2s_sts_clear;
-
-assign s2m_sts_clear_c_din = s2m_sts_clear;
 
 assign s2mbuf_c_din = s2mbuf;
 

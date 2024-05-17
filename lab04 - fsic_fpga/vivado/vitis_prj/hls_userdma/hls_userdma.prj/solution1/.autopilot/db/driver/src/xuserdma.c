@@ -94,23 +94,6 @@ u32 XUserdma_Get_s2m_buf_sts_vld(XUserdma *InstancePtr) {
     return Data & 0x1;
 }
 
-void XUserdma_Set_s2m_sts_clear(XUserdma *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XUserdma_WriteReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_S2M_STS_CLEAR_DATA, Data);
-}
-
-u32 XUserdma_Get_s2m_sts_clear(XUserdma *InstancePtr) {
-    u32 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XUserdma_ReadReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_S2M_STS_CLEAR_DATA);
-    return Data;
-}
-
 void XUserdma_Set_s2m_len(XUserdma *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
@@ -184,23 +167,6 @@ u32 XUserdma_Get_s2m_err_vld(XUserdma *InstancePtr) {
     return Data & 0x1;
 }
 
-void XUserdma_Set_Img_width(XUserdma *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XUserdma_WriteReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_IMG_WIDTH_DATA, Data);
-}
-
-u32 XUserdma_Get_Img_width(XUserdma *InstancePtr) {
-    u32 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XUserdma_ReadReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_IMG_WIDTH_DATA);
-    return Data;
-}
-
 void XUserdma_Set_m2sbuf(XUserdma *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
@@ -238,23 +204,6 @@ u32 XUserdma_Get_m2s_buf_sts_vld(XUserdma *InstancePtr) {
 
     Data = XUserdma_ReadReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_M2S_BUF_STS_CTRL);
     return Data & 0x1;
-}
-
-void XUserdma_Set_m2s_sts_clear(XUserdma *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XUserdma_WriteReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_M2S_STS_CLEAR_DATA, Data);
-}
-
-u32 XUserdma_Get_m2s_sts_clear(XUserdma *InstancePtr) {
-    u32 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XUserdma_ReadReg(InstancePtr->Control_BaseAddress, XUSERDMA_CONTROL_ADDR_M2S_STS_CLEAR_DATA);
-    return Data;
 }
 
 void XUserdma_Set_m2s_len(XUserdma *InstancePtr, u32 Data) {

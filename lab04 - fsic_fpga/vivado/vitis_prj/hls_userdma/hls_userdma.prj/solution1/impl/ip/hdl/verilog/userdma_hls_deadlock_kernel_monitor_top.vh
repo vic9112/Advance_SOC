@@ -8,25 +8,25 @@ wire [9:0] inst_idle_sigs;
 wire [4:0] inst_block_sigs;
 wire kernel_block;
 
-assign axis_block_sigs[0] = ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.inStreamTop_TDATA_blk_n;
-assign axis_block_sigs[1] = ~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101.outStreamTop_TDATA_blk_n;
+assign axis_block_sigs[0] = ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.inStreamTop_TDATA_blk_n;
+assign axis_block_sigs[1] = ~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89.outStreamTop_TDATA_blk_n;
 
 assign inst_idle_sigs[0] = entry_proc_U0.ap_idle;
-assign inst_block_sigs[0] = (entry_proc_U0.ap_done & ~entry_proc_U0.ap_continue) | ~entry_proc_U0.s2m_sts_clear_c_blk_n | ~entry_proc_U0.s2mbuf_c_blk_n | ~entry_proc_U0.m2s_sts_clear_c_blk_n;
+assign inst_block_sigs[0] = (entry_proc_U0.ap_done & ~entry_proc_U0.ap_continue) | ~entry_proc_U0.s2mbuf_c_blk_n;
 assign inst_idle_sigs[1] = getinstream_U0.ap_idle;
-assign inst_block_sigs[1] = (getinstream_U0.ap_done & ~getinstream_U0.ap_continue) | ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.inbuf_blk_n | ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.incount43_blk_n | ~getinstream_U0.s2m_len_c_blk_n | ~getinstream_U0.s2m_enb_clrsts_c_blk_n;
+assign inst_block_sigs[1] = (getinstream_U0.ap_done & ~getinstream_U0.ap_continue) | ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.inbuf_blk_n | ~getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.incount40_blk_n | ~getinstream_U0.s2m_len_c_blk_n | ~getinstream_U0.s2m_enb_clrsts_c_blk_n;
 assign inst_idle_sigs[2] = streamtoparallelwithburst_U0.ap_idle;
-assign inst_block_sigs[2] = (streamtoparallelwithburst_U0.ap_done & ~streamtoparallelwithburst_U0.ap_continue) | ~streamtoparallelwithburst_U0.grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_24_2_fu_146.inbuf_blk_n | ~streamtoparallelwithburst_U0.incount43_blk_n | ~streamtoparallelwithburst_U0.in_en_clrsts_blk_n | ~streamtoparallelwithburst_U0.sts_clear_blk_n | ~streamtoparallelwithburst_U0.in_s2m_len_blk_n | ~streamtoparallelwithburst_U0.out_memory_blk_n;
+assign inst_block_sigs[2] = (streamtoparallelwithburst_U0.ap_done & ~streamtoparallelwithburst_U0.ap_continue) | ~streamtoparallelwithburst_U0.grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2_fu_138.inbuf_blk_n | ~streamtoparallelwithburst_U0.incount40_blk_n | ~streamtoparallelwithburst_U0.in_en_clrsts_blk_n | ~streamtoparallelwithburst_U0.in_s2m_len_blk_n | ~streamtoparallelwithburst_U0.out_memory_blk_n;
 assign inst_idle_sigs[3] = paralleltostreamwithburst_U0.ap_idle;
-assign inst_block_sigs[3] = (paralleltostreamwithburst_U0.ap_done & ~paralleltostreamwithburst_U0.ap_continue) | ~paralleltostreamwithburst_U0.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_103_2_fu_173.outbuf_blk_n | ~paralleltostreamwithburst_U0.outcount44_blk_n | ~paralleltostreamwithburst_U0.m2s_enb_clrsts_c_blk_n;
+assign inst_block_sigs[3] = (paralleltostreamwithburst_U0.ap_done & ~paralleltostreamwithburst_U0.ap_continue) | ~paralleltostreamwithburst_U0.grp_paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2_fu_133.outbuf_blk_n | ~paralleltostreamwithburst_U0.outcount41_blk_n | ~paralleltostreamwithburst_U0.m2s_enb_clrsts_c_blk_n;
 assign inst_idle_sigs[4] = sendoutstream_U0.ap_idle;
-assign inst_block_sigs[4] = (sendoutstream_U0.ap_done & ~sendoutstream_U0.ap_continue) | ~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101.outbuf_blk_n | ~sendoutstream_U0.outcount44_blk_n | ~sendoutstream_U0.in_en_clrsts_blk_n | ~sendoutstream_U0.sts_clear_blk_n;
+assign inst_block_sigs[4] = (sendoutstream_U0.ap_done & ~sendoutstream_U0.ap_continue) | ~sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89.outbuf_blk_n | ~sendoutstream_U0.outcount41_blk_n | ~sendoutstream_U0.in_en_clrsts_blk_n;
 
 assign inst_idle_sigs[5] = 1'b0;
 assign inst_idle_sigs[6] = getinstream_U0.ap_idle;
-assign inst_idle_sigs[7] = getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.ap_idle;
+assign inst_idle_sigs[7] = getinstream_U0.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.ap_idle;
 assign inst_idle_sigs[8] = sendoutstream_U0.ap_idle;
-assign inst_idle_sigs[9] = sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_146_2_fu_101.ap_idle;
+assign inst_idle_sigs[9] = sendoutstream_U0.grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89.ap_idle;
 
 userdma_hls_deadlock_idx0_monitor userdma_hls_deadlock_idx0_monitor_U (
     .clock(kernel_monitor_clock),

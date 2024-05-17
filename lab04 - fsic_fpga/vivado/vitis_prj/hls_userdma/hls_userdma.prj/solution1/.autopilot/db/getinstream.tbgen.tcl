@@ -22,7 +22,7 @@ set C_modelArgList {
 	{ in_s2m_len int 32 regular  }
 	{ s2m_err int 2 regular {pointer 1}  }
 	{ inbuf int 33 regular {fifo 1 volatile }  }
-	{ incount43 int 32 regular {fifo 1 volatile }  }
+	{ incount40 int 32 regular {fifo 1 volatile }  }
 	{ s2m_len_c int 32 regular {fifo 1}  }
 	{ s2m_enb_clrsts_c int 1 regular {fifo 1}  }
 }
@@ -36,7 +36,7 @@ set C_modelArgMapList {[
  	{ "Name" : "in_s2m_len", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "s2m_err", "interface" : "wire", "bitwidth" : 2, "direction" : "WRITEONLY"} , 
  	{ "Name" : "inbuf", "interface" : "fifo", "bitwidth" : 33, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "incount43", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "incount40", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "s2m_len_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "s2m_enb_clrsts_c", "interface" : "fifo", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
@@ -61,15 +61,15 @@ set portList {
 	{ s2m_err sc_out sc_lv 2 signal 7 } 
 	{ s2m_err_ap_vld sc_out sc_logic 1 outvld 7 } 
 	{ inbuf_din sc_out sc_lv 33 signal 8 } 
-	{ inbuf_num_data_valid sc_in sc_lv 11 signal 8 } 
-	{ inbuf_fifo_cap sc_in sc_lv 11 signal 8 } 
+	{ inbuf_num_data_valid sc_in sc_lv 7 signal 8 } 
+	{ inbuf_fifo_cap sc_in sc_lv 7 signal 8 } 
 	{ inbuf_full_n sc_in sc_logic 1 signal 8 } 
 	{ inbuf_write sc_out sc_logic 1 signal 8 } 
-	{ incount43_din sc_out sc_lv 32 signal 9 } 
-	{ incount43_num_data_valid sc_in sc_lv 7 signal 9 } 
-	{ incount43_fifo_cap sc_in sc_lv 7 signal 9 } 
-	{ incount43_full_n sc_in sc_logic 1 signal 9 } 
-	{ incount43_write sc_out sc_logic 1 signal 9 } 
+	{ incount40_din sc_out sc_lv 32 signal 9 } 
+	{ incount40_num_data_valid sc_in sc_lv 3 signal 9 } 
+	{ incount40_fifo_cap sc_in sc_lv 3 signal 9 } 
+	{ incount40_full_n sc_in sc_logic 1 signal 9 } 
+	{ incount40_write sc_out sc_logic 1 signal 9 } 
 	{ s2m_len_c_din sc_out sc_lv 32 signal 10 } 
 	{ s2m_len_c_num_data_valid sc_in sc_lv 2 signal 10 } 
 	{ s2m_len_c_fifo_cap sc_in sc_lv 2 signal 10 } 
@@ -101,15 +101,15 @@ set NewPortList {[
  	{ "name": "s2m_err", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s2m_err", "role": "default" }} , 
  	{ "name": "s2m_err_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "s2m_err", "role": "ap_vld" }} , 
  	{ "name": "inbuf_din", "direction": "out", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "inbuf", "role": "din" }} , 
- 	{ "name": "inbuf_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "inbuf", "role": "num_data_valid" }} , 
- 	{ "name": "inbuf_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":11, "type": "signal", "bundle":{"name": "inbuf", "role": "fifo_cap" }} , 
+ 	{ "name": "inbuf_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "inbuf", "role": "num_data_valid" }} , 
+ 	{ "name": "inbuf_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "inbuf", "role": "fifo_cap" }} , 
  	{ "name": "inbuf_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "inbuf", "role": "full_n" }} , 
  	{ "name": "inbuf_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "inbuf", "role": "write" }} , 
- 	{ "name": "incount43_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "incount43", "role": "din" }} , 
- 	{ "name": "incount43_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "incount43", "role": "num_data_valid" }} , 
- 	{ "name": "incount43_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "incount43", "role": "fifo_cap" }} , 
- 	{ "name": "incount43_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount43", "role": "full_n" }} , 
- 	{ "name": "incount43_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount43", "role": "write" }} , 
+ 	{ "name": "incount40_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "incount40", "role": "din" }} , 
+ 	{ "name": "incount40_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount40", "role": "num_data_valid" }} , 
+ 	{ "name": "incount40_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount40", "role": "fifo_cap" }} , 
+ 	{ "name": "incount40_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount40", "role": "full_n" }} , 
+ 	{ "name": "incount40_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount40", "role": "write" }} , 
  	{ "name": "s2m_len_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s2m_len_c", "role": "din" }} , 
  	{ "name": "s2m_len_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s2m_len_c", "role": "num_data_valid" }} , 
  	{ "name": "s2m_len_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s2m_len_c", "role": "fifo_cap" }} , 
@@ -139,28 +139,28 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "inStreamTop_V_data_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inStreamTop_V_data_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inStreamTop_V_data_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "inStreamTop_V_keep_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inStreamTop_V_keep_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inStreamTop_V_keep_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "inStreamTop_V_strb_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inStreamTop_V_strb_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inStreamTop_V_strb_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "inStreamTop_V_user_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inStreamTop_V_user_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inStreamTop_V_user_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "inStreamTop_V_last_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inStreamTop_V_last_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inStreamTop_V_last_V", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "in_en_clrsts", "Type" : "None", "Direction" : "I"},
 			{"Name" : "in_s2m_len", "Type" : "None", "Direction" : "I"},
 			{"Name" : "s2m_err", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "inbuf", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "1024", "DependentChanType" : "0",
+			{"Name" : "inbuf", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "inbuf", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
-			{"Name" : "incount43", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "64", "DependentChanType" : "0",
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "inbuf", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+			{"Name" : "incount40", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Port" : "incount43", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
+					{"ID" : "1", "SubInstance" : "grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Port" : "incount40", "Inst_start_state" : "1", "Inst_end_state" : "2"}]},
 			{"Name" : "s2m_len_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "s2m_len_c_blk_n", "Type" : "RtlSignal"}]},
@@ -168,8 +168,8 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "s2m_enb_clrsts_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "in_len_V", "Type" : "OVld", "Direction" : "IO"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116", "Parent" : "0", "Child" : ["2"],
-		"CDFG" : "getinstream_Pipeline_VITIS_LOOP_52_1",
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113", "Parent" : "0", "Child" : ["2"],
+		"CDFG" : "getinstream_Pipeline_VITIS_LOOP_49_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -195,14 +195,14 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "inbuf_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "in_s2m_len", "Type" : "None", "Direction" : "I"},
-			{"Name" : "incount43", "Type" : "Fifo", "Direction" : "O",
+			{"Name" : "incount40", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
-					{"Name" : "incount43_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "incount40_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "tmp_last_V_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
-			{"Name" : "VITIS_LOOP_52_1", "PipelineType" : "UPC",
+			{"Name" : "VITIS_LOOP_49_1", "PipelineType" : "UPC",
 				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter1", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter2", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_getinstream_Pipeline_VITIS_LOOP_52_1_fu_116.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_inStreamTop_V_data_V_U", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_inStreamTop_V_keep_V_U", "Parent" : "0"},
 	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_inStreamTop_V_strb_V_U", "Parent" : "0"},
@@ -219,13 +219,13 @@ set ArgLastReadFirstWriteLatency {
 		inStreamTop_V_last_V {Type I LastRead 1 FirstWrite -1}
 		in_en_clrsts {Type I LastRead 0 FirstWrite -1}
 		in_s2m_len {Type I LastRead 0 FirstWrite -1}
-		s2m_err {Type O LastRead -1 FirstWrite 0}
+		s2m_err {Type O LastRead -1 FirstWrite 2}
 		inbuf {Type O LastRead -1 FirstWrite 1}
-		incount43 {Type O LastRead -1 FirstWrite 2}
+		incount40 {Type O LastRead -1 FirstWrite 2}
 		s2m_len_c {Type O LastRead -1 FirstWrite 0}
 		s2m_enb_clrsts_c {Type O LastRead -1 FirstWrite 0}
 		in_len_V {Type IO LastRead -1 FirstWrite -1}}
-	getinstream_Pipeline_VITIS_LOOP_52_1 {
+	getinstream_Pipeline_VITIS_LOOP_49_1 {
 		in_len_V_load {Type I LastRead 0 FirstWrite -1}
 		inStreamTop_V_data_V {Type I LastRead 1 FirstWrite -1}
 		inStreamTop_V_keep_V {Type I LastRead 1 FirstWrite -1}
@@ -234,7 +234,7 @@ set ArgLastReadFirstWriteLatency {
 		inStreamTop_V_last_V {Type I LastRead 1 FirstWrite -1}
 		inbuf {Type O LastRead -1 FirstWrite 1}
 		in_s2m_len {Type I LastRead 0 FirstWrite -1}
-		incount43 {Type O LastRead -1 FirstWrite 2}
+		incount40 {Type O LastRead -1 FirstWrite 2}
 		tmp_last_V_out {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
@@ -256,8 +256,8 @@ set Spec2ImplPortList {
 	in_en_clrsts { ap_none {  { in_en_clrsts in_data 0 1 } } }
 	in_s2m_len { ap_none {  { in_s2m_len in_data 0 32 } } }
 	s2m_err { ap_vld {  { s2m_err out_data 1 2 }  { s2m_err_ap_vld out_vld 1 1 } } }
-	inbuf { ap_fifo {  { inbuf_din fifo_port_we 1 33 }  { inbuf_num_data_valid fifo_status_num_data_valid 0 11 }  { inbuf_fifo_cap fifo_update 0 11 }  { inbuf_full_n fifo_status 0 1 }  { inbuf_write fifo_data 1 1 } } }
-	incount43 { ap_fifo {  { incount43_din fifo_port_we 1 32 }  { incount43_num_data_valid fifo_status_num_data_valid 0 7 }  { incount43_fifo_cap fifo_update 0 7 }  { incount43_full_n fifo_status 0 1 }  { incount43_write fifo_data 1 1 } } }
+	inbuf { ap_fifo {  { inbuf_din fifo_port_we 1 33 }  { inbuf_num_data_valid fifo_status_num_data_valid 0 7 }  { inbuf_fifo_cap fifo_update 0 7 }  { inbuf_full_n fifo_status 0 1 }  { inbuf_write fifo_data 1 1 } } }
+	incount40 { ap_fifo {  { incount40_din fifo_port_we 1 32 }  { incount40_num_data_valid fifo_status_num_data_valid 0 3 }  { incount40_fifo_cap fifo_update 0 3 }  { incount40_full_n fifo_status 0 1 }  { incount40_write fifo_data 1 1 } } }
 	s2m_len_c { ap_fifo {  { s2m_len_c_din fifo_port_we 1 32 }  { s2m_len_c_num_data_valid fifo_status_num_data_valid 0 2 }  { s2m_len_c_fifo_cap fifo_update 0 2 }  { s2m_len_c_full_n fifo_status 0 1 }  { s2m_len_c_write fifo_data 1 1 } } }
 	s2m_enb_clrsts_c { ap_fifo {  { s2m_enb_clrsts_c_din fifo_port_we 1 1 }  { s2m_enb_clrsts_c_num_data_valid fifo_status_num_data_valid 0 2 }  { s2m_enb_clrsts_c_fifo_cap fifo_update 0 2 }  { s2m_enb_clrsts_c_full_n fifo_status 0 1 }  { s2m_enb_clrsts_c_write fifo_data 1 1 } } }
 }

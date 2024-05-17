@@ -11,36 +11,6 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 1 \
-    name s2m_sts_clear \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_s2m_sts_clear \
-    op interface \
-    ports { s2m_sts_clear { I 1 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 2 \
-    name s2m_sts_clear_c \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_s2m_sts_clear_c \
-    op interface \
-    ports { s2m_sts_clear_c_din { O 1 vector } s2m_sts_clear_c_num_data_valid { I 3 vector } s2m_sts_clear_c_fifo_cap { I 3 vector } s2m_sts_clear_c_full_n { I 1 bit } s2m_sts_clear_c_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 3 \
     name s2mbuf \
     type other \
     dir I \
@@ -55,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 4 \
+    id 2 \
     name s2mbuf_c \
     type fifo \
     dir O \
@@ -64,36 +34,6 @@ eval "cg_default_interface_gen_dc { \
     corename dc_s2mbuf_c \
     op interface \
     ports { s2mbuf_c_din { O 64 vector } s2mbuf_c_num_data_valid { I 3 vector } s2mbuf_c_fifo_cap { I 3 vector } s2mbuf_c_full_n { I 1 bit } s2mbuf_c_write { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 5 \
-    name m2s_sts_clear \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_m2s_sts_clear \
-    op interface \
-    ports { m2s_sts_clear { I 1 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 6 \
-    name m2s_sts_clear_c \
-    type fifo \
-    dir O \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_m2s_sts_clear_c \
-    op interface \
-    ports { m2s_sts_clear_c_din { O 1 vector } m2s_sts_clear_c_num_data_valid { I 3 vector } m2s_sts_clear_c_fifo_cap { I 3 vector } m2s_sts_clear_c_full_n { I 1 bit } m2s_sts_clear_c_write { O 1 bit } } \
 } "
 }
 

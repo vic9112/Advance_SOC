@@ -210,11 +210,11 @@ unsigned int ap_apatb__cap_bc;
 static AESL_RUNTIME_BC __xlx__V_size_Reader("../tv/stream_size/stream_size_out_.dat");
 struct __cosim_s4__ { char data[4]; };
 struct __cosim_s1__ { char data[1]; };
-extern "C" void userdma(int*, int*, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, , , volatile void *, char, __cosim_s4__, __cosim_s1__, int, volatile void *, __cosim_s4__, int, volatile void *, char, int, __cosim_s1__, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, , );
-extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V_data_V, volatile void * __xlx_apatb_param_inStreamTop_V_keep_V, volatile void * __xlx_apatb_param_inStreamTop_V_strb_V, volatile void * __xlx_apatb_param_inStreamTop_V_user_V, volatile void * __xlx_apatb_param_inStreamTop_V_last_V, volatile void * __xlx_apatb_param_s2m_buf_sts, char __xlx_apatb_param_s2m_sts_clear, __cosim_s4__* __xlx_apatb_param_s2m_len, __cosim_s1__* __xlx_apatb_param_s2m_enb_clrsts, volatile void * __xlx_apatb_param_s2mbuf, volatile void * __xlx_apatb_param_s2m_err, __cosim_s4__* __xlx_apatb_param_Img_width, volatile void * __xlx_apatb_param_m2sbuf, volatile void * __xlx_apatb_param_m2s_buf_sts, char __xlx_apatb_param_m2s_sts_clear, int __xlx_apatb_param_m2s_len, __cosim_s1__* __xlx_apatb_param_m2s_enb_clrsts, volatile void * __xlx_apatb_param_outStreamTop_V_data_V, volatile void * __xlx_apatb_param_outStreamTop_V_keep_V, volatile void * __xlx_apatb_param_outStreamTop_V_strb_V, volatile void * __xlx_apatb_param_outStreamTop_V_user_V, volatile void * __xlx_apatb_param_outStreamTop_V_last_V) {
+extern "C" void userdma(int*, int*, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, , , volatile void *, __cosim_s4__, __cosim_s1__, int, volatile void *, int, volatile void *, int, __cosim_s1__, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, , );
+extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V_data_V, volatile void * __xlx_apatb_param_inStreamTop_V_keep_V, volatile void * __xlx_apatb_param_inStreamTop_V_strb_V, volatile void * __xlx_apatb_param_inStreamTop_V_user_V, volatile void * __xlx_apatb_param_inStreamTop_V_last_V, volatile void * __xlx_apatb_param_s2m_buf_sts, __cosim_s4__* __xlx_apatb_param_s2m_len, __cosim_s1__* __xlx_apatb_param_s2m_enb_clrsts, volatile void * __xlx_apatb_param_s2mbuf, volatile void * __xlx_apatb_param_s2m_err, volatile void * __xlx_apatb_param_m2sbuf, volatile void * __xlx_apatb_param_m2s_buf_sts, int __xlx_apatb_param_m2s_len, __cosim_s1__* __xlx_apatb_param_m2s_enb_clrsts, volatile void * __xlx_apatb_param_outStreamTop_V_data_V, volatile void * __xlx_apatb_param_outStreamTop_V_keep_V, volatile void * __xlx_apatb_param_outStreamTop_V_strb_V, volatile void * __xlx_apatb_param_outStreamTop_V_user_V, volatile void * __xlx_apatb_param_outStreamTop_V_last_V) {
   // Collect __xlx_s2mbuf__tmp_vec
   vector<sc_bv<32> >__xlx_s2mbuf__tmp_vec;
-  for (int j = 0, e = 57600; j != e; ++j) {
+  for (int j = 0, e = 1024; j != e; ++j) {
     sc_bv<32> _xlx_tmp_sc;
     _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+0];
     _xlx_tmp_sc.range(15, 8) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+1];
@@ -222,7 +222,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
     _xlx_tmp_sc.range(31, 24) = ((char*)__xlx_apatb_param_s2mbuf)[j*4+3];
     __xlx_s2mbuf__tmp_vec.push_back(_xlx_tmp_sc);
   }
-  int __xlx_size_param_s2mbuf = 57600;
+  int __xlx_size_param_s2mbuf = 1024;
   int __xlx_offset_param_s2mbuf = 0;
   int __xlx_offset_byte_param_s2mbuf = 0*4;
   int* __xlx_s2mbuf__input_buffer= new int[__xlx_s2mbuf__tmp_vec.size()];
@@ -231,7 +231,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
   }
   // Collect __xlx_m2sbuf__tmp_vec
   vector<sc_bv<32> >__xlx_m2sbuf__tmp_vec;
-  for (int j = 0, e = 57600; j != e; ++j) {
+  for (int j = 0, e = 1024; j != e; ++j) {
     sc_bv<32> _xlx_tmp_sc;
     _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+0];
     _xlx_tmp_sc.range(15, 8) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+1];
@@ -239,7 +239,7 @@ extern "C" void apatb_userdma_hw(volatile void * __xlx_apatb_param_inStreamTop_V
     _xlx_tmp_sc.range(31, 24) = ((char*)__xlx_apatb_param_m2sbuf)[j*4+3];
     __xlx_m2sbuf__tmp_vec.push_back(_xlx_tmp_sc);
   }
-  int __xlx_size_param_m2sbuf = 57600;
+  int __xlx_size_param_m2sbuf = 1024;
   int __xlx_offset_param_m2sbuf = 0;
   int __xlx_offset_byte_param_m2sbuf = 0*4;
   int* __xlx_m2sbuf__input_buffer= new int[__xlx_m2sbuf__tmp_vec.size()];
@@ -272,7 +272,7 @@ auto* soutStreamTop_V_user_V = bcsim::createStream((hls::stream<char>*)__xlx_apa
   char* __xlx_outStreamTop_V_last_V_input_buffer= new char[ap_apatb_outStreamTop_V_last_V_cap_bc];
 auto* soutStreamTop_V_last_V = bcsim::createStream((hls::stream<char>*)__xlx_apatb_param_outStreamTop_V_last_V);
   // DUT call
-  userdma(__xlx_s2mbuf__input_buffer, __xlx_m2sbuf__input_buffer, sinStreamTop_V_data_V->data<int>(), sinStreamTop_V_keep_V->data<char>(), sinStreamTop_V_strb_V->data<char>(), sinStreamTop_V_user_V->data<char>(), sinStreamTop_V_last_V->data<char>(), __xlx_apatb_param_s2m_buf_sts, __xlx_apatb_param_s2m_sts_clear, *__xlx_apatb_param_s2m_len, *__xlx_apatb_param_s2m_enb_clrsts, __xlx_offset_byte_param_s2mbuf, __xlx_apatb_param_s2m_err, *__xlx_apatb_param_Img_width, __xlx_offset_byte_param_m2sbuf, __xlx_apatb_param_m2s_buf_sts, __xlx_apatb_param_m2s_sts_clear, __xlx_apatb_param_m2s_len, *__xlx_apatb_param_m2s_enb_clrsts, soutStreamTop_V_data_V->data<int>(), soutStreamTop_V_keep_V->data<char>(), soutStreamTop_V_strb_V->data<char>(), soutStreamTop_V_user_V->data<char>(), soutStreamTop_V_last_V->data<char>());
+  userdma(__xlx_s2mbuf__input_buffer, __xlx_m2sbuf__input_buffer, sinStreamTop_V_data_V->data<int>(), sinStreamTop_V_keep_V->data<char>(), sinStreamTop_V_strb_V->data<char>(), sinStreamTop_V_user_V->data<char>(), sinStreamTop_V_last_V->data<char>(), __xlx_apatb_param_s2m_buf_sts, *__xlx_apatb_param_s2m_len, *__xlx_apatb_param_s2m_enb_clrsts, __xlx_offset_byte_param_s2mbuf, __xlx_apatb_param_s2m_err, __xlx_offset_byte_param_m2sbuf, __xlx_apatb_param_m2s_buf_sts, __xlx_apatb_param_m2s_len, *__xlx_apatb_param_m2s_enb_clrsts, soutStreamTop_V_data_V->data<int>(), soutStreamTop_V_keep_V->data<char>(), soutStreamTop_V_strb_V->data<char>(), soutStreamTop_V_user_V->data<char>(), soutStreamTop_V_last_V->data<char>());
 // print __xlx_apatb_param_s2mbuf
   sc_bv<32>*__xlx_s2mbuf_output_buffer = new sc_bv<32>[__xlx_size_param_s2mbuf];
   for (int i = 0; i < __xlx_size_param_s2mbuf; ++i) {

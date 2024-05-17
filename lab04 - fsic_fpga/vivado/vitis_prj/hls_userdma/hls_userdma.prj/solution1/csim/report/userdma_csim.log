@@ -1,6 +1,5 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../userdma_test.cpp in debug mode
    Compiling ../../../../userdma.cpp in debug mode
    Generating csim.exe
 before-phase s2m_buf_sts is 0
@@ -13,7 +12,7 @@ after-phase m2s_buf_sts is 1
 
 s2m_err: 0
 S2M data
-out_b, address: bae04500
+out_b, address: d296ca60
 3e8 3e9 3ea 3eb 3ec 3ed 3ee 3ef 3f0 3f1 3f2 3f3 3f4 3f5 3f6 3f7 3f8 3f9 3fa 3fb 3fc 3fd 3fe 3ff 400 401 402 403 404 405 406 407 
 408 409 40a 40b 40c 40d 40e 40f 410 411 412 413 414 415 416 417 418 419 41a 41b 41c 41d 41e 41f 420 421 422 423 424 425 426 427 
 428 429 42a 42b 42c 42d 42e 42f 430 431 432 433 434 435 436 437 438 439 43a 43b 43c 43d 43e 43f 440 441 442 443 444 445 446 447 
@@ -3618,8 +3617,8 @@ M2S data
 57536 57537 57538 57539 57540 57541 57542 57543 57544 57545 57546 57547 57548 57549 57550 57551 57552 57553 57554 57555 57556 57557 57558 57559 57560 57561 57562 57563 57564 57565 57566 57567 
 57568 57569 57570 57571 57572 57573 57574 57575 57576 57577 57578 57579 57580 57581 57582 57583 57584 57585 57586 57587 57588 57589 57590 57591 57592 57593 57594 57595 57596 57597 57598 57599 
 
-m2s_sof_err-->0 
-m2s_sof_err-->0 
+m2s_sof_err-->1 
+m2s_sof_err-->1 
 clear s2m_buf_sts -> 0
 clear m2s_buf_sts -> 0
 s2m_err: 0

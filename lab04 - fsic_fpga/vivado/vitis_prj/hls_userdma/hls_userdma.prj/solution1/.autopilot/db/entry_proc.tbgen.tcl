@@ -13,22 +13,14 @@ set hasInterrupt 0
 set C_modelName {entry_proc}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ s2m_sts_clear int 1 regular  }
-	{ s2m_sts_clear_c int 1 regular {fifo 1}  }
 	{ s2mbuf int 64 regular  }
 	{ s2mbuf_c int 64 regular {fifo 1}  }
-	{ m2s_sts_clear int 1 regular  }
-	{ m2s_sts_clear_c int 1 regular {fifo 1}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "s2m_sts_clear", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "s2m_sts_clear_c", "interface" : "fifo", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "s2mbuf", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
- 	{ "Name" : "s2mbuf_c", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "m2s_sts_clear", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "m2s_sts_clear_c", "interface" : "fifo", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
+	{ "Name" : "s2mbuf", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "s2mbuf_c", "interface" : "fifo", "bitwidth" : 64, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 28
+set portNum 16
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -40,24 +32,12 @@ set portList {
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
 	{ start_write sc_out sc_logic 1 signal -1 } 
-	{ s2m_sts_clear sc_in sc_lv 1 signal 0 } 
-	{ s2m_sts_clear_c_din sc_out sc_lv 1 signal 1 } 
-	{ s2m_sts_clear_c_num_data_valid sc_in sc_lv 3 signal 1 } 
-	{ s2m_sts_clear_c_fifo_cap sc_in sc_lv 3 signal 1 } 
-	{ s2m_sts_clear_c_full_n sc_in sc_logic 1 signal 1 } 
-	{ s2m_sts_clear_c_write sc_out sc_logic 1 signal 1 } 
-	{ s2mbuf sc_in sc_lv 64 signal 2 } 
-	{ s2mbuf_c_din sc_out sc_lv 64 signal 3 } 
-	{ s2mbuf_c_num_data_valid sc_in sc_lv 3 signal 3 } 
-	{ s2mbuf_c_fifo_cap sc_in sc_lv 3 signal 3 } 
-	{ s2mbuf_c_full_n sc_in sc_logic 1 signal 3 } 
-	{ s2mbuf_c_write sc_out sc_logic 1 signal 3 } 
-	{ m2s_sts_clear sc_in sc_lv 1 signal 4 } 
-	{ m2s_sts_clear_c_din sc_out sc_lv 1 signal 5 } 
-	{ m2s_sts_clear_c_num_data_valid sc_in sc_lv 3 signal 5 } 
-	{ m2s_sts_clear_c_fifo_cap sc_in sc_lv 3 signal 5 } 
-	{ m2s_sts_clear_c_full_n sc_in sc_logic 1 signal 5 } 
-	{ m2s_sts_clear_c_write sc_out sc_logic 1 signal 5 } 
+	{ s2mbuf sc_in sc_lv 64 signal 0 } 
+	{ s2mbuf_c_din sc_out sc_lv 64 signal 1 } 
+	{ s2mbuf_c_num_data_valid sc_in sc_lv 3 signal 1 } 
+	{ s2mbuf_c_fifo_cap sc_in sc_lv 3 signal 1 } 
+	{ s2mbuf_c_full_n sc_in sc_logic 1 signal 1 } 
+	{ s2mbuf_c_write sc_out sc_logic 1 signal 1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -70,24 +50,12 @@ set NewPortList {[
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
  	{ "name": "start_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_write", "role": "default" }} , 
- 	{ "name": "s2m_sts_clear", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s2m_sts_clear", "role": "default" }} , 
- 	{ "name": "s2m_sts_clear_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s2m_sts_clear_c", "role": "din" }} , 
- 	{ "name": "s2m_sts_clear_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s2m_sts_clear_c", "role": "num_data_valid" }} , 
- 	{ "name": "s2m_sts_clear_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s2m_sts_clear_c", "role": "fifo_cap" }} , 
- 	{ "name": "s2m_sts_clear_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s2m_sts_clear_c", "role": "full_n" }} , 
- 	{ "name": "s2m_sts_clear_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s2m_sts_clear_c", "role": "write" }} , 
  	{ "name": "s2mbuf", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "s2mbuf", "role": "default" }} , 
  	{ "name": "s2mbuf_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "din" }} , 
  	{ "name": "s2mbuf_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "num_data_valid" }} , 
  	{ "name": "s2mbuf_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "fifo_cap" }} , 
  	{ "name": "s2mbuf_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "full_n" }} , 
- 	{ "name": "s2mbuf_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "write" }} , 
- 	{ "name": "m2s_sts_clear", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "m2s_sts_clear", "role": "default" }} , 
- 	{ "name": "m2s_sts_clear_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "m2s_sts_clear_c", "role": "din" }} , 
- 	{ "name": "m2s_sts_clear_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "m2s_sts_clear_c", "role": "num_data_valid" }} , 
- 	{ "name": "m2s_sts_clear_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "m2s_sts_clear_c", "role": "fifo_cap" }} , 
- 	{ "name": "m2s_sts_clear_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "m2s_sts_clear_c", "role": "full_n" }} , 
- 	{ "name": "m2s_sts_clear_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "m2s_sts_clear_c", "role": "write" }}  ]}
+ 	{ "name": "s2mbuf_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s2mbuf_c", "role": "write" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -105,28 +73,16 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "s2m_sts_clear", "Type" : "None", "Direction" : "I"},
-			{"Name" : "s2m_sts_clear_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "s2m_sts_clear_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "s2mbuf", "Type" : "None", "Direction" : "I"},
 			{"Name" : "s2mbuf_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
-					{"Name" : "s2mbuf_c_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "m2s_sts_clear", "Type" : "None", "Direction" : "I"},
-			{"Name" : "m2s_sts_clear_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
-				"BlockSignal" : [
-					{"Name" : "m2s_sts_clear_c_blk_n", "Type" : "RtlSignal"}]}]}]}
+					{"Name" : "s2mbuf_c_blk_n", "Type" : "RtlSignal"}]}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	entry_proc {
-		s2m_sts_clear {Type I LastRead 0 FirstWrite -1}
-		s2m_sts_clear_c {Type O LastRead -1 FirstWrite 0}
 		s2mbuf {Type I LastRead 0 FirstWrite -1}
-		s2mbuf_c {Type O LastRead -1 FirstWrite 0}
-		m2s_sts_clear {Type I LastRead 0 FirstWrite -1}
-		m2s_sts_clear_c {Type O LastRead -1 FirstWrite 0}}}
+		s2mbuf_c {Type O LastRead -1 FirstWrite 0}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -139,10 +95,6 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	s2m_sts_clear { ap_none {  { s2m_sts_clear in_data 0 1 } } }
-	s2m_sts_clear_c { ap_fifo {  { s2m_sts_clear_c_din fifo_port_we 1 1 }  { s2m_sts_clear_c_num_data_valid fifo_status_num_data_valid 0 3 }  { s2m_sts_clear_c_fifo_cap fifo_update 0 3 }  { s2m_sts_clear_c_full_n fifo_status 0 1 }  { s2m_sts_clear_c_write fifo_data 1 1 } } }
 	s2mbuf { ap_none {  { s2mbuf in_data 0 64 } } }
 	s2mbuf_c { ap_fifo {  { s2mbuf_c_din fifo_port_we 1 64 }  { s2mbuf_c_num_data_valid fifo_status_num_data_valid 0 3 }  { s2mbuf_c_fifo_cap fifo_update 0 3 }  { s2mbuf_c_full_n fifo_status 0 1 }  { s2mbuf_c_write fifo_data 1 1 } } }
-	m2s_sts_clear { ap_none {  { m2s_sts_clear in_data 0 1 } } }
-	m2s_sts_clear_c { ap_fifo {  { m2s_sts_clear_c_din fifo_port_we 1 1 }  { m2s_sts_clear_c_num_data_valid fifo_status_num_data_valid 0 3 }  { m2s_sts_clear_c_fifo_cap fifo_update 0 3 }  { m2s_sts_clear_c_full_n fifo_status 0 1 }  { m2s_sts_clear_c_write fifo_data 1 1 } } }
 }
