@@ -1,6 +1,7 @@
 # Lab 4 - Caravel-FSIC FPGA 
 
 ## Outline
+![block diagram](https://github.com/vic9112/Advance_SOC/assets/137171415/6a347c56-0177-4f86-8d4a-913bd901dd56)
 
 - Target goal
   - Implementation complete Caravel-FSIC, FPGA-FSIC and HLS-DMA
