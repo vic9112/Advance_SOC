@@ -1,7 +1,6 @@
 # Lab 4 - Caravel-FSIC FPGA 
 
 ## Outline
-![block diagram](https://github.com/vic9112/Advance_SOC/assets/137171415/6a347c56-0177-4f86-8d4a-913bd901dd56)
 
 - Target goal
   - Implementation complete Caravel-FSIC, FPGA-FSIC and HLS-DMA
@@ -14,6 +13,7 @@
 ## Simulation Building Steps
 
 ### Caravel-FSIC FPGA Simulation
+![sim_bd](https://github.com/vic9112/Advance_SOC/assets/137171415/5408b4f4-6491-4b62-96e1-1dc9bcbe08fa)
 
 ``` bash=
 $ git clone https://github.com/vic9112/Advance_SOC
@@ -25,6 +25,7 @@ $ ./run_vivado_fsic_sim
 
 
 ### Caravel-FSIC FPGA Validation
+![val_bd](https://github.com/vic9112/Advance_SOC/assets/137171415/f9d085fc-3e92-4979-ae67-2254c456df44)
 
 ``` bash=
 $ git clone https://github.com/vic9112/Advance_SOC
