@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.1/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'ubuntu' on host 'ubuntu2004.linuxvmimages.local' (Linux_x86_64 version 5.15.0-105-generic) on Sun May 12 10:11:22 EDT 2024
+INFO: [HLS 200-10] For user 'ubuntu' on host 'ubuntu2004.linuxvmimages.local' (Linux_x86_64 version 5.15.0-106-generic) on Fri May 17 03:17:25 EDT 2024
 INFO: [HLS 200-10] On os Ubuntu 20.04.4 LTS
 INFO: [HLS 200-10] In directory '/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma'
 Sourcing Tcl script '/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma/hls_userdma.prj/solution1/export.tcl'
@@ -35,10 +35,11 @@ INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2896.520 ; gain = 0.023 ; free physical = 603 ; free virtual = 20197
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sun May 12 10:11:35 2024...
+INFO: [Common 17-206] Exiting Vivado at Fri May 17 03:17:50 2024...
 INFO: [HLS 200-802] Generated output file hls_userdma.prj/solution1/impl/export.zip
-INFO: [HLS 200-111] Finished Command export_design CPU user time: 12.03 seconds. CPU system time: 1.33 seconds. Elapsed time: 14.17 seconds; current allocated memory: -1022.133 MB.
-INFO: [HLS 200-112] Total CPU user time: 14.74 seconds. Total CPU system time: 1.85 seconds. Total elapsed time: 17.17 seconds; peak allocated memory: 473.957 MB.
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 13.32 seconds. CPU system time: 3.09 seconds. Elapsed time: 25.97 seconds; current allocated memory: -1022.309 MB.
+INFO: [HLS 200-112] Total CPU user time: 15.48 seconds. Total CPU system time: 3.75 seconds. Total elapsed time: 28.41 seconds; peak allocated memory: 473.781 MB.

@@ -31,5 +31,12 @@ $ cd lab04\ -\ fsic_fpga/vivado
 $ ./run_vivado_fsic
 ```
 
-- Above will generate bitstream and hardware header file into `./vivado/jupyter_notebook`, which has finished connecting DMA into block design.
+- Above will generate block diagram which exclude firDMA (userdma), user should open `.xpr` file under `~/vivado/vvd_caravel_fsic` using vivado GUI and:
+  1. Add userdma IP into block diagram 
+  2. Connect `updma_so` to `inStreamTop`, `updma_si` to `outStreamTop` 
+    
+  3. Generate bitstream again.
+- Reference address editor:
+  
+- User should change the MMIO address of DMA to the repective address of `userdma` in address editor
 
