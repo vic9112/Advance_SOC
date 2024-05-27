@@ -206,8 +206,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>incount40_din</name>
-<Object>incount40</Object>
+<name>incount35_din</name>
+<Object>incount35</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -217,8 +217,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>incount40_num_data_valid</name>
-<Object>incount40</Object>
+<name>incount35_num_data_valid</name>
+<Object>incount35</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -228,8 +228,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>incount40_fifo_cap</name>
-<Object>incount40</Object>
+<name>incount35_fifo_cap</name>
+<Object>incount35</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -239,8 +239,8 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>incount40_full_n</name>
-<Object>incount40</Object>
+<name>incount35_full_n</name>
+<Object>incount35</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -250,8 +250,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>incount40_write</name>
-<Object>incount40</Object>
+<name>incount35_write</name>
+<Object>incount35</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -323,7 +323,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>7</Bits>
+<Bits>2</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>

@@ -23,7 +23,7 @@ port (
     inStreamTop_TREADY : OUT STD_LOGIC;
     inStreamTop_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
     inStreamTop_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
-    inStreamTop_TUSER : IN STD_LOGIC_VECTOR (6 downto 0);
+    inStreamTop_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
     inStreamTop_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     in_en_clrsts : IN STD_LOGIC_VECTOR (0 downto 0);
     in_s2m_len : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -34,11 +34,11 @@ port (
     inbuf_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
     inbuf_full_n : IN STD_LOGIC;
     inbuf_write : OUT STD_LOGIC;
-    incount40_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    incount40_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    incount40_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
-    incount40_full_n : IN STD_LOGIC;
-    incount40_write : OUT STD_LOGIC;
+    incount35_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    incount35_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    incount35_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    incount35_full_n : IN STD_LOGIC;
+    incount35_write : OUT STD_LOGIC;
     s2m_len_c_din : OUT STD_LOGIC_VECTOR (31 downto 0);
     s2m_len_c_num_data_valid : IN STD_LOGIC_VECTOR (1 downto 0);
     s2m_len_c_fifo_cap : IN STD_LOGIC_VECTOR (1 downto 0);
@@ -97,8 +97,8 @@ attribute shreg_extract : string;
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_ap_ready : STD_LOGIC;
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_inbuf_din : STD_LOGIC_VECTOR (32 downto 0);
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_inbuf_write : STD_LOGIC;
-    signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_write : STD_LOGIC;
+    signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_din : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_write : STD_LOGIC;
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_inStreamTop_TREADY : STD_LOGIC;
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_tmp_last_V_out : STD_LOGIC_VECTOR (0 downto 0);
     signal grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_tmp_last_V_out_ap_vld : STD_LOGIC;
@@ -138,7 +138,7 @@ attribute shreg_extract : string;
     signal regslice_both_inStreamTop_V_strb_V_U_vld_out : STD_LOGIC;
     signal regslice_both_inStreamTop_V_strb_V_U_ack_in : STD_LOGIC;
     signal regslice_both_inStreamTop_V_user_V_U_apdone_blk : STD_LOGIC;
-    signal inStreamTop_TUSER_int_regslice : STD_LOGIC_VECTOR (6 downto 0);
+    signal inStreamTop_TUSER_int_regslice : STD_LOGIC_VECTOR (1 downto 0);
     signal regslice_both_inStreamTop_V_user_V_U_vld_out : STD_LOGIC;
     signal regslice_both_inStreamTop_V_user_V_U_ack_in : STD_LOGIC;
     signal regslice_both_inStreamTop_V_last_V_U_apdone_blk : STD_LOGIC;
@@ -161,17 +161,17 @@ attribute shreg_extract : string;
         inbuf_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
         inbuf_full_n : IN STD_LOGIC;
         inbuf_write : OUT STD_LOGIC;
-        incount40_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        incount40_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-        incount40_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
-        incount40_full_n : IN STD_LOGIC;
-        incount40_write : OUT STD_LOGIC;
+        incount35_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+        incount35_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+        incount35_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+        incount35_full_n : IN STD_LOGIC;
+        incount35_write : OUT STD_LOGIC;
         in_len_V_load : IN STD_LOGIC_VECTOR (31 downto 0);
         inStreamTop_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
         inStreamTop_TREADY : OUT STD_LOGIC;
         inStreamTop_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
         inStreamTop_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
-        inStreamTop_TUSER : IN STD_LOGIC_VECTOR (6 downto 0);
+        inStreamTop_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
         inStreamTop_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
         in_s2m_len : IN STD_LOGIC_VECTOR (31 downto 0);
         tmp_last_V_out : OUT STD_LOGIC_VECTOR (0 downto 0);
@@ -211,11 +211,11 @@ begin
         inbuf_fifo_cap => ap_const_lv7_0,
         inbuf_full_n => inbuf_full_n,
         inbuf_write => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_inbuf_write,
-        incount40_din => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_din,
-        incount40_num_data_valid => ap_const_lv3_0,
-        incount40_fifo_cap => ap_const_lv3_0,
-        incount40_full_n => incount40_full_n,
-        incount40_write => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_write,
+        incount35_din => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_din,
+        incount35_num_data_valid => ap_const_lv3_0,
+        incount35_fifo_cap => ap_const_lv3_0,
+        incount35_full_n => incount35_full_n,
+        incount35_write => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_write,
         in_len_V_load => in_len_V_load_reg_248,
         inStreamTop_TDATA => inStreamTop_TDATA_int_regslice,
         inStreamTop_TREADY => grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_inStreamTop_TREADY,
@@ -271,7 +271,7 @@ begin
 
     regslice_both_inStreamTop_V_user_V_U : component userdma_regslice_both
     generic map (
-        DataWidth => 7)
+        DataWidth => 2)
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
@@ -518,14 +518,14 @@ begin
         end if; 
     end process;
 
-    incount40_din <= grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_din;
+    incount35_din <= grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_din;
 
-    incount40_write_assign_proc : process(ap_CS_fsm_state2, grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_write)
+    incount35_write_assign_proc : process(ap_CS_fsm_state2, grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_write)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            incount40_write <= grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount40_write;
+            incount35_write <= grp_getinstream_Pipeline_VITIS_LOOP_49_1_fu_113_incount35_write;
         else 
-            incount40_write <= ap_const_logic_0;
+            incount35_write <= ap_const_logic_0;
         end if; 
     end process;
 

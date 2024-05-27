@@ -106,7 +106,7 @@ newFuncRoot:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i
 
 <Node id="10" bw="0" op_0_bw="0" op_1_bw="33" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-newFuncRoot:5 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i33 %inbuf, void @empty_14, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
+newFuncRoot:5 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i33 %inbuf, void @empty_6, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -326,7 +326,7 @@ for.inc.split:0 %specpipeline_ln22 = specpipeline void @_ssdm_op_SpecPipeline, i
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:1 %specloopname_ln21 = specloopname void @_ssdm_op_SpecLoopName, void @empty_11
+for.inc.split:1 %specloopname_ln21 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln21"/></StgValue>
@@ -436,7 +436,7 @@ for.inc.split:6 %br_ln21 = br void %for.inc
 </dataflow>
 <dataflow id="83" from="inbuf" to="specinterface_ln0" fromId="43" toId="11">
 </dataflow>
-<dataflow id="85" from="empty_14" to="specinterface_ln0" fromId="84" toId="11">
+<dataflow id="85" from="empty_6" to="specinterface_ln0" fromId="84" toId="11">
 </dataflow>
 <dataflow id="86" from="StgValue_58" to="specinterface_ln0" fromId="58" toId="11">
 </dataflow>
@@ -522,7 +522,7 @@ for.inc.split:6 %br_ln21 = br void %for.inc
 </dataflow>
 <dataflow id="136" from="_ssdm_op_SpecLoopName" to="specloopname_ln21" fromId="135" toId="24">
 </dataflow>
-<dataflow id="138" from="empty_11" to="specloopname_ln21" fromId="137" toId="24">
+<dataflow id="138" from="empty_14" to="specloopname_ln21" fromId="137" toId="24">
 </dataflow>
 <dataflow id="140" from="_ssdm_op_Write.m_axi.p1i32" to="write_ln24" fromId="139" toId="25">
 </dataflow>

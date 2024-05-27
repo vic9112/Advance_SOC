@@ -23,17 +23,17 @@ port (
     inbuf_fifo_cap : IN STD_LOGIC_VECTOR (6 downto 0);
     inbuf_full_n : IN STD_LOGIC;
     inbuf_write : OUT STD_LOGIC;
-    incount40_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-    incount40_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
-    incount40_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
-    incount40_full_n : IN STD_LOGIC;
-    incount40_write : OUT STD_LOGIC;
+    incount35_din : OUT STD_LOGIC_VECTOR (31 downto 0);
+    incount35_num_data_valid : IN STD_LOGIC_VECTOR (2 downto 0);
+    incount35_fifo_cap : IN STD_LOGIC_VECTOR (2 downto 0);
+    incount35_full_n : IN STD_LOGIC;
+    incount35_write : OUT STD_LOGIC;
     in_len_V_load : IN STD_LOGIC_VECTOR (31 downto 0);
     inStreamTop_TDATA : IN STD_LOGIC_VECTOR (31 downto 0);
     inStreamTop_TREADY : OUT STD_LOGIC;
     inStreamTop_TKEEP : IN STD_LOGIC_VECTOR (3 downto 0);
     inStreamTop_TSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
-    inStreamTop_TUSER : IN STD_LOGIC_VECTOR (6 downto 0);
+    inStreamTop_TUSER : IN STD_LOGIC_VECTOR (1 downto 0);
     inStreamTop_TLAST : IN STD_LOGIC_VECTOR (0 downto 0);
     in_s2m_len : IN STD_LOGIC_VECTOR (31 downto 0);
     tmp_last_V_out : OUT STD_LOGIC_VECTOR (0 downto 0);
@@ -77,7 +77,7 @@ attribute shreg_extract : string;
     signal inStreamTop_TDATA_blk_n : STD_LOGIC;
     signal ap_block_pp0_stage0 : BOOLEAN;
     signal inbuf_blk_n : STD_LOGIC;
-    signal incount40_blk_n : STD_LOGIC;
+    signal incount35_blk_n : STD_LOGIC;
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
     signal tmp_last_V_reg_223 : STD_LOGIC_VECTOR (0 downto 0);
     signal count_5_fu_150_p2 : STD_LOGIC_VECTOR (31 downto 0);
@@ -263,21 +263,21 @@ begin
     ap_CS_fsm_pp0_stage0 <= ap_CS_fsm(0);
         ap_block_pp0_stage0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
 
-    ap_block_pp0_stage0_01001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount40_full_n, or_ln66_reg_234)
+    ap_block_pp0_stage0_01001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount35_full_n, or_ln66_reg_234)
     begin
-                ap_block_pp0_stage0_01001 <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount40_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
+                ap_block_pp0_stage0_01001 <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount35_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
     end process;
 
 
-    ap_block_pp0_stage0_11001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount40_full_n, or_ln66_reg_234)
+    ap_block_pp0_stage0_11001_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount35_full_n, or_ln66_reg_234)
     begin
-                ap_block_pp0_stage0_11001 <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount40_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
+                ap_block_pp0_stage0_11001 <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount35_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
     end process;
 
 
-    ap_block_pp0_stage0_subdone_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount40_full_n, or_ln66_reg_234)
+    ap_block_pp0_stage0_subdone_assign_proc : process(ap_enable_reg_pp0_iter1, ap_enable_reg_pp0_iter2, inStreamTop_TVALID, inbuf_full_n, incount35_full_n, or_ln66_reg_234)
     begin
-                ap_block_pp0_stage0_subdone <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount40_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
+                ap_block_pp0_stage0_subdone <= (((or_ln66_reg_234 = ap_const_lv1_1) and (incount35_full_n = ap_const_logic_0) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1)) or ((ap_enable_reg_pp0_iter1 = ap_const_logic_1) and ((inbuf_full_n = ap_const_logic_0) or (inStreamTop_TVALID = ap_const_logic_0))));
     end process;
 
         ap_block_state1_pp0_stage0_iter0 <= not((ap_const_boolean_1 = ap_const_boolean_1));
@@ -288,9 +288,9 @@ begin
     end process;
 
 
-    ap_block_state3_pp0_stage0_iter2_assign_proc : process(incount40_full_n, or_ln66_reg_234)
+    ap_block_state3_pp0_stage0_iter2_assign_proc : process(incount35_full_n, or_ln66_reg_234)
     begin
-                ap_block_state3_pp0_stage0_iter2 <= ((or_ln66_reg_234 = ap_const_lv1_1) and (incount40_full_n = ap_const_logic_0));
+                ap_block_state3_pp0_stage0_iter2 <= ((or_ln66_reg_234 = ap_const_lv1_1) and (incount35_full_n = ap_const_logic_0));
     end process;
 
 
@@ -407,23 +407,23 @@ begin
     end process;
 
 
-    incount40_blk_n_assign_proc : process(ap_enable_reg_pp0_iter2, incount40_full_n, or_ln66_reg_234, ap_block_pp0_stage0)
+    incount35_blk_n_assign_proc : process(ap_enable_reg_pp0_iter2, incount35_full_n, or_ln66_reg_234, ap_block_pp0_stage0)
     begin
         if (((ap_const_boolean_0 = ap_block_pp0_stage0) and (or_ln66_reg_234 = ap_const_lv1_1) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1))) then 
-            incount40_blk_n <= incount40_full_n;
+            incount35_blk_n <= incount35_full_n;
         else 
-            incount40_blk_n <= ap_const_logic_1;
+            incount35_blk_n <= ap_const_logic_1;
         end if; 
     end process;
 
-    incount40_din <= count_5_reg_228;
+    incount35_din <= count_5_reg_228;
 
-    incount40_write_assign_proc : process(ap_enable_reg_pp0_iter2, or_ln66_reg_234, ap_block_pp0_stage0_11001)
+    incount35_write_assign_proc : process(ap_enable_reg_pp0_iter2, or_ln66_reg_234, ap_block_pp0_stage0_11001)
     begin
         if (((ap_const_boolean_0 = ap_block_pp0_stage0_11001) and (or_ln66_reg_234 = ap_const_lv1_1) and (ap_enable_reg_pp0_iter2 = ap_const_logic_1))) then 
-            incount40_write <= ap_const_logic_1;
+            incount35_write <= ap_const_logic_1;
         else 
-            incount40_write <= ap_const_logic_0;
+            incount35_write <= ap_const_logic_0;
         end if; 
     end process;
 

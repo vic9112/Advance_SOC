@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1715930211420">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1716831230138">
   <ports id="1" name="inbuf" type="PortType" coreId="62" bitwidth="33" iftype="IfTypeRom">
     <dataOutputObjs>call</dataOutputObjs>
   </ports>
-  <ports id="2" name="incount40" type="PortType" coreName="FIFO_SRL" coreId="3621216858" bitwidth="32" iftype="IfTypeRom">
+  <ports id="2" name="incount35" type="PortType" coreName="FIFO_SRL" coreId="3621216858" bitwidth="32" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="3" name="in_en_clrsts" type="PortType" coreName="FIFO_SRL" coreId="2936051568" bitwidth="1" iftype="IfTypeRom">
+  <ports id="3" name="in_en_clrsts" type="PortType" coreName="FIFO_SRL" coreId="2927514384" bitwidth="1" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="s2m_buf_sts" type="PortType" coreId="2936063536" bitwidth="1" direction="DirOut">
+  <ports id="4" name="s2m_buf_sts" type="PortType" coreId="2927772480" bitwidth="1" direction="DirOut">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="5" name="in_s2m_len" type="PortType" coreName="FIFO_SRL" coreId="54" bitwidth="32" iftype="IfTypeRom">
+  <ports id="5" name="in_s2m_len" type="PortType" coreName="FIFO_SRL" coreId="52" bitwidth="32" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="6" name="gmem0" type="PortType" coreId="0" bitwidth="32" direction="DirOut" iftype="IfTypeFifo">
+  <ports id="6" name="gmem0" type="PortType" coreId="54" bitwidth="32" direction="DirOut" iftype="IfTypeFifo">
     <dataInputObjs>getelementptr</dataInputObjs>
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="7" name="out_memory" type="PortType" coreName="FIFO_SRL" coreId="2935189616" bitwidth="64" iftype="IfTypeRom">
+  <ports id="7" name="out_memory" type="PortType" coreName="FIFO_SRL" coreId="2928058272" bitwidth="64" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
   <edges id="77" source_obj="//@ports.6" sink_obj="//@blocks.0/@node_objs.0"/>
@@ -168,7 +168,7 @@
       <dataOutputObjs>phi</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="final_s2m_len_V_write_ln14" lineNumber="14" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="8" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="final_s2m_len_V_write_ln14" lineNumber="14" fileName="userdma.cpp" fileDirectory=".." coreId="2928153584" contextFuncName="streamtoparallelwithburst" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="8" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="14" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <constName>empty</constName>
     </node_objs>
@@ -190,7 +190,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>VITIS_LOOP_21_2</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="phi_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="128" contextFuncName="streamtoparallelwithburst" bitwidth="33" opcode="phi" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="phi_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2927471688" contextFuncName="streamtoparallelwithburst" bitwidth="33" opcode="phi" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>sub</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
@@ -205,17 +205,17 @@
       <dataOutputObjs>store</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="sext_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln18_fu_172_p1" coreId="0" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="sext" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="sext_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln18_fu_172_p1" coreId="2928299040" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="sext" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="18" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="idx_write_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="13" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="idx_write_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." coreId="2928298424" contextFuncName="streamtoparallelwithburst" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="13" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="18" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>alloca</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="br_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." coreId="2936590816" contextFuncName="streamtoparallelwithburst" opcode="br" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="br_ln18" lineNumber="18" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="br" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="18" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <controlInputObjs>VITIS_LOOP_21_2</controlInputObjs>
     </node_objs>
@@ -233,7 +233,7 @@
     <controlOutputObjs>for.end</controlOutputObjs>
     <node_objs xsi:type="cdfg:CdfgNode" id="34" name="tmp" lineNumber="145" originalName="tmp" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="1.0" m_display="0" m_delay="3.63" m_topoIndex="15" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
-      <dataInputObjs>incount40</dataInputObjs>
+      <dataInputObjs>incount35</dataInputObjs>
       <dataOutputObjs>icmp</dataOutputObjs>
       <dataOutputObjs>trunc</dataOutputObjs>
       <dataOutputObjs>writereq</dataOutputObjs>
@@ -246,7 +246,7 @@
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="br_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="1313423963" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="br_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2928226240" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>for.end</controlInputObjs>
@@ -263,17 +263,17 @@
     <controlInputObjs>VITIS_LOOP_21_2</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>for.end</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="idx_load" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2936806912" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="idx_load" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2928475232" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>alloca</dataInputObjs>
       <dataOutputObjs>trunc</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="trunc_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_fu_229_p1" coreId="2936823264" contextFuncName="streamtoparallelwithburst" bitwidth="31" opcode="trunc" nodeLabel="3.0" m_display="0" m_topoIndex="27" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="trunc_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_fu_229_p1" coreId="0" contextFuncName="streamtoparallelwithburst" bitwidth="31" opcode="trunc" nodeLabel="3.0" m_display="0" m_topoIndex="27" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>call</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="trunc_ln21_2" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_2_fu_187_p1" coreId="2936823920" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="trunc" nodeLabel="1.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="trunc_ln21_2" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_2_fu_187_p1" coreId="2928439200" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="trunc" nodeLabel="1.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>load</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -284,7 +284,7 @@
       <dataInputObjs>sext</dataInputObjs>
       <dataOutputObjs>bitconcatenate</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="shl_ln" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="shl_ln_fu_196_p3" coreId="2936821064" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="shl_ln" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="shl_ln_fu_196_p3" coreId="2928439200" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -296,19 +296,19 @@
       <dataInputObjs>bitconcatenate</dataInputObjs>
       <dataOutputObjs>partselect</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="trunc_ln21_1" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_1_reg_317" coreId="2936695344" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="trunc_ln21_1" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="trunc_ln21_1_reg_317" coreId="2928220880" contextFuncName="streamtoparallelwithburst" bitwidth="62" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <dataOutputObjs>call</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="sext_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln21_fu_219_p1" coreId="2936714368" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="sext" nodeLabel="2.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="sext_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln21_fu_219_p1" coreId="0" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="sext" nodeLabel="2.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="gmem0_addr" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2936715024" contextFuncName="streamtoparallelwithburst" bitwidth="32" opcode="getelementptr" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="gmem0_addr" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." coreId="2928324960" contextFuncName="streamtoparallelwithburst" bitwidth="32" opcode="getelementptr" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>sext</dataInputObjs>
       <dataOutputObjs>gmem0</dataOutputObjs>
@@ -320,8 +320,8 @@
       <dataInputObjs>getelementptr</dataInputObjs>
       <dataInputObjs>read</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="empty_49" coreId="645164649" bitwidth="32" opcode="wait" nodeLabel="3.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1"/>
-    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2_fu_138" coreId="2936615088" contextFuncName="streamtoparallelwithburst" opcode="call" nodeLabel="3.0" nodeLatency="1" m_display="0" m_delay="4.05" m_topoIndex="29" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="empty_44" coreId="2928419744" bitwidth="32" opcode="wait" nodeLabel="3.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="_ln21" lineNumber="21" fileName="userdma.cpp" fileDirectory=".." rtlName="grp_streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2_fu_138" coreId="1702258035" contextFuncName="streamtoparallelwithburst" opcode="call" nodeLabel="3.0" nodeLatency="1" m_display="0" m_delay="4.05" m_topoIndex="29" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="21" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataInputObjs>trunc</dataInputObjs>
@@ -329,11 +329,11 @@
       <dataOutputObjs>gmem0</dataOutputObjs>
       <constName>streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="empty_50" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="no" opType="adapter" coreId="113" contextFuncName="streamtoparallelwithburst" bitwidth="1" opcode="writeresp" nodeLabel="5.0" nodeLatency="13" m_display="0" m_delay="7.3" m_topoIndex="30" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="empty_45" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="no" opType="adapter" coreId="113" contextFuncName="streamtoparallelwithburst" bitwidth="1" opcode="writeresp" nodeLabel="5.0" nodeLatency="13" m_display="0" m_delay="7.3" m_topoIndex="30" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="26" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>getelementptr</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="br_ln26" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="br_ln26" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreId="2928220880" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="26" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <controlInputObjs>for.end</controlInputObjs>
     </node_objs>
@@ -349,12 +349,12 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>if.then8</controlOutputObjs>
     <controlOutputObjs>do.cond</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="idx_load_1" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreId="2936788176" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="load" nodeLabel="18.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="idx_load_1" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." coreId="25" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="load" nodeLabel="18.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="26" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>alloca</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="sext_ln26" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln26_fu_233_p1" coreId="2936789056" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="sext" nodeLabel="18.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="sext_ln26" lineNumber="26" fileName="userdma.cpp" fileDirectory=".." rtlName="sext_ln26_fu_233_p1" coreId="2928218928" contextFuncName="streamtoparallelwithburst" bitwidth="64" opcode="sext" nodeLabel="18.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="26" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -387,7 +387,7 @@
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="br_ln29" lineNumber="29" fileName="userdma.cpp" fileDirectory=".." coreId="1" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="br_ln29" lineNumber="29" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="29" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>do.cond</controlInputObjs>
@@ -406,11 +406,11 @@
     <controlInputObjs>for.end</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>do.cond</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="out_sts_write_ln30" lineNumber="30" fileName="userdma.cpp" fileDirectory=".." coreId="2936676784" contextFuncName="streamtoparallelwithburst" opcode="store" nodeLabel="18.0" m_display="0" m_topoIndex="40" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="out_sts_write_ln30" lineNumber="30" fileName="userdma.cpp" fileDirectory=".." coreId="2928411824" contextFuncName="streamtoparallelwithburst" opcode="store" nodeLabel="18.0" m_display="0" m_topoIndex="40" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="30" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="br_ln31" lineNumber="31" fileName="userdma.cpp" fileDirectory=".." coreId="2936677280" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="br_ln31" lineNumber="31" fileName="userdma.cpp" fileDirectory=".." coreId="2928423496" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="31" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <controlInputObjs>do.cond</controlInputObjs>
     </node_objs>
@@ -426,7 +426,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>do.cond.VITIS_LOOP_21_2_crit_edge</controlOutputObjs>
     <controlOutputObjs>do.end</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="65" name="out_sts_load" lineNumber="32" fileName="userdma.cpp" fileDirectory=".." coreId="2936845424" contextFuncName="streamtoparallelwithburst" bitwidth="1" opcode="load" nodeLabel="18.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="65" name="out_sts_load" lineNumber="32" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" bitwidth="1" opcode="load" nodeLabel="18.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="32" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataOutputObjs>write</dataOutputObjs>
     </node_objs>
@@ -436,7 +436,7 @@
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="br_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="br_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="2928059264" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="34" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>do.end</controlInputObjs>
@@ -454,12 +454,12 @@
     <controlInputObjs>do.cond</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>VITIS_LOOP_21_2</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="idx_write_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="2936828752" contextFuncName="streamtoparallelwithburst" opcode="store" nodeLabel="18.0" m_display="0" m_delay="1.58" m_topoIndex="45" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="idx_write_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="2928483536" contextFuncName="streamtoparallelwithburst" opcode="store" nodeLabel="18.0" m_display="0" m_delay="1.58" m_topoIndex="45" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="34" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <dataInputObjs>add</dataInputObjs>
       <dataInputObjs>alloca</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="70" name="br_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="70" name="br_ln34" lineNumber="34" fileName="userdma.cpp" fileDirectory=".." coreId="2928059264" contextFuncName="streamtoparallelwithburst" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="34" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
       <controlInputObjs>VITIS_LOOP_21_2</controlInputObjs>
     </node_objs>
@@ -475,7 +475,7 @@
       <dataInputObjs>load</dataInputObjs>
       <dataOutputObjs>s2m_buf_sts</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="73" name="_ln36" lineNumber="36" fileName="userdma.cpp" fileDirectory=".." coreId="2936835376" contextFuncName="streamtoparallelwithburst" opcode="ret" nodeLabel="18.0" m_display="0" m_topoIndex="48" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="73" name="_ln36" lineNumber="36" fileName="userdma.cpp" fileDirectory=".." coreId="2928411824" contextFuncName="streamtoparallelwithburst" opcode="ret" nodeLabel="18.0" m_display="0" m_topoIndex="48" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="userdma.cpp" linenumber="36" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="streamtoparallelwithburst"/>
     </node_objs>
     <fileValidLineNumbers fileName="userdma.cpp">
@@ -663,7 +663,7 @@
       <nodeIds>49</nodeIds>
     </contents>
   </ioPorts>
-  <ioPorts name="incount40">
+  <ioPorts name="incount35">
     <contents name="read">
       <nodeIds>34</nodeIds>
     </contents>

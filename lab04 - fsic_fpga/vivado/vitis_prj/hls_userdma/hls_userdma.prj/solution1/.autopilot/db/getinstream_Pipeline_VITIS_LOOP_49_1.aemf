@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1715930210944">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1716831229266">
   <ports id="1" name="in_len_V_load" type="PortType" coreId="3621216858" bitwidth="32">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="2" name="inStreamTop_V_data_V" type="PortType" coreId="997420912" bitwidth="32">
+  <ports id="2" name="inStreamTop_V_data_V" type="PortType" coreId="1702065467" bitwidth="32">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="3" name="inStreamTop_V_keep_V" type="PortType" coreId="2935557248" bitwidth="4">
+  <ports id="3" name="inStreamTop_V_keep_V" type="PortType" coreId="794914148" bitwidth="4">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="inStreamTop_V_strb_V" type="PortType" coreId="2935247296" bitwidth="4">
+  <ports id="4" name="inStreamTop_V_strb_V" type="PortType" coreId="2927184400" bitwidth="4">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="5" name="inStreamTop_V_user_V" type="PortType" coreId="2935524672" bitwidth="7">
+  <ports id="5" name="inStreamTop_V_user_V" type="PortType" coreId="2926989968" bitwidth="2">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="6" name="inStreamTop_V_last_V" type="PortType" coreId="2935330688" bitwidth="1">
+  <ports id="6" name="inStreamTop_V_last_V" type="PortType" coreId="3558100192" bitwidth="1">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="7" name="inbuf" type="PortType" coreName="FIFO" coreId="2935308064" bitwidth="33" direction="DirOut" iftype="IfTypeRom">
+  <ports id="7" name="inbuf" type="PortType" coreName="FIFO" coreId="2926950576" bitwidth="33" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="8" name="in_s2m_len" type="PortType" coreId="2935283664" bitwidth="32">
+  <ports id="8" name="in_s2m_len" type="PortType" coreId="1314013527" bitwidth="32">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="9" name="incount40" type="PortType" coreName="FIFO_SRL" coreId="2935330384" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+  <ports id="9" name="incount35" type="PortType" coreName="FIFO_SRL" coreId="2926953144" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="10" name="tmp_last_V_out" type="PortType" coreId="2935274208" bitwidth="1" direction="DirOut">
+  <ports id="10" name="tmp_last_V_out" type="PortType" coreId="2926952144" bitwidth="1" direction="DirOut">
     <dataInputObjs>write</dataInputObjs>
   </ports>
   <edges id="59" source_obj="//@ports.7" sink_obj="//@blocks.0/@node_objs.2"/>
@@ -93,14 +93,14 @@
   <edges id="221" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.0"/>
   <blocks id="21" name="newFuncRoot" type="BlockType">
     <controlOutputObjs>do.body</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="count" originalName="count" coreId="1318053200" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="count" originalName="count" coreId="1852402733" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
       <dataOutputObjs>store</dataOutputObjs>
       <dataOutputObjs>load</dataOutputObjs>
       <dataOutputObjs>store</dataOutputObjs>
       <dataOutputObjs>store</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="empty" coreId="1318053200" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="empty" coreId="1814979426" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
       <dataOutputObjs>store</dataOutputObjs>
       <dataOutputObjs>load</dataOutputObjs>
       <dataOutputObjs>store</dataOutputObjs>
@@ -110,31 +110,31 @@
       <dataInputObjs>in_s2m_len</dataInputObjs>
       <dataOutputObjs>icmp</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="in_len_V_load_read" coreId="1814979426" bitwidth="32" opcode="read" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="in_len_V_load_read" coreId="2926985520" bitwidth="32" opcode="read" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
       <dataInputObjs>in_len_V_load</dataInputObjs>
       <dataOutputObjs>store</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="empty_write_ln0" coreId="2935370880" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="5" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="empty_write_ln0" coreId="784" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="5" m_clusterGroupNumber="-1">
       <dataInputObjs>read</dataInputObjs>
       <dataInputObjs>alloca</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="count_write_ln0" coreId="0" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="6" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="count_write_ln0" coreId="2926986288" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="6" m_clusterGroupNumber="-1">
       <dataInputObjs>alloca</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="br_ln0" coreId="2935310768" opcode="br" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="br_ln0" coreId="2926915680" opcode="br" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
       <controlInputObjs>do.body</controlInputObjs>
     </node_objs>
   </blocks>
   <blocks id="53" name="do.end.exitStub" type="BlockType">
     <controlInputObjs>do.cond</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="tmp_last_V_out_write_ln293" lineNumber="293" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="2935344480" contextFuncName="read" opcode="write" nodeLabel="2.0" m_display="0" m_topoIndex="30" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="tmp_last_V_out_write_ln293" lineNumber="293" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="2927055808" contextFuncName="read" opcode="write" nodeLabel="2.0" m_display="0" m_topoIndex="30" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" linenumber="293" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
       <dataInputObjs>extractvalue</dataInputObjs>
       <dataOutputObjs>tmp_last_V_out</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="_ln0" coreId="78" opcode="ret" nodeLabel="2.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="_ln0" coreId="0" opcode="ret" nodeLabel="2.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1"/>
     <fileValidLineNumbers fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h">
       <validLinenumbers>293</validLinenumbers>
     </fileValidLineNumbers>
@@ -147,17 +147,17 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>if.then24</controlOutputObjs>
       <controlOutputObjs>do.body.do.cond_crit_edge</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="count_4" lineNumber="63" originalName="count" fileName="userdma.cpp" fileDirectory=".." coreId="176" contextFuncName="getinstream" bitwidth="32" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="count_4" lineNumber="63" originalName="count" fileName="userdma.cpp" fileDirectory=".." coreId="1937339168" contextFuncName="getinstream" bitwidth="32" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="63" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>alloca</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="p_load" lineNumber="886" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" fileDirectory=".." coreId="2935308064" contextFuncName="operator_add_assign_32_true" bitwidth="32" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="p_load" lineNumber="886" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" fileDirectory=".." coreId="2926917616" contextFuncName="operator_add_assign_32_true" bitwidth="32" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_int_base.h" linenumber="886" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="operator+=&amp;lt;32, true&amp;gt;"/>
         <dataInputObjs>alloca</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="26" name="empty_53" lineNumber="293" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreName="axis" implIndex="axi4stream" control="no" opType="adapter" coreId="115" contextFuncName="read" bitwidth="48" opcode="read" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="26" name="empty_47" lineNumber="293" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreName="axis" implIndex="axi4stream" control="no" opType="adapter" coreId="115" contextFuncName="read" bitwidth="43" opcode="read" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" linenumber="293" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
         <dataInputObjs>inStreamTop_V_data_V</dataInputObjs>
         <dataInputObjs>inStreamTop_V_keep_V</dataInputObjs>
@@ -167,19 +167,19 @@
         <dataOutputObjs>extractvalue</dataOutputObjs>
         <dataOutputObjs>extractvalue</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="27" name="tmp_data_V" lineNumber="293" originalName="tmp.data.V" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="1819243365" contextFuncName="read" bitwidth="32" opcode="extractvalue" nodeLabel="1.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="27" name="tmp_data_V" lineNumber="293" originalName="tmp.data.V" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="0" contextFuncName="read" bitwidth="32" opcode="extractvalue" nodeLabel="1.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" linenumber="293" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
         <dataInputObjs>read</dataInputObjs>
         <dataOutputObjs>bitconcatenate</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="28" name="tmp_last_V" lineNumber="293" originalName="tmp.last.V" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="2935337584" contextFuncName="read" bitwidth="1" opcode="extractvalue" nodeLabel="1.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="28" name="tmp_last_V" lineNumber="293" originalName="tmp.last.V" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" fileDirectory=".." coreId="0" contextFuncName="read" bitwidth="1" opcode="extractvalue" nodeLabel="1.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/ap_axi_sdata.h" linenumber="293" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
         <dataInputObjs>read</dataInputObjs>
         <dataOutputObjs>write</dataOutputObjs>
         <dataOutputObjs>bitconcatenate</dataOutputObjs>
         <dataOutputObjs>or</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="p_0" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="inbuf_din" coreId="0" contextFuncName="write" bitwidth="33" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="p_0" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="inbuf_din" coreId="2927153072" contextFuncName="write" bitwidth="33" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="write"/>
         <dataInputObjs>extractvalue</dataInputObjs>
         <dataInputObjs>extractvalue</dataInputObjs>
@@ -205,7 +205,7 @@
         <dataOutputObjs>store</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="33" name="tmp" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." rtlName="tmp_fu_162_p4" coreId="0" contextFuncName="getinstream" bitwidth="28" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="33" name="tmp" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." rtlName="tmp_fu_162_p4" coreId="176" contextFuncName="getinstream" bitwidth="28" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="66" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>icmp</dataOutputObjs>
@@ -223,7 +223,7 @@
         <dataInputObjs>icmp</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="br_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="2935297264" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="br_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="2927153072" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="66" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>or</dataInputObjs>
         <controlInputObjs>do.body.do.cond_crit_edge</controlInputObjs>
@@ -247,12 +247,12 @@
       <controlInputObjs>do.body</controlInputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>do.cond</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="38" name="count_write_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="608" contextFuncName="getinstream" opcode="store" nodeLabel="2.0" m_display="0" m_delay="1.58" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="38" name="count_write_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="825368659" contextFuncName="getinstream" opcode="store" nodeLabel="2.0" m_display="0" m_delay="1.58" m_topoIndex="25" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="66" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>add</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="39" name="br_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="2935554768" contextFuncName="getinstream" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="39" name="br_ln66" lineNumber="66" fileName="userdma.cpp" fileDirectory=".." coreId="1414419794" contextFuncName="getinstream" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="66" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <controlInputObjs>do.cond</controlInputObjs>
       </node_objs>
@@ -264,17 +264,17 @@
       <controlInputObjs>do.body</controlInputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>do.cond</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="41" name="incount40_write_ln174" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="2.0" m_display="0" m_delay="3.63" m_topoIndex="27" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="41" name="incount35_write_ln174" lineNumber="174" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="2.0" m_display="0" m_delay="3.63" m_topoIndex="27" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="write"/>
         <dataInputObjs>add</dataInputObjs>
-        <dataOutputObjs>incount40</dataOutputObjs>
+        <dataOutputObjs>incount35</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="count_write_ln69" lineNumber="69" fileName="userdma.cpp" fileDirectory=".." coreId="2935574408" contextFuncName="getinstream" opcode="store" nodeLabel="2.0" m_display="0" m_delay="1.58" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="count_write_ln69" lineNumber="69" fileName="userdma.cpp" fileDirectory=".." coreId="2927047440" contextFuncName="getinstream" opcode="store" nodeLabel="2.0" m_display="0" m_delay="1.58" m_topoIndex="28" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="69" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>alloca</dataInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="43" name="br_ln69" lineNumber="69" fileName="userdma.cpp" fileDirectory=".." coreId="2935575200" contextFuncName="getinstream" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="43" name="br_ln69" lineNumber="69" fileName="userdma.cpp" fileDirectory=".." coreId="2927153072" contextFuncName="getinstream" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="69" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <controlInputObjs>do.cond</controlInputObjs>
       </node_objs>
@@ -298,7 +298,7 @@
         <dataInputObjs>read</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="46" name="br_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="1179535650" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="46" name="br_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="2927052336" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="70" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>do.end.exitStub</controlInputObjs>
@@ -315,12 +315,12 @@
       <controlInputObjs>do.cond</controlInputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>do.body</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="48" name="empty_write_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="getinstream" opcode="store" nodeLabel="1.0" m_display="0" m_delay="1.58" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="48" name="empty_write_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="574454132" contextFuncName="getinstream" opcode="store" nodeLabel="1.0" m_display="0" m_delay="1.58" m_topoIndex="23" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="70" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <dataInputObjs>add</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="49" name="br_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="49" name="br_ln70" lineNumber="70" fileName="userdma.cpp" fileDirectory=".." coreId="2927054704" contextFuncName="getinstream" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="userdma.cpp" linenumber="70" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="getinstream"/>
         <controlInputObjs>do.body</controlInputObjs>
       </node_objs>
@@ -389,6 +389,9 @@
   <ioNodes realName="store_ln66_store_fu_194">
     <nodeIds>38</nodeIds>
   </ioNodes>
+  <ioNodes realName="empty_47_read_fu_82">
+    <nodeIds>26</nodeIds>
+  </ioNodes>
   <ioNodes realName="store_ln70_store_fu_189">
     <nodeIds>48</nodeIds>
   </ioNodes>
@@ -418,9 +421,6 @@
   </ioNodes>
   <ioNodes realName="write_ln174_write_fu_103">
     <nodeIds>41</nodeIds>
-  </ioNodes>
-  <ioNodes realName="empty_53_read_fu_82">
-    <nodeIds>26</nodeIds>
   </ioNodes>
   <ioNodes realName="in_len_V_load_read_read_fu_76">
     <nodeIds>17</nodeIds>
@@ -465,7 +465,7 @@
       <nodeIds>30</nodeIds>
     </contents>
   </ioPorts>
-  <ioPorts name="incount40">
+  <ioPorts name="incount35">
     <contents name="write">
       <nodeIds>41</nodeIds>
     </contents>

@@ -1,283 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1715930212040">
-  <ports id="1" name="outbuf" type="PortType" coreId="3621216858" bitwidth="40" iftype="IfTypeRom">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1716831231042">
+  <ports id="1" name="outbuf" type="PortType" coreId="2929552016" bitwidth="33" iftype="IfTypeRom">
     <dataOutputObjs>call</dataOutputObjs>
   </ports>
-  <ports id="2" name="outcount41" type="PortType" coreName="FIFO_SRL" coreId="2938030912" bitwidth="32" iftype="IfTypeRom">
+  <ports id="2" name="in_en_clrsts" type="PortType" coreName="FIFO_SRL" coreId="2929280512" bitwidth="1" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="3" name="in_en_clrsts" type="PortType" coreName="FIFO_SRL" coreId="2147483647" bitwidth="1" iftype="IfTypeRom">
-    <dataOutputObjs>read</dataOutputObjs>
-  </ports>
-  <ports id="4" name="m2s_buf_sts" type="PortType" coreId="0" bitwidth="1" direction="DirOut">
+  <ports id="3" name="m2s_buf_sts" type="PortType" coreId="2928351312" bitwidth="1" direction="DirOut">
     <dataInputObjs>write</dataInputObjs>
   </ports>
-  <ports id="5" name="outStreamTop_V_data_V" type="PortType" coreId="0" bitwidth="32" direction="DirOut">
+  <ports id="4" name="outStreamTop_V_data_V" type="PortType" coreId="2928351312" bitwidth="32" direction="DirOut">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="6" name="outStreamTop_V_keep_V" type="PortType" coreId="2937701312" bitwidth="4" direction="DirOut">
+  <ports id="5" name="outStreamTop_V_keep_V" type="PortType" coreId="2928351312" bitwidth="4" direction="DirOut">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="7" name="outStreamTop_V_strb_V" type="PortType" coreId="1330007625" bitwidth="4" direction="DirOut">
+  <ports id="6" name="outStreamTop_V_strb_V" type="PortType" coreId="2928351312" bitwidth="4" direction="DirOut">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="8" name="outStreamTop_V_user_V" type="PortType" coreId="2937913456" bitwidth="7" direction="DirOut">
+  <ports id="7" name="outStreamTop_V_user_V" type="PortType" coreId="2928351312" bitwidth="2" direction="DirOut">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="9" name="outStreamTop_V_last_V" type="PortType" coreId="2937844256" bitwidth="1" direction="DirOut">
+  <ports id="8" name="outStreamTop_V_last_V" type="PortType" coreId="2929690272" bitwidth="1" direction="DirOut">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <edges id="38" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.2"/>
-  <edges id="39" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.3"/>
-  <edges id="40" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.0"/>
-  <edges id="43" source_obj="//@ports.1" sink_obj="//@blocks.1/@node_objs.1"/>
-  <edges id="48" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="49" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="50" source_obj="//@ports.0" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="51" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.4"/>
-  <edges id="52" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.5"/>
-  <edges id="53" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.6"/>
-  <edges id="54" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.7"/>
-  <edges id="55" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.8"/>
-  <edges id="56" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="57" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.4"/>
-  <edges id="58" source_obj="//@blocks.1/@node_objs.4" sink_obj="//@blocks.1/@node_objs.5"/>
-  <edges id="59" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.5"/>
-  <edges id="60" source_obj="//@blocks.1/@node_objs.4" sink_obj="//@blocks.1/@node_objs.6"/>
-  <edges id="61" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.1/@node_objs.6"/>
-  <edges id="62" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.6"/>
-  <edges id="63" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.2/@node_objs.0"/>
-  <edges id="68" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@ports.3"/>
-  <edges id="69" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
-  <edges id="166" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
-  <edges id="167" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
-  <edges id="168" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.1" is_back_edge="1"/>
-  <edges id="169" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.2"/>
-  <edges id="170" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="171" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.2/@node_objs.1"/>
-  <edges id="172" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@blocks.1/@node_objs.4"/>
-  <edges id="173" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.5"/>
-  <blocks id="18" name="entry" type="BlockType">
-    <controlOutputObjs>VITIS_LOOP_125_2</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="out_val_last_V" originalName="out_val.last.V" coreId="1142974245" bitwidth="1" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
-      <dataOutputObjs>load</dataOutputObjs>
-      <dataOutputObjs>store</dataOutputObjs>
-      <constName>empty</constName>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="p_phi_loc" coreId="0" bitwidth="1" opcode="alloca" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
-      <dataOutputObjs>call</dataOutputObjs>
-      <dataOutputObjs>load</dataOutputObjs>
-      <constName>empty</constName>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="in_en_clrsts_read" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="1" opcode="read" m_display="0" m_delay="3.63" m_topoIndex="3" m_clusterGroupNumber="-1">
+  <edges id="21" source_obj="//@ports.1" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="26" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="27" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.3"/>
+  <edges id="28" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.4"/>
+  <edges id="29" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.5"/>
+  <edges id="30" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.6"/>
+  <edges id="31" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.7"/>
+  <edges id="32" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="37" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@ports.2"/>
+  <edges id="38" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="113" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="114" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="115" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.4"/>
+  <blocks id="18" name="sendoutstream" type="BlockType">
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="in_en_clrsts_read" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="1" opcode="read" m_display="0" m_delay="3.63" m_topoIndex="1" m_clusterGroupNumber="-1">
       <dataInputObjs>in_en_clrsts</dataInputObjs>
       <dataOutputObjs>xor</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="br_ln122" lineNumber="122" fileName="userdma.cpp" fileDirectory=".." coreId="0" contextFuncName="sendoutstream" opcode="br" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="122" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
-      <controlInputObjs>VITIS_LOOP_125_2</controlInputObjs>
-    </node_objs>
-    <fileValidLineNumbers fileName="userdma.cpp">
-      <validLinenumbers>122</validLinenumbers>
-    </fileValidLineNumbers>
-  </blocks>
-  <blocks id="27" name="VITIS_LOOP_125_2" type="BlockType">
-    <controlInputObjs>entry</controlInputObjs>
-    <controlInputObjs>VITIS_LOOP_125_2</controlInputObjs>
-    <controlOutputObjs>br</controlOutputObjs>
-    <controlOutputObjs>br</controlOutputObjs>
-    <controlOutputObjs>do.end</controlOutputObjs>
-    <controlOutputObjs>VITIS_LOOP_125_2</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="out_val_last_V_load" coreId="6775156" bitwidth="1" opcode="load" nodeLabel="2.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
-      <dataInputObjs>alloca</dataInputObjs>
-      <dataOutputObjs>call</dataOutputObjs>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="21" name="tmp" lineNumber="145" originalName="tmp" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="1.0" m_display="0" m_delay="3.63" m_topoIndex="5" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
-      <dataInputObjs>outcount41</dataInputObjs>
-      <dataOutputObjs>call</dataOutputObjs>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="empty" coreId="622865508" bitwidth="32" opcode="wait" nodeLabel="2.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1"/>
-    <node_objs xsi:type="cdfg:CdfgNode" id="23" name="_ln145" lineNumber="145" fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89" coreId="779379573" contextFuncName="read" opcode="call" nodeLabel="2.0" nodeLatency="1" m_display="0" m_delay="1.58" m_topoIndex="8" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="read"/>
-      <dataInputObjs>load</dataInputObjs>
-      <dataInputObjs>read</dataInputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="empty" coreId="2928293008" bitwidth="32" opcode="wait" nodeLabel="1.0" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="_ln0" rtlName="grp_sendoutstream_Pipeline_VITIS_LOOP_117_1_fu_65" coreId="1397508187" opcode="call" nodeLabel="1.0" nodeLatency="1" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
       <dataInputObjs>outbuf</dataInputObjs>
-      <dataInputObjs>alloca</dataInputObjs>
       <dataOutputObjs>outStreamTop_V_data_V</dataOutputObjs>
       <dataOutputObjs>outStreamTop_V_keep_V</dataOutputObjs>
       <dataOutputObjs>outStreamTop_V_strb_V</dataOutputObjs>
       <dataOutputObjs>outStreamTop_V_user_V</dataOutputObjs>
       <dataOutputObjs>outStreamTop_V_last_V</dataOutputObjs>
-      <constName>sendoutstream_Pipeline_VITIS_LOOP_125_2</constName>
+      <constName>sendoutstream_Pipeline_VITIS_LOOP_117_1</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="p_phi_loc_load" coreId="1936942413" bitwidth="1" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
-      <dataInputObjs>alloca</dataInputObjs>
-      <dataOutputObjs>store</dataOutputObjs>
-      <dataOutputObjs>br</dataOutputObjs>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="25" name="out_val_last_V_write_ln133" lineNumber="133" fileName="userdma.cpp" fileDirectory=".." coreId="2938012192" contextFuncName="sendoutstream" opcode="store" nodeLabel="4.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="133" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
-      <dataInputObjs>load</dataInputObjs>
-      <dataInputObjs>alloca</dataInputObjs>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="br_ln133" lineNumber="133" fileName="userdma.cpp" fileDirectory=".." coreId="2938012584" contextFuncName="sendoutstream" opcode="br" nodeLabel="4.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="133" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
-      <dataInputObjs>load</dataInputObjs>
-      <controlInputObjs>VITIS_LOOP_125_2</controlInputObjs>
-      <controlInputObjs>do.end</controlInputObjs>
-    </node_objs>
-    <fileValidLineNumbers fileName="/tools/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot/hls_stream_39.h">
-      <validLinenumbers>145</validLinenumbers>
-    </fileValidLineNumbers>
-    <fileValidLineNumbers fileName="userdma.cpp">
-      <validLinenumbers>133</validLinenumbers>
-    </fileValidLineNumbers>
-  </blocks>
-  <blocks id="31" name="do.end" type="BlockType">
-    <controlInputObjs>VITIS_LOOP_125_2</controlInputObjs>
-    <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="xor_ln135" lineNumber="135" fileName="userdma.cpp" fileDirectory=".." rtlName="xor_ln135_fu_120_p2" coreName="LogicGate" implIndex="auto" control="no" opType="xor" coreId="74" contextFuncName="sendoutstream" bitwidth="1" opcode="xor" nodeLabel="4.0" m_display="0" m_delay="0.97" m_topoIndex="12" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="135" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="15" name="xor_ln127" lineNumber="127" fileName="userdma.cpp" fileDirectory=".." rtlName="xor_ln127_fu_81_p2" coreName="LogicGate" implIndex="auto" control="no" opType="xor" coreId="74" contextFuncName="sendoutstream" bitwidth="1" opcode="xor" nodeLabel="1.0" m_display="0" m_delay="0.97" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="userdma.cpp" linenumber="127" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>write</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="m2s_buf_sts_write_ln135" lineNumber="135" fileName="userdma.cpp" fileDirectory=".." coreId="2937885488" contextFuncName="sendoutstream" opcode="write" nodeLabel="4.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="135" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="m2s_buf_sts_write_ln127" lineNumber="127" fileName="userdma.cpp" fileDirectory=".." coreId="2929091056" contextFuncName="sendoutstream" opcode="write" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="userdma.cpp" linenumber="127" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
       <dataInputObjs>xor</dataInputObjs>
       <dataOutputObjs>m2s_buf_sts</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="_ln137" lineNumber="137" fileName="userdma.cpp" fileDirectory=".." coreId="2937885600" contextFuncName="sendoutstream" opcode="ret" nodeLabel="4.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="userdma.cpp" linenumber="137" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="_ln129" lineNumber="129" fileName="userdma.cpp" fileDirectory=".." coreId="2929691136" contextFuncName="sendoutstream" opcode="ret" nodeLabel="3.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="userdma.cpp" linenumber="129" fileDirectory="/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma" functionName="sendoutstream"/>
     </node_objs>
     <fileValidLineNumbers fileName="userdma.cpp">
-      <validLinenumbers>135</validLinenumbers>
-      <validLinenumbers>137</validLinenumbers>
+      <validLinenumbers>127</validLinenumbers>
+      <validLinenumbers>129</validLinenumbers>
     </fileValidLineNumbers>
   </blocks>
   <ScheduleInfo time="0"/>
   <ScheduleInfo time="1"/>
   <ScheduleInfo time="2"/>
   <ScheduleInfo time="3"/>
-  <ScheduleInfo time="4"/>
-  <regnodes realName="tmp_reg_143">
-    <nodeIds>21</nodeIds>
-  </regnodes>
-  <regnodes realName="out_val_last_V_reg_126">
+  <regnodes realName="in_en_clrsts_read_reg_87">
     <nodeIds>10</nodeIds>
   </regnodes>
-  <regnodes realName="in_en_clrsts_read_reg_138">
-    <nodeIds>13</nodeIds>
-  </regnodes>
-  <regnodes realName="p_phi_loc_reg_132">
-    <nodeIds>11</nodeIds>
-  </regnodes>
-  <expressionNodes realName="out_val_last_V_fu_62">
-    <nodeIds>10</nodeIds>
+  <expressionNodes realName="xor_ln127_fu_81">
+    <nodeIds>15</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="p_phi_loc_fu_66">
-    <nodeIds>11</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="xor_ln135_fu_120">
-    <nodeIds>28</nodeIds>
-  </expressionNodes>
-  <moduleNodes realName="grp_sendoutstream_Pipeline_VITIS_LOOP_125_2_fu_89">
-    <nodeIds>23</nodeIds>
+  <moduleNodes realName="grp_sendoutstream_Pipeline_VITIS_LOOP_117_1_fu_65">
+    <nodeIds>14</nodeIds>
   </moduleNodes>
-  <ioNodes realName="write_ln135_write_fu_82">
-    <nodeIds>29</nodeIds>
+  <ioNodes realName="in_en_clrsts_read_read_fu_52">
+    <nodeIds>10</nodeIds>
   </ioNodes>
-  <ioNodes realName="store_ln133_store_fu_115">
-    <nodeIds>25</nodeIds>
-  </ioNodes>
-  <ioNodes realName="out_val_last_V_load_load_fu_108">
-    <nodeIds>19</nodeIds>
-  </ioNodes>
-  <ioNodes realName="tmp_read_fu_76">
-    <nodeIds>21</nodeIds>
-  </ioNodes>
-  <ioNodes realName="in_en_clrsts_read_read_fu_70">
-    <nodeIds>13</nodeIds>
-  </ioNodes>
-  <ioNodes realName="p_phi_loc_load_load_fu_112">
-    <nodeIds>24</nodeIds>
+  <ioNodes realName="write_ln127_write_fu_58">
+    <nodeIds>16</nodeIds>
   </ioNodes>
   <ioPorts name="in_en_clrsts">
     <contents name="read">
-      <nodeIds>13</nodeIds>
+      <nodeIds>10</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="m2s_buf_sts">
     <contents name="write">
-      <nodeIds>29</nodeIds>
+      <nodeIds>16</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outStreamTop_V_data_V">
     <contents name="call">
-      <nodeIds>23</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outStreamTop_V_keep_V">
     <contents name="call">
-      <nodeIds>23</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outStreamTop_V_last_V">
     <contents name="call">
-      <nodeIds>23</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outStreamTop_V_strb_V">
     <contents name="call">
-      <nodeIds>23</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outStreamTop_V_user_V">
     <contents name="call">
-      <nodeIds>23</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="outbuf">
     <contents name="call">
-      <nodeIds>23</nodeIds>
-    </contents>
-  </ioPorts>
-  <ioPorts name="outcount41">
-    <contents name="read">
-      <nodeIds>21</nodeIds>
+      <nodeIds>14</nodeIds>
     </contents>
   </ioPorts>
   <fsm>
     <states id="1">
       <operations id="10" stage="1" latency="1"/>
-      <operations id="11" stage="1" latency="1"/>
-      <operations id="12" stage="1" latency="1"/>
-      <operations id="13" stage="1" latency="1"/>
-      <operations id="14" stage="1" latency="1"/>
-      <operations id="15" stage="1" latency="1"/>
-      <operations id="16" stage="1" latency="1"/>
-      <operations id="17" stage="1" latency="1"/>
     </states>
     <states id="2">
-      <operations id="21" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="2" latency="2"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
     </states>
     <states id="3">
-      <operations id="19" stage="1" latency="1"/>
-      <operations id="22" stage="1" latency="1"/>
-      <operations id="23" stage="2" latency="2"/>
+      <operations id="14" stage="1" latency="2"/>
     </states>
     <states id="4">
-      <operations id="23" stage="1" latency="2"/>
-    </states>
-    <states id="5">
-      <operations id="20" stage="1" latency="1"/>
-      <operations id="24" stage="1" latency="1"/>
-      <operations id="25" stage="1" latency="1"/>
-      <operations id="26" stage="1" latency="1"/>
-      <operations id="28" stage="1" latency="1"/>
-      <operations id="29" stage="1" latency="1"/>
-      <operations id="30" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
     </states>
     <transitions inState="1" outState="2">
       <condition id="-1"/>
@@ -288,30 +158,10 @@
     <transitions inState="3" outState="4">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="4" outState="5">
-      <condition id="-1"/>
-    </transitions>
-    <transitions inState="5" outState="2">
-      <condition id="-1"/>
-    </transitions>
   </fsm>
   <CFGRegionsRoot>
     <cfgRegions mId="1" mTag="sendoutstream" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1">
-      <subRegions>2</subRegions>
-      <subRegions>3</subRegions>
-      <subRegions>4</subRegions>
-      <mDfPipe/>
-    </cfgRegions>
-    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
       <basicBlocks>18</basicBlocks>
-      <mDfPipe/>
-    </cfgRegions>
-    <cfgRegions mId="3" mTag="VITIS_LOOP_122_1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
-      <basicBlocks>27</basicBlocks>
-      <mDfPipe/>
-    </cfgRegions>
-    <cfgRegions mId="4" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
-      <basicBlocks>31</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
   </CFGRegionsRoot>

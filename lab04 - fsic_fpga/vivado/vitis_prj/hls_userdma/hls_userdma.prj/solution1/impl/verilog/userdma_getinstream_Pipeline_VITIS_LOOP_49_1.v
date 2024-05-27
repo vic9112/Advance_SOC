@@ -20,11 +20,11 @@ module userdma_getinstream_Pipeline_VITIS_LOOP_49_1 (
         inbuf_fifo_cap,
         inbuf_full_n,
         inbuf_write,
-        incount40_din,
-        incount40_num_data_valid,
-        incount40_fifo_cap,
-        incount40_full_n,
-        incount40_write,
+        incount35_din,
+        incount35_num_data_valid,
+        incount35_fifo_cap,
+        incount35_full_n,
+        incount35_write,
         in_len_V_load,
         inStreamTop_TDATA,
         inStreamTop_TREADY,
@@ -51,17 +51,17 @@ input  [6:0] inbuf_num_data_valid;
 input  [6:0] inbuf_fifo_cap;
 input   inbuf_full_n;
 output   inbuf_write;
-output  [31:0] incount40_din;
-input  [2:0] incount40_num_data_valid;
-input  [2:0] incount40_fifo_cap;
-input   incount40_full_n;
-output   incount40_write;
+output  [31:0] incount35_din;
+input  [2:0] incount35_num_data_valid;
+input  [2:0] incount35_fifo_cap;
+input   incount35_full_n;
+output   incount35_write;
 input  [31:0] in_len_V_load;
 input  [31:0] inStreamTop_TDATA;
 output   inStreamTop_TREADY;
 input  [3:0] inStreamTop_TKEEP;
 input  [3:0] inStreamTop_TSTRB;
-input  [6:0] inStreamTop_TUSER;
+input  [1:0] inStreamTop_TUSER;
 input  [0:0] inStreamTop_TLAST;
 input  [31:0] in_s2m_len;
 output  [0:0] tmp_last_V_out;
@@ -69,7 +69,7 @@ output   tmp_last_V_out_ap_vld;
 
 reg ap_idle;
 reg inbuf_write;
-reg incount40_write;
+reg incount35_write;
 reg inStreamTop_TREADY;
 reg tmp_last_V_out_ap_vld;
 
@@ -91,7 +91,7 @@ reg    ap_ready_int;
 reg    inStreamTop_TDATA_blk_n;
 wire    ap_block_pp0_stage0;
 reg    inbuf_blk_n;
-reg    incount40_blk_n;
+reg    incount35_blk_n;
 reg    ap_block_pp0_stage0_11001;
 reg   [0:0] tmp_last_V_reg_223;
 wire   [31:0] count_5_fu_150_p2;
@@ -308,17 +308,17 @@ end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (or_ln66_reg_234 == 1'd1) & (ap_enable_reg_pp0_iter2 == 1'b1))) begin
-        incount40_blk_n = incount40_full_n;
+        incount35_blk_n = incount35_full_n;
     end else begin
-        incount40_blk_n = 1'b1;
+        incount35_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (or_ln66_reg_234 == 1'd1) & (ap_enable_reg_pp0_iter2 == 1'b1))) begin
-        incount40_write = 1'b1;
+        incount35_write = 1'b1;
     end else begin
-        incount40_write = 1'b0;
+        incount35_write = 1'b0;
     end
 end
 
@@ -348,15 +348,15 @@ assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_pp0_stage0_01001 = (((or_ln66_reg_234 == 1'd1) & (incount40_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
+    ap_block_pp0_stage0_01001 = (((or_ln66_reg_234 == 1'd1) & (incount35_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_11001 = (((or_ln66_reg_234 == 1'd1) & (incount40_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
+    ap_block_pp0_stage0_11001 = (((or_ln66_reg_234 == 1'd1) & (incount35_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_subdone = (((or_ln66_reg_234 == 1'd1) & (incount40_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
+    ap_block_pp0_stage0_subdone = (((or_ln66_reg_234 == 1'd1) & (incount35_full_n == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & ((inbuf_full_n == 1'b0) | (inStreamTop_TVALID == 1'b0))));
 end
 
 assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
@@ -366,7 +366,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state3_pp0_stage0_iter2 = ((or_ln66_reg_234 == 1'd1) & (incount40_full_n == 1'b0));
+    ap_block_state3_pp0_stage0_iter2 = ((or_ln66_reg_234 == 1'd1) & (incount35_full_n == 1'b0));
 end
 
 assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
@@ -383,7 +383,7 @@ assign icmp_ln66_fu_172_p2 = (($signed(tmp_fu_162_p4) > $signed(28'd0)) ? 1'b1 :
 
 assign inbuf_din = {{inStreamTop_TLAST}, {inStreamTop_TDATA}};
 
-assign incount40_din = count_5_reg_228;
+assign incount35_din = count_5_reg_228;
 
 assign or_ln66_fu_178_p2 = (inStreamTop_TLAST | icmp_ln66_fu_172_p2);
 

@@ -73,8 +73,8 @@ void getinstream(hls::stream<trans_pkt> &in_stream, ap_uint<1> in_en_clrsts, ap_
 
 //Read MM
 void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, int in_m2s_len,
-	hls::stream<out_data> &out_stream, hls::stream<int> &out_counts) {
-	out_data  out_val;
+	hls::stream<data> &out_stream) {
+	data out_val;
 	int count;
 	static bool out_sts = 0;
 	static int  m2s_len = 0;
@@ -94,42 +94,34 @@ void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, 
 		for (int i = 0; i < count; ++i) {
 		#pragma HLS PIPELINE
 			out_val.data_filed = in_memory[i];
-			out_val.upsb = 0;
 			if((m2s_len <= MAX_BURST_LENGTH) && (i == (count - 1)))
 				out_val.last = 1;
 			else
 				out_val.last = 0;
 
-			if (m2s_len == in_m2s_len)
-				out_val.upsb(2, 2) = 1;
-
 			out_stream.write(out_val);
 			m2s_len--;
 		}
-		out_counts.write(count);
 		in_memory += count;
 
 	} while(m2s_len != 0);
 }
 
 //output stream 
-void sendoutstream(hls::stream<out_data> &in_stream, hls::stream<int> &in_counts, ap_uint<1> in_en_clrsts,
+void sendoutstream(hls::stream<data> &in_stream, ap_uint<1> in_en_clrsts,
 	bool &buf_sts, hls::stream<trans_pkt> &out_stream) {
 
 	int count = 0;
     trans_pkt out_val;
 
     do {
-    	// In_count not used
-    	count = in_counts.read(); //////////////
-    	for (int i = 0; i < count; ++i) {
 		#pragma HLS PIPELINE
-    		out_data in_data = in_stream.read();
-    		out_val.data = in_data.data_filed;
-    		out_val.user = in_data.upsb;
-    		out_val.last = in_data.last;
-    		out_stream.write(out_val);
-    	}
+    	data in_data = in_stream.read();
+    	out_val.data = in_data.data_filed;
+    	// out_val.user = in_data.upsb;
+    	out_val.last = in_data.last;
+    	out_stream.write(out_val);
+
     } while(!out_val.last);
 
     buf_sts = (in_en_clrsts)? 0 : (out_val.last)? 1 : 0;
@@ -165,13 +157,12 @@ void userdma(hls::stream<trans_pkt> &inStreamTop,
 #pragma HLS DATAFLOW
 
 	hls::stream<data, DATA_DEPTH> inbuf;
-	hls::stream<int, COUNT_DEPTH> incount; // Can be deleted
-	hls::stream<out_data, DATA_DEPTH> outbuf;
-	hls::stream<int, COUNT_DEPTH> outcount;
+	hls::stream<int, COUNT_DEPTH> incount;
+	hls::stream<data, DATA_DEPTH> outbuf;
   
 	getinstream(inStreamTop, s2m_enb_clrsts, s2m_len, *s2m_err, inbuf, incount);
 	streamtoparallelwithburst(inbuf, incount, s2m_enb_clrsts, *s2m_buf_sts, s2m_len, s2mbuf);
-	paralleltostreamwithburst(m2sbuf, m2s_enb_clrsts, m2s_len, outbuf, outcount);
-	sendoutstream(outbuf, outcount, m2s_enb_clrsts, *m2s_buf_sts, outStreamTop);
+	paralleltostreamwithburst(m2sbuf, m2s_enb_clrsts, m2s_len, outbuf);
+	sendoutstream(outbuf, m2s_enb_clrsts, *m2s_buf_sts, outStreamTop);
 
 }

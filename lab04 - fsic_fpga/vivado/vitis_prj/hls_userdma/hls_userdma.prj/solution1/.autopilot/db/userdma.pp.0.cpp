@@ -6283,7 +6283,7 @@ private:
 
 
 
-typedef ap_axiu<32, 7, 0, 0> trans_pkt;
+typedef ap_axiu<32, 2, 0, 0> trans_pkt;
 
 __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt> &inStreamTop,
     bool *s2m_buf_sts,
@@ -6306,12 +6306,6 @@ static constexpr int COUNT_DEPTH = BUFFER_FACTOR;
 
 struct data {
  ap_int<32> data_filed;
- ap_int<1> last;
-};
-
-struct out_data {
- ap_int<32> data_filed;
- ap_int<7> upsb;
  ap_int<1> last;
 };
 # 2 "userdma.cpp" 2
@@ -6389,8 +6383,8 @@ void getinstream(hls::stream<trans_pkt> &in_stream, ap_uint<1> in_en_clrsts, ap_
 
 
 void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, int in_m2s_len,
- hls::stream<out_data> &out_stream, hls::stream<int> &out_counts) {
- out_data out_val;
+ hls::stream<data> &out_stream) {
+ data out_val;
  int count;
  static bool out_sts = 0;
  static int m2s_len = 0;
@@ -6410,42 +6404,34 @@ void paralleltostreamwithburst(ap_uint<32> *in_memory, ap_uint<1> in_en_clrsts, 
   VITIS_LOOP_94_2: for (int i = 0; i < count; ++i) {
 #pragma HLS PIPELINE
  out_val.data_filed = in_memory[i];
-   out_val.upsb = 0;
    if((m2s_len <= MAX_BURST_LENGTH) && (i == (count - 1)))
     out_val.last = 1;
    else
     out_val.last = 0;
 
-   if (m2s_len == in_m2s_len)
-    out_val.upsb(2, 2) = 1;
-
    out_stream.write(out_val);
    m2s_len--;
   }
-  out_counts.write(count);
   in_memory += count;
 
  } while(m2s_len != 0);
 }
 
 
-void sendoutstream(hls::stream<out_data> &in_stream, hls::stream<int> &in_counts, ap_uint<1> in_en_clrsts,
+void sendoutstream(hls::stream<data> &in_stream, ap_uint<1> in_en_clrsts,
  bool &buf_sts, hls::stream<trans_pkt> &out_stream) {
 
  int count = 0;
     trans_pkt out_val;
 
-    VITIS_LOOP_122_1: do {
-
-     count = in_counts.read();
-     VITIS_LOOP_125_2: for (int i = 0; i < count; ++i) {
+    VITIS_LOOP_117_1: do {
 #pragma HLS PIPELINE
- out_data in_data = in_stream.read();
-      out_val.data = in_data.data_filed;
-      out_val.user = in_data.upsb;
-      out_val.last = in_data.last;
-      out_stream.write(out_val);
-     }
+ data in_data = in_stream.read();
+     out_val.data = in_data.data_filed;
+
+     out_val.last = in_data.last;
+     out_stream.write(out_val);
+
     } while(!out_val.last);
 
     buf_sts = (in_en_clrsts)? 0 : (out_val.last)? 1 : 0;
@@ -6465,11 +6451,11 @@ __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt> &i
   hls::stream<trans_pkt> &outStreamTop) {
 #line 16 "/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma/hls_userdma.prj/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=userdma
-# 149 "userdma.cpp"
+# 141 "userdma.cpp"
 
 #line 6 "/home/ubuntu/fsic_fpga/vivado/vitis_prj/hls_userdma/hls_userdma.prj/solution1/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=userdma
-# 149 "userdma.cpp"
+# 141 "userdma.cpp"
 
 #pragma HLS INTERFACE axis register_mode=both register port=inStreamTop
 #pragma HLS INTERFACE m_axi max_write_burst_length=16 latency=10 depth=1024 bundle=gmem0 port=s2mbuf offset = slave
@@ -6490,12 +6476,11 @@ __attribute__((sdx_kernel("userdma", 0))) void userdma(hls::stream<trans_pkt> &i
 
  hls::stream<data, DATA_DEPTH> inbuf;
  hls::stream<int, COUNT_DEPTH> incount;
- hls::stream<out_data, DATA_DEPTH> outbuf;
- hls::stream<int, COUNT_DEPTH> outcount;
+ hls::stream<data, DATA_DEPTH> outbuf;
 
  getinstream(inStreamTop, s2m_enb_clrsts, s2m_len, *s2m_err, inbuf, incount);
  streamtoparallelwithburst(inbuf, incount, s2m_enb_clrsts, *s2m_buf_sts, s2m_len, s2mbuf);
- paralleltostreamwithburst(m2sbuf, m2s_enb_clrsts, m2s_len, outbuf, outcount);
- sendoutstream(outbuf, outcount, m2s_enb_clrsts, *m2s_buf_sts, outStreamTop);
+ paralleltostreamwithburst(m2sbuf, m2s_enb_clrsts, m2s_len, outbuf);
+ sendoutstream(outbuf, m2s_enb_clrsts, *m2s_buf_sts, outStreamTop);
 
 }

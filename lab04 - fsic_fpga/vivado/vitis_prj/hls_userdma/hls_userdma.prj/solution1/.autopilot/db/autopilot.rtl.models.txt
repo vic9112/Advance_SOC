@@ -6,6 +6,7 @@ userdma_regslice_both
 userdma_regslice_both
 userdma_flow_control_loop_pipe_sequential_init
 userdma_flow_control_loop_pipe_sequential_init
+userdma_flow_control_loop_pipe_sequential_init
 userdma_regslice_both
 userdma_regslice_both
 userdma_regslice_both
@@ -16,8 +17,7 @@ userdma_fifo_w33_d64_A
 userdma_fifo_w32_d4_S
 userdma_fifo_w32_d2_S
 userdma_fifo_w1_d2_S
-userdma_fifo_w40_d64_A
-userdma_fifo_w32_d4_S
+userdma_fifo_w33_d64_A
 userdma_fifo_w1_d2_S
 userdma_start_for_streamtoparallelwithburst_U0
 userdma_start_for_sendoutstream_U0
@@ -31,6 +31,6 @@ streamtoparallelwithburst_Pipeline_VITIS_LOOP_21_2
 streamtoparallelwithburst
 paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2
 paralleltostreamwithburst
-sendoutstream_Pipeline_VITIS_LOOP_125_2
+sendoutstream_Pipeline_VITIS_LOOP_117_1
 sendoutstream
 userdma

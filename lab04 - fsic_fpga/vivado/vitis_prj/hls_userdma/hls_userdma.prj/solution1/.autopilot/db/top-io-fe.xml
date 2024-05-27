@@ -1,7 +1,7 @@
 <root versionMajor = "1" versionMinor = "5">
   <kernel src_name="userdma" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="r" src_name="inStreamTop" src_type="stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 7, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="96" src_size_or_depth="1">
+      <arg id="0" access_type="r" src_name="inStreamTop" src_type="stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 2, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="96" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="inStreamTop" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="true">
           <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
         </hw>
@@ -59,7 +59,7 @@
           <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="112"/>
         </hw>
       </arg>
-      <arg id="10" access_type="w" src_name="outStreamTop" src_type="stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 7, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="96" src_size_or_depth="1">
+      <arg id="10" access_type="w" src_name="outStreamTop" src_type="stream&lt;hls::axis&lt;ap_uint&lt;32&gt;, 2, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="96" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="outStreamTop" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="true">
           <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
         </hw>

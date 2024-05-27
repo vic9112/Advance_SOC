@@ -75,7 +75,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     corename {inStreamTop} \
     metadata {  } \
     op interface \
-    ports { inStreamTop_TUSER { I 7 vector } } \
+    ports { inStreamTop_TUSER { I 2 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'inStreamTop_V_user_V'"
@@ -151,14 +151,14 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 11 \
-    name incount40 \
+    name incount35 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_incount40 \
+    corename dc_incount35 \
     op interface \
-    ports { incount40_din { O 32 vector } incount40_num_data_valid { I 3 vector } incount40_fifo_cap { I 3 vector } incount40_full_n { I 1 bit } incount40_write { O 1 bit } } \
+    ports { incount35_din { O 32 vector } incount35_num_data_valid { I 3 vector } incount35_fifo_cap { I 3 vector } incount35_full_n { I 1 bit } incount35_write { O 1 bit } } \
 } "
 }
 

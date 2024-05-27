@@ -68,8 +68,7 @@ module userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2 (
         count,
         sext_ln94,
         select_ln94_cast,
-        zext_ln94,
-        in_m2s_len
+        zext_ln94
 );
 
 parameter    ap_ST_fsm_pp0_stage0 = 1'd1;
@@ -126,7 +125,7 @@ output   m_axi_gmem1_BREADY;
 input  [1:0] m_axi_gmem1_BRESP;
 input  [0:0] m_axi_gmem1_BID;
 input  [0:0] m_axi_gmem1_BUSER;
-output  [39:0] outbuf_din;
+output  [32:0] outbuf_din;
 input  [6:0] outbuf_num_data_valid;
 input  [6:0] outbuf_fifo_cap;
 input   outbuf_full_n;
@@ -135,7 +134,6 @@ input  [31:0] count;
 input  [61:0] sext_ln94;
 input  [31:0] select_ln94_cast;
 input  [3:0] zext_ln94;
-input  [31:0] in_m2s_len;
 
 reg ap_idle;
 reg m_axi_gmem1_RREADY;
@@ -150,39 +148,35 @@ reg    ap_enable_reg_pp0_iter3;
 reg    ap_idle_pp0;
 wire    ap_block_state1_pp0_stage0_iter0;
 wire    ap_block_state2_pp0_stage0_iter1;
-reg   [0:0] icmp_ln94_reg_255;
+reg   [0:0] icmp_ln94_reg_220;
 reg    ap_block_state3_pp0_stage0_iter2;
 reg    ap_block_state4_pp0_stage0_iter3;
 reg    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln94_fu_145_p2;
+wire   [0:0] icmp_ln94_fu_131_p2;
 reg    ap_condition_exit_pp0_iter1_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
 reg    gmem1_blk_n_R;
 wire    ap_block_pp0_stage0;
 reg    outbuf_blk_n;
+wire   [63:0] zext_ln94_cast_fu_106_p1;
+reg   [63:0] zext_ln94_cast_reg_205;
 reg    ap_block_pp0_stage0_11001;
-wire   [63:0] zext_ln94_cast_fu_120_p1;
-reg   [63:0] zext_ln94_cast_reg_240;
-wire  signed [63:0] select_ln94_cast_cast_fu_124_p1;
-reg  signed [63:0] select_ln94_cast_cast_reg_245;
-wire   [0:0] out_val_last_V_fu_170_p2;
-reg   [0:0] out_val_last_V_reg_259;
-reg   [0:0] out_val_last_V_reg_259_pp0_iter2_reg;
-wire   [0:0] icmp_ln103_fu_176_p2;
-reg   [0:0] icmp_ln103_reg_264;
-reg   [0:0] icmp_ln103_reg_264_pp0_iter2_reg;
-reg   [31:0] out_val_data_filed_V_reg_269;
+wire  signed [63:0] select_ln94_cast_cast_fu_110_p1;
+reg  signed [63:0] select_ln94_cast_cast_reg_210;
+wire   [0:0] out_val_last_V_fu_156_p2;
+reg   [0:0] out_val_last_V_reg_224;
+reg   [0:0] out_val_last_V_reg_224_pp0_iter2_reg;
+reg   [31:0] out_val_data_filed_V_reg_229;
 reg    ap_condition_exit_pp0_iter2_stage0;
-reg   [63:0] i_fu_70;
-wire   [63:0] add_ln94_fu_150_p2;
+reg   [63:0] i_fu_62;
+wire   [63:0] add_ln94_fu_136_p2;
 wire    ap_loop_init;
-reg   [31:0] paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74;
-wire   [31:0] add_ln107_fu_181_p2;
+reg   [31:0] paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_m2s_len_fu_66;
+wire   [31:0] add_ln103_fu_162_p2;
 reg    ap_block_pp0_stage0_01001;
-wire   [0:0] icmp_ln98_fu_159_p2;
-wire   [0:0] icmp_ln98_1_fu_165_p2;
-wire   [2:0] select_ln174_fu_203_p3;
+wire   [0:0] icmp_ln97_fu_145_p2;
+wire   [0:0] icmp_ln97_1_fu_151_p2;
 reg    ap_done_reg;
 wire    ap_continue_int;
 reg    ap_done_int;
@@ -273,9 +267,9 @@ end
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
         if ((ap_loop_init == 1'b1)) begin
-            i_fu_70 <= 64'd0;
-        end else if (((ap_enable_reg_pp0_iter1 == 1'b1) & (icmp_ln94_fu_145_p2 == 1'd0))) begin
-            i_fu_70 <= add_ln94_fu_150_p2;
+            i_fu_62 <= 64'd0;
+        end else if (((ap_enable_reg_pp0_iter1 == 1'b1) & (icmp_ln94_fu_131_p2 == 1'd0))) begin
+            i_fu_62 <= add_ln94_fu_136_p2;
         end
     end
 end
@@ -283,9 +277,9 @@ end
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
         if ((ap_loop_init == 1'b1)) begin
-            paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74 <= count;
-        end else if (((ap_enable_reg_pp0_iter1 == 1'b1) & (icmp_ln94_fu_145_p2 == 1'd0))) begin
-            paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74 <= add_ln107_fu_181_p2;
+            paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_m2s_len_fu_66 <= count;
+        end else if (((ap_enable_reg_pp0_iter1 == 1'b1) & (icmp_ln94_fu_131_p2 == 1'd0))) begin
+            paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_m2s_len_fu_66 <= add_ln103_fu_162_p2;
         end
     end
 end
@@ -293,34 +287,32 @@ end
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_pp0_stage0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
         ap_loop_exit_ready_pp0_iter2_reg <= ap_loop_exit_ready;
-        icmp_ln94_reg_255 <= icmp_ln94_fu_145_p2;
-        select_ln94_cast_cast_reg_245 <= select_ln94_cast_cast_fu_124_p1;
-        zext_ln94_cast_reg_240[3 : 0] <= zext_ln94_cast_fu_120_p1[3 : 0];
+        icmp_ln94_reg_220 <= icmp_ln94_fu_131_p2;
+        select_ln94_cast_cast_reg_210 <= select_ln94_cast_cast_fu_110_p1;
+        zext_ln94_cast_reg_205[3 : 0] <= zext_ln94_cast_fu_106_p1[3 : 0];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_pp0_stage0) & (icmp_ln94_fu_145_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        icmp_ln103_reg_264 <= icmp_ln103_fu_176_p2;
-        out_val_last_V_reg_259 <= out_val_last_V_fu_170_p2;
+    if (((icmp_ln94_reg_220 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        out_val_data_filed_V_reg_229 <= m_axi_gmem1_RDATA;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_pp0_stage0) & (icmp_ln94_fu_131_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+        out_val_last_V_reg_224 <= out_val_last_V_fu_156_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b0 == ap_block_pp0_stage0_11001)) begin
-        icmp_ln103_reg_264_pp0_iter2_reg <= icmp_ln103_reg_264;
-        out_val_last_V_reg_259_pp0_iter2_reg <= out_val_last_V_reg_259;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((icmp_ln94_reg_255 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001))) begin
-        out_val_data_filed_V_reg_269 <= m_axi_gmem1_RDATA;
+        out_val_last_V_reg_224_pp0_iter2_reg <= out_val_last_V_reg_224;
     end
 end
 
 always @ (*) begin
-    if (((ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (icmp_ln94_fu_145_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone))) begin
+    if (((ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (icmp_ln94_fu_131_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone))) begin
         ap_condition_exit_pp0_iter1_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter1_stage0 = 1'b0;
@@ -328,7 +320,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln94_reg_255 == 1'd1) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0_subdone))) begin
+    if (((icmp_ln94_reg_220 == 1'd1) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0_subdone))) begin
         ap_condition_exit_pp0_iter2_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter2_stage0 = 1'b0;
@@ -368,7 +360,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln94_reg_255 == 1'd0) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0))) begin
+    if (((icmp_ln94_reg_220 == 1'd0) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0))) begin
         gmem1_blk_n_R = m_axi_gmem1_RVALID;
     end else begin
         gmem1_blk_n_R = 1'b1;
@@ -376,7 +368,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln94_reg_255 == 1'd0) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0_11001))) begin
+    if (((icmp_ln94_reg_220 == 1'd0) & (ap_enable_reg_pp0_iter2 == 1'b1) & (1'b0 == ap_block_pp0_stage0_11001))) begin
         m_axi_gmem1_RREADY = 1'b1;
     end else begin
         m_axi_gmem1_RREADY = 1'b0;
@@ -410,24 +402,24 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln107_fu_181_p2 = ($signed(paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74) + $signed(32'd4294967295));
+assign add_ln103_fu_162_p2 = ($signed(paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_m2s_len_fu_66) + $signed(32'd4294967295));
 
-assign add_ln94_fu_150_p2 = (i_fu_70 + 64'd1);
+assign add_ln94_fu_136_p2 = (i_fu_62 + 64'd1);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
 assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_pp0_stage0_01001 = (((icmp_ln94_reg_255 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
+    ap_block_pp0_stage0_01001 = (((icmp_ln94_reg_220 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_11001 = (((icmp_ln94_reg_255 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
+    ap_block_pp0_stage0_11001 = (((icmp_ln94_reg_220 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_subdone = (((icmp_ln94_reg_255 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
+    ap_block_pp0_stage0_subdone = (((icmp_ln94_reg_220 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b1)) | ((ap_enable_reg_pp0_iter3 == 1'b1) & (outbuf_full_n == 1'b0)));
 end
 
 assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
@@ -435,7 +427,7 @@ assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
 assign ap_block_state2_pp0_stage0_iter1 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_state3_pp0_stage0_iter2 = ((icmp_ln94_reg_255 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0));
+    ap_block_state3_pp0_stage0_iter2 = ((icmp_ln94_reg_220 == 1'd0) & (m_axi_gmem1_RVALID == 1'b0));
 end
 
 always @ (*) begin
@@ -448,13 +440,11 @@ assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter1_stage0;
 
-assign icmp_ln103_fu_176_p2 = ((paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74 == in_m2s_len) ? 1'b1 : 1'b0);
+assign icmp_ln94_fu_131_p2 = ((i_fu_62 == select_ln94_cast_cast_reg_210) ? 1'b1 : 1'b0);
 
-assign icmp_ln94_fu_145_p2 = ((i_fu_70 == select_ln94_cast_cast_reg_245) ? 1'b1 : 1'b0);
+assign icmp_ln97_1_fu_151_p2 = ((i_fu_62 == zext_ln94_cast_reg_205) ? 1'b1 : 1'b0);
 
-assign icmp_ln98_1_fu_165_p2 = ((i_fu_70 == zext_ln94_cast_reg_240) ? 1'b1 : 1'b0);
-
-assign icmp_ln98_fu_159_p2 = (($signed(paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_hls_stream_m2s_l_fu_74) < $signed(32'd17)) ? 1'b1 : 1'b0);
+assign icmp_ln97_fu_145_p2 = (($signed(paralleltostreamwithburst_ap_uint_ap_uint_int_hls_stream_m2s_len_fu_66) < $signed(32'd17)) ? 1'b1 : 1'b0);
 
 assign m_axi_gmem1_ARADDR = 64'd0;
 
@@ -518,18 +508,16 @@ assign m_axi_gmem1_WUSER = 1'd0;
 
 assign m_axi_gmem1_WVALID = 1'b0;
 
-assign out_val_last_V_fu_170_p2 = (icmp_ln98_fu_159_p2 & icmp_ln98_1_fu_165_p2);
+assign out_val_last_V_fu_156_p2 = (icmp_ln97_fu_145_p2 & icmp_ln97_1_fu_151_p2);
 
-assign outbuf_din = {{{{out_val_last_V_reg_259_pp0_iter2_reg}, {4'd0}}, {select_ln174_fu_203_p3}}, {out_val_data_filed_V_reg_269}};
+assign outbuf_din = {{out_val_last_V_reg_224_pp0_iter2_reg}, {out_val_data_filed_V_reg_229}};
 
-assign select_ln174_fu_203_p3 = ((icmp_ln103_reg_264_pp0_iter2_reg[0:0] == 1'b1) ? 3'd4 : 3'd0);
+assign select_ln94_cast_cast_fu_110_p1 = $signed(select_ln94_cast);
 
-assign select_ln94_cast_cast_fu_124_p1 = $signed(select_ln94_cast);
-
-assign zext_ln94_cast_fu_120_p1 = zext_ln94;
+assign zext_ln94_cast_fu_106_p1 = zext_ln94;
 
 always @ (posedge ap_clk) begin
-    zext_ln94_cast_reg_240[63:4] <= 60'b000000000000000000000000000000000000000000000000000000000000;
+    zext_ln94_cast_reg_205[63:4] <= 60'b000000000000000000000000000000000000000000000000000000000000;
 end
 
 endmodule //userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2

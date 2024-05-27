@@ -86,21 +86,6 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 46 \
-    name in_m2s_len \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_in_m2s_len \
-    op interface \
-    ports { in_m2s_len { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 47 \
     name outbuf \
     type fifo \
     dir O \
@@ -108,7 +93,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_outbuf \
     op interface \
-    ports { outbuf_din { O 40 vector } outbuf_num_data_valid { I 7 vector } outbuf_fifo_cap { I 7 vector } outbuf_full_n { I 1 bit } outbuf_write { O 1 bit } } \
+    ports { outbuf_din { O 33 vector } outbuf_num_data_valid { I 7 vector } outbuf_fifo_cap { I 7 vector } outbuf_full_n { I 1 bit } outbuf_write { O 1 bit } } \
 } "
 }
 

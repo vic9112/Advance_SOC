@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'getinstream_Pipeline_VITIS_LOOP_49_1'
 ================================================================
-* Date:           Fri May 17 03:16:50 2024
+* Date:           Mon May 27 13:33:49 2024
 
 * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
 * Project:        hls_userdma.prj
@@ -110,7 +110,7 @@
     |empty_fu_66                       |   9|          2|   32|         64|
     |inStreamTop_TDATA_blk_n           |   9|          2|    1|          2|
     |inbuf_blk_n                       |   9|          2|    1|          2|
-    |incount40_blk_n                   |   9|          2|    1|          2|
+    |incount35_blk_n                   |   9|          2|    1|          2|
     +----------------------------------+----+-----------+-----+-----------+
     |Total                             |  86|         19|  102|        236|
     +----------------------------------+----+-----------+-----+-----------+
@@ -156,17 +156,17 @@
 |inbuf_fifo_cap            |   in|    7|     ap_fifo|                                 inbuf|       pointer|
 |inbuf_full_n              |   in|    1|     ap_fifo|                                 inbuf|       pointer|
 |inbuf_write               |  out|    1|     ap_fifo|                                 inbuf|       pointer|
-|incount40_din             |  out|   32|     ap_fifo|                             incount40|       pointer|
-|incount40_num_data_valid  |   in|    3|     ap_fifo|                             incount40|       pointer|
-|incount40_fifo_cap        |   in|    3|     ap_fifo|                             incount40|       pointer|
-|incount40_full_n          |   in|    1|     ap_fifo|                             incount40|       pointer|
-|incount40_write           |  out|    1|     ap_fifo|                             incount40|       pointer|
+|incount35_din             |  out|   32|     ap_fifo|                             incount35|       pointer|
+|incount35_num_data_valid  |   in|    3|     ap_fifo|                             incount35|       pointer|
+|incount35_fifo_cap        |   in|    3|     ap_fifo|                             incount35|       pointer|
+|incount35_full_n          |   in|    1|     ap_fifo|                             incount35|       pointer|
+|incount35_write           |  out|    1|     ap_fifo|                             incount35|       pointer|
 |in_len_V_load             |   in|   32|     ap_none|                         in_len_V_load|        scalar|
 |inStreamTop_TREADY        |  out|    1|        axis|                  inStreamTop_V_last_V|       pointer|
 |inStreamTop_TLAST         |   in|    1|        axis|                  inStreamTop_V_last_V|       pointer|
 |inStreamTop_TKEEP         |   in|    4|        axis|                  inStreamTop_V_keep_V|       pointer|
 |inStreamTop_TSTRB         |   in|    4|        axis|                  inStreamTop_V_strb_V|       pointer|
-|inStreamTop_TUSER         |   in|    7|        axis|                  inStreamTop_V_user_V|       pointer|
+|inStreamTop_TUSER         |   in|    2|        axis|                  inStreamTop_V_user_V|       pointer|
 |in_s2m_len                |   in|   32|     ap_none|                            in_s2m_len|        scalar|
 |tmp_last_V_out            |  out|    1|      ap_vld|                        tmp_last_V_out|       pointer|
 |tmp_last_V_out_ap_vld     |  out|    1|      ap_vld|                        tmp_last_V_out|       pointer|

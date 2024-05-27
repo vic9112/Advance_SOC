@@ -14,7 +14,7 @@ set SynModuleInfo {
   {SRCNAME streamtoparallelwithburst MODELNAME streamtoparallelwithburst RTLNAME userdma_streamtoparallelwithburst}
   {SRCNAME paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2 MODELNAME paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2 RTLNAME userdma_paralleltostreamwithburst_Pipeline_VITIS_LOOP_94_2}
   {SRCNAME paralleltostreamwithburst MODELNAME paralleltostreamwithburst RTLNAME userdma_paralleltostreamwithburst}
-  {SRCNAME sendoutstream_Pipeline_VITIS_LOOP_125_2 MODELNAME sendoutstream_Pipeline_VITIS_LOOP_125_2 RTLNAME userdma_sendoutstream_Pipeline_VITIS_LOOP_125_2}
+  {SRCNAME sendoutstream_Pipeline_VITIS_LOOP_117_1 MODELNAME sendoutstream_Pipeline_VITIS_LOOP_117_1 RTLNAME userdma_sendoutstream_Pipeline_VITIS_LOOP_117_1}
   {SRCNAME sendoutstream MODELNAME sendoutstream RTLNAME userdma_sendoutstream}
   {SRCNAME userdma MODELNAME userdma RTLNAME userdma IS_TOP 1
     SUBMODULES {
@@ -23,7 +23,6 @@ set SynModuleInfo {
       {MODELNAME userdma_fifo_w32_d4_S RTLNAME userdma_fifo_w32_d4_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME {$InstName}}
       {MODELNAME userdma_fifo_w32_d2_S RTLNAME userdma_fifo_w32_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME {$InstName}}
       {MODELNAME userdma_fifo_w1_d2_S RTLNAME userdma_fifo_w1_d2_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME {$InstName}}
-      {MODELNAME userdma_fifo_w40_d64_A RTLNAME userdma_fifo_w40_d64_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME {$InstName}}
       {MODELNAME userdma_start_for_streamtoparallelwithburst_U0 RTLNAME userdma_start_for_streamtoparallelwithburst_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME {$InstName}}
       {MODELNAME userdma_start_for_sendoutstream_U0 RTLNAME userdma_start_for_sendoutstream_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME {$InstName}}
       {MODELNAME userdma_gmem0_m_axi RTLNAME userdma_gmem0_m_axi BINDTYPE interface TYPE adapter IMPL m_axi}

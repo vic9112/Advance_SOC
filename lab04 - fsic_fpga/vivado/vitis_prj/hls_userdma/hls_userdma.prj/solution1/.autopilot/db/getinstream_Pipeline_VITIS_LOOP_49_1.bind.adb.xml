@@ -59,9 +59,9 @@ newFuncRoot:1 %empty = alloca i32 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="4" op_3_bw="4" op_4_bw="7" op_5_bw="1" op_6_bw="0" op_7_bw="32" op_8_bw="32" op_9_bw="0" op_10_bw="32" op_11_bw="32" op_12_bw="0" op_13_bw="0" op_14_bw="0" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="32" op_19_bw="0" op_20_bw="0" op_21_bw="32" op_22_bw="32">
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="4" op_3_bw="4" op_4_bw="2" op_5_bw="1" op_6_bw="0" op_7_bw="32" op_8_bw="32" op_9_bw="0" op_10_bw="32" op_11_bw="32" op_12_bw="0" op_13_bw="0" op_14_bw="0" op_15_bw="32" op_16_bw="32" op_17_bw="32" op_18_bw="32" op_19_bw="0" op_20_bw="0" op_21_bw="32" op_22_bw="32">
 <![CDATA[
-newFuncRoot:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %inStreamTop_V_data_V, i4 %inStreamTop_V_keep_V, i4 %inStreamTop_V_strb_V, i7 %inStreamTop_V_user_V, i1 %inStreamTop_V_last_V, void @empty_26, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
+newFuncRoot:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %inStreamTop_V_data_V, i4 %inStreamTop_V_keep_V, i4 %inStreamTop_V_strb_V, i2 %inStreamTop_V_user_V, i1 %inStreamTop_V_last_V, void @empty_25, i32 0, i32 0, void @empty_24, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -76,7 +76,7 @@ newFuncRoot:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i
 
 <Node id="14" bw="0" op_0_bw="0" op_1_bw="33" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-newFuncRoot:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i33 %inbuf, void @empty_14, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
+newFuncRoot:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i33 %inbuf, void @empty_6, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -91,7 +91,7 @@ newFuncRoot:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i
 
 <Node id="15" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-newFuncRoot:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %incount40, void @empty_14, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
+newFuncRoot:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %incount35, void @empty_6, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -229,7 +229,7 @@ do.body:2 %specpipeline_ln50 = specpipeline void @_ssdm_op_SpecPipeline, i32 429
 
 <Node id="25" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-do.body:3 %specloopname_ln40 = specloopname void @_ssdm_op_SpecLoopName, void @empty_12
+do.body:3 %specloopname_ln40 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln40"/></StgValue>
@@ -242,12 +242,12 @@ do.body:3 %specloopname_ln40 = specloopname void @_ssdm_op_SpecLoopName, void @e
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="26" bw="48" op_0_bw="48" op_1_bw="32" op_2_bw="4" op_3_bw="4" op_4_bw="7" op_5_bw="1">
+<Node id="26" bw="43" op_0_bw="43" op_1_bw="32" op_2_bw="4" op_3_bw="4" op_4_bw="2" op_5_bw="1">
 <![CDATA[
-do.body:4 %empty_53 = read i48 @_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i7P0A.i1P0A, i32 %inStreamTop_V_data_V, i4 %inStreamTop_V_keep_V, i4 %inStreamTop_V_strb_V, i7 %inStreamTop_V_user_V, i1 %inStreamTop_V_last_V
+do.body:4 %empty_47 = read i43 @_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i2P0A.i1P0A, i32 %inStreamTop_V_data_V, i4 %inStreamTop_V_keep_V, i4 %inStreamTop_V_strb_V, i2 %inStreamTop_V_user_V, i1 %inStreamTop_V_last_V
 
 ]]></Node>
-<StgValue><ssdm name="empty_53"/></StgValue>
+<StgValue><ssdm name="empty_47"/></StgValue>
 </operation>
 
 <operation id="20" st_id="2" stage="1" lat="1">
@@ -257,9 +257,9 @@ do.body:4 %empty_53 = read i48 @_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="32" op_0_bw="48">
+<Node id="27" bw="32" op_0_bw="43">
 <![CDATA[
-do.body:5 %tmp_data_V = extractvalue i48 %empty_53
+do.body:5 %tmp_data_V = extractvalue i43 %empty_47
 
 ]]></Node>
 <StgValue><ssdm name="tmp_data_V"/></StgValue>
@@ -272,9 +272,9 @@ do.body:5 %tmp_data_V = extractvalue i48 %empty_53
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="1" op_0_bw="48">
+<Node id="28" bw="1" op_0_bw="43">
 <![CDATA[
-do.body:6 %tmp_last_V = extractvalue i48 %empty_53
+do.body:6 %tmp_last_V = extractvalue i43 %empty_47
 
 ]]></Node>
 <StgValue><ssdm name="tmp_last_V"/></StgValue>
@@ -507,7 +507,7 @@ do.body.do.cond_crit_edge:1 %br_ln66 = br void %do.cond
 
 <Node id="41" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-if.then24:0 %write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %incount40, i32 %count_5
+if.then24:0 %write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %incount35, i32 %count_5
 
 ]]></Node>
 <StgValue><ssdm name="write_ln174"/></StgValue>
@@ -605,8 +605,8 @@ do.end.exitStub:1 %ret_ln0 = ret
 <port id="57" name="in_s2m_len" dir="0" iftype="0">
 <core>NULL</core><StgValue><ssdm name="in_s2m_len"/></StgValue>
 </port>
-<port id="58" name="incount40" dir="1" iftype="3">
-<core>FIFO_SRL</core><StgValue><ssdm name="incount40"/></StgValue>
+<port id="58" name="incount35" dir="1" iftype="3">
+<core>FIFO_SRL</core><StgValue><ssdm name="incount35"/></StgValue>
 </port>
 <port id="59" name="tmp_last_V_out" dir="1" iftype="0">
 <core>NULL</core><StgValue><ssdm name="tmp_last_V_out"/></StgValue>
@@ -631,13 +631,13 @@ do.end.exitStub:1 %ret_ln0 = ret
 </dataflow>
 <dataflow id="69" from="inStreamTop_V_last_V" to="specinterface_ln0" fromId="55" toId="7">
 </dataflow>
-<dataflow id="71" from="empty_26" to="specinterface_ln0" fromId="70" toId="7">
+<dataflow id="71" from="empty_25" to="specinterface_ln0" fromId="70" toId="7">
 </dataflow>
 <dataflow id="73" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="7">
 </dataflow>
 <dataflow id="74" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="7">
 </dataflow>
-<dataflow id="76" from="empty_25" to="specinterface_ln0" fromId="75" toId="7">
+<dataflow id="76" from="empty_24" to="specinterface_ln0" fromId="75" toId="7">
 </dataflow>
 <dataflow id="77" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="7">
 </dataflow>
@@ -669,7 +669,7 @@ do.end.exitStub:1 %ret_ln0 = ret
 </dataflow>
 <dataflow id="93" from="inbuf" to="specinterface_ln0" fromId="56" toId="8">
 </dataflow>
-<dataflow id="95" from="empty_14" to="specinterface_ln0" fromId="94" toId="8">
+<dataflow id="95" from="empty_6" to="specinterface_ln0" fromId="94" toId="8">
 </dataflow>
 <dataflow id="96" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="8">
 </dataflow>
@@ -705,9 +705,9 @@ do.end.exitStub:1 %ret_ln0 = ret
 </dataflow>
 <dataflow id="112" from="_ssdm_op_SpecInterface" to="specinterface_ln0" fromId="63" toId="9">
 </dataflow>
-<dataflow id="113" from="incount40" to="specinterface_ln0" fromId="58" toId="9">
+<dataflow id="113" from="incount35" to="specinterface_ln0" fromId="58" toId="9">
 </dataflow>
-<dataflow id="114" from="empty_14" to="specinterface_ln0" fromId="94" toId="9">
+<dataflow id="114" from="empty_6" to="specinterface_ln0" fromId="94" toId="9">
 </dataflow>
 <dataflow id="115" from="StgValue_72" to="specinterface_ln0" fromId="72" toId="9">
 </dataflow>
@@ -775,23 +775,23 @@ do.end.exitStub:1 %ret_ln0 = ret
 </dataflow>
 <dataflow id="150" from="_ssdm_op_SpecLoopName" to="specloopname_ln40" fromId="149" toId="18">
 </dataflow>
-<dataflow id="152" from="empty_12" to="specloopname_ln40" fromId="151" toId="18">
+<dataflow id="152" from="empty_15" to="specloopname_ln40" fromId="151" toId="18">
 </dataflow>
-<dataflow id="154" from="_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i7P0A.i1P0A" to="empty_53" fromId="153" toId="19">
+<dataflow id="154" from="_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i2P0A.i1P0A" to="empty_47" fromId="153" toId="19">
 </dataflow>
-<dataflow id="155" from="inStreamTop_V_data_V" to="empty_53" fromId="51" toId="19">
+<dataflow id="155" from="inStreamTop_V_data_V" to="empty_47" fromId="51" toId="19">
 </dataflow>
-<dataflow id="156" from="inStreamTop_V_keep_V" to="empty_53" fromId="52" toId="19">
+<dataflow id="156" from="inStreamTop_V_keep_V" to="empty_47" fromId="52" toId="19">
 </dataflow>
-<dataflow id="157" from="inStreamTop_V_strb_V" to="empty_53" fromId="53" toId="19">
+<dataflow id="157" from="inStreamTop_V_strb_V" to="empty_47" fromId="53" toId="19">
 </dataflow>
-<dataflow id="158" from="inStreamTop_V_user_V" to="empty_53" fromId="54" toId="19">
+<dataflow id="158" from="inStreamTop_V_user_V" to="empty_47" fromId="54" toId="19">
 </dataflow>
-<dataflow id="159" from="inStreamTop_V_last_V" to="empty_53" fromId="55" toId="19">
+<dataflow id="159" from="inStreamTop_V_last_V" to="empty_47" fromId="55" toId="19">
 </dataflow>
-<dataflow id="160" from="empty_53" to="tmp_data_V" fromId="19" toId="20">
+<dataflow id="160" from="empty_47" to="tmp_data_V" fromId="19" toId="20">
 </dataflow>
-<dataflow id="161" from="empty_53" to="tmp_last_V" fromId="19" toId="21">
+<dataflow id="161" from="empty_47" to="tmp_last_V" fromId="19" toId="21">
 </dataflow>
 <dataflow id="163" from="_ssdm_op_BitConcatenate.i33.i1.i32" to="p_0" fromId="162" toId="22">
 </dataflow>
@@ -847,7 +847,7 @@ do.end.exitStub:1 %ret_ln0 = ret
 </dataflow>
 <dataflow id="195" from="_ssdm_op_Write.ap_fifo.volatile.i32P0A" to="write_ln174" fromId="194" toId="36">
 </dataflow>
-<dataflow id="196" from="incount40" to="write_ln174" fromId="58" toId="36">
+<dataflow id="196" from="incount35" to="write_ln174" fromId="58" toId="36">
 </dataflow>
 <dataflow id="197" from="count_5" to="write_ln174" fromId="24" toId="36">
 </dataflow>

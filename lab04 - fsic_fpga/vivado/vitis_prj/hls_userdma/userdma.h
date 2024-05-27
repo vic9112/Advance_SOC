@@ -4,7 +4,7 @@
 
 #define BUF_LEN 1024
 
-typedef ap_axiu<32, 7, 0, 0> trans_pkt;	//tuser is FSIC tuser (2 bits) and user project upsb (5 bits)
+typedef ap_axiu<32, 2, 0, 0> trans_pkt;	//tuser is FSIC tuser (2 bits) and user project upsb (5 bits)
 
 void userdma(hls::stream<trans_pkt> &inStreamTop,
 			 bool 		*s2m_buf_sts,
@@ -29,10 +29,11 @@ struct data {
 	ap_int<32> data_filed;
 	ap_int<1> last;
 };
-
+/*
 struct out_data {
 	ap_int<32> data_filed;
-	ap_int<7> upsb;
+	ap_int<2> upsb;
 	ap_int<1> last;
 };
+*/
 

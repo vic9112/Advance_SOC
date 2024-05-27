@@ -17,11 +17,11 @@ set C_modelArgList {
 	{ inStreamTop_V_data_V int 32 regular {axi_s 0 volatile  { inStreamTop Data } }  }
 	{ inStreamTop_V_keep_V int 4 regular {axi_s 0 volatile  { inStreamTop Keep } }  }
 	{ inStreamTop_V_strb_V int 4 regular {axi_s 0 volatile  { inStreamTop Strb } }  }
-	{ inStreamTop_V_user_V int 7 regular {axi_s 0 volatile  { inStreamTop User } }  }
+	{ inStreamTop_V_user_V int 2 regular {axi_s 0 volatile  { inStreamTop User } }  }
 	{ inStreamTop_V_last_V int 1 regular {axi_s 0 volatile  { inStreamTop Last } }  }
 	{ inbuf int 33 regular {fifo 1 volatile }  }
 	{ in_s2m_len int 32 regular  }
-	{ incount40 int 32 regular {fifo 1 volatile }  }
+	{ incount35 int 32 regular {fifo 1 volatile }  }
 	{ tmp_last_V_out int 1 regular {pointer 1}  }
 }
 set C_modelArgMapList {[ 
@@ -29,11 +29,11 @@ set C_modelArgMapList {[
  	{ "Name" : "inStreamTop_V_data_V", "interface" : "axis", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "inStreamTop_V_keep_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "inStreamTop_V_strb_V", "interface" : "axis", "bitwidth" : 4, "direction" : "READONLY"} , 
- 	{ "Name" : "inStreamTop_V_user_V", "interface" : "axis", "bitwidth" : 7, "direction" : "READONLY"} , 
+ 	{ "Name" : "inStreamTop_V_user_V", "interface" : "axis", "bitwidth" : 2, "direction" : "READONLY"} , 
  	{ "Name" : "inStreamTop_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "inbuf", "interface" : "fifo", "bitwidth" : 33, "direction" : "WRITEONLY"} , 
  	{ "Name" : "in_s2m_len", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "incount40", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "incount35", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "tmp_last_V_out", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 27
@@ -50,17 +50,17 @@ set portList {
 	{ inbuf_fifo_cap sc_in sc_lv 7 signal 6 } 
 	{ inbuf_full_n sc_in sc_logic 1 signal 6 } 
 	{ inbuf_write sc_out sc_logic 1 signal 6 } 
-	{ incount40_din sc_out sc_lv 32 signal 8 } 
-	{ incount40_num_data_valid sc_in sc_lv 3 signal 8 } 
-	{ incount40_fifo_cap sc_in sc_lv 3 signal 8 } 
-	{ incount40_full_n sc_in sc_logic 1 signal 8 } 
-	{ incount40_write sc_out sc_logic 1 signal 8 } 
+	{ incount35_din sc_out sc_lv 32 signal 8 } 
+	{ incount35_num_data_valid sc_in sc_lv 3 signal 8 } 
+	{ incount35_fifo_cap sc_in sc_lv 3 signal 8 } 
+	{ incount35_full_n sc_in sc_logic 1 signal 8 } 
+	{ incount35_write sc_out sc_logic 1 signal 8 } 
 	{ in_len_V_load sc_in sc_lv 32 signal 0 } 
 	{ inStreamTop_TDATA sc_in sc_lv 32 signal 1 } 
 	{ inStreamTop_TREADY sc_out sc_logic 1 inacc 5 } 
 	{ inStreamTop_TKEEP sc_in sc_lv 4 signal 2 } 
 	{ inStreamTop_TSTRB sc_in sc_lv 4 signal 3 } 
-	{ inStreamTop_TUSER sc_in sc_lv 7 signal 4 } 
+	{ inStreamTop_TUSER sc_in sc_lv 2 signal 4 } 
 	{ inStreamTop_TLAST sc_in sc_lv 1 signal 5 } 
 	{ in_s2m_len sc_in sc_lv 32 signal 7 } 
 	{ tmp_last_V_out sc_out sc_lv 1 signal 9 } 
@@ -79,17 +79,17 @@ set NewPortList {[
  	{ "name": "inbuf_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "inbuf", "role": "fifo_cap" }} , 
  	{ "name": "inbuf_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "inbuf", "role": "full_n" }} , 
  	{ "name": "inbuf_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "inbuf", "role": "write" }} , 
- 	{ "name": "incount40_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "incount40", "role": "din" }} , 
- 	{ "name": "incount40_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount40", "role": "num_data_valid" }} , 
- 	{ "name": "incount40_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount40", "role": "fifo_cap" }} , 
- 	{ "name": "incount40_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount40", "role": "full_n" }} , 
- 	{ "name": "incount40_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount40", "role": "write" }} , 
+ 	{ "name": "incount35_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "incount35", "role": "din" }} , 
+ 	{ "name": "incount35_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount35", "role": "num_data_valid" }} , 
+ 	{ "name": "incount35_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "incount35", "role": "fifo_cap" }} , 
+ 	{ "name": "incount35_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount35", "role": "full_n" }} , 
+ 	{ "name": "incount35_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "incount35", "role": "write" }} , 
  	{ "name": "in_len_V_load", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "in_len_V_load", "role": "default" }} , 
  	{ "name": "inStreamTop_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "inStreamTop_V_data_V", "role": "default" }} , 
  	{ "name": "inStreamTop_TREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "inacc", "bundle":{"name": "inStreamTop_V_last_V", "role": "default" }} , 
  	{ "name": "inStreamTop_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "inStreamTop_V_keep_V", "role": "default" }} , 
  	{ "name": "inStreamTop_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "inStreamTop_V_strb_V", "role": "default" }} , 
- 	{ "name": "inStreamTop_TUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "inStreamTop_V_user_V", "role": "default" }} , 
+ 	{ "name": "inStreamTop_TUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "inStreamTop_V_user_V", "role": "default" }} , 
  	{ "name": "inStreamTop_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "inStreamTop_V_last_V", "role": "default" }} , 
  	{ "name": "in_s2m_len", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "in_s2m_len", "role": "default" }} , 
  	{ "name": "tmp_last_V_out", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "tmp_last_V_out", "role": "default" }} , 
@@ -123,9 +123,9 @@ set RtlHierarchyInfo {[
 				"BlockSignal" : [
 					{"Name" : "inbuf_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "in_s2m_len", "Type" : "None", "Direction" : "I"},
-			{"Name" : "incount40", "Type" : "Fifo", "Direction" : "O",
+			{"Name" : "incount35", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
-					{"Name" : "incount40_blk_n", "Type" : "RtlSignal"}]},
+					{"Name" : "incount35_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "tmp_last_V_out", "Type" : "Vld", "Direction" : "O"}],
 		"Loop" : [
 			{"Name" : "VITIS_LOOP_49_1", "PipelineType" : "UPC",
@@ -143,7 +143,7 @@ set ArgLastReadFirstWriteLatency {
 		inStreamTop_V_last_V {Type I LastRead 1 FirstWrite -1}
 		inbuf {Type O LastRead -1 FirstWrite 1}
 		in_s2m_len {Type I LastRead 0 FirstWrite -1}
-		incount40 {Type O LastRead -1 FirstWrite 2}
+		incount35 {Type O LastRead -1 FirstWrite 2}
 		tmp_last_V_out {Type O LastRead -1 FirstWrite 2}}}
 
 set hasDtUnsupportedChannel 0
@@ -162,10 +162,10 @@ set Spec2ImplPortList {
 	inStreamTop_V_data_V { axis {  { inStreamTop_TVALID in_vld 0 1 }  { inStreamTop_TDATA in_data 0 32 } } }
 	inStreamTop_V_keep_V { axis {  { inStreamTop_TKEEP in_data 0 4 } } }
 	inStreamTop_V_strb_V { axis {  { inStreamTop_TSTRB in_data 0 4 } } }
-	inStreamTop_V_user_V { axis {  { inStreamTop_TUSER in_data 0 7 } } }
+	inStreamTop_V_user_V { axis {  { inStreamTop_TUSER in_data 0 2 } } }
 	inStreamTop_V_last_V { axis {  { inStreamTop_TREADY in_acc 1 1 }  { inStreamTop_TLAST in_data 0 1 } } }
 	inbuf { ap_fifo {  { inbuf_din fifo_port_we 1 33 }  { inbuf_num_data_valid fifo_status_num_data_valid 0 7 }  { inbuf_fifo_cap fifo_update 0 7 }  { inbuf_full_n fifo_status 0 1 }  { inbuf_write fifo_data 1 1 } } }
 	in_s2m_len { ap_none {  { in_s2m_len in_data 0 32 } } }
-	incount40 { ap_fifo {  { incount40_din fifo_port_we 1 32 }  { incount40_num_data_valid fifo_status_num_data_valid 0 3 }  { incount40_fifo_cap fifo_update 0 3 }  { incount40_full_n fifo_status 0 1 }  { incount40_write fifo_data 1 1 } } }
+	incount35 { ap_fifo {  { incount35_din fifo_port_we 1 32 }  { incount35_num_data_valid fifo_status_num_data_valid 0 3 }  { incount35_fifo_cap fifo_update 0 3 }  { incount35_full_n fifo_status 0 1 }  { incount35_write fifo_data 1 1 } } }
 	tmp_last_V_out { ap_vld {  { tmp_last_V_out out_data 1 1 }  { tmp_last_V_out_ap_vld out_vld 1 1 } } }
 }

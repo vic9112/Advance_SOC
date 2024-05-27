@@ -18,8 +18,7 @@ set C_modelArgList {
 	{ sext_ln94 int 62 regular  }
 	{ select_ln94_cast int 32 regular  }
 	{ zext_ln94 int 4 regular  }
-	{ in_m2s_len int 32 regular  }
-	{ outbuf int 40 regular {fifo 1 volatile }  }
+	{ outbuf int 33 regular {fifo 1 volatile }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "count", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
@@ -27,10 +26,9 @@ set C_modelArgMapList {[
  	{ "Name" : "sext_ln94", "interface" : "wire", "bitwidth" : 62, "direction" : "READONLY"} , 
  	{ "Name" : "select_ln94_cast", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "zext_ln94", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
- 	{ "Name" : "in_m2s_len", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "outbuf", "interface" : "fifo", "bitwidth" : 40, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "outbuf", "interface" : "fifo", "bitwidth" : 33, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 62
+set portNum 61
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -84,16 +82,15 @@ set portList {
 	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 1 } 
 	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 1 } 
 	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 1 } 
-	{ outbuf_din sc_out sc_lv 40 signal 6 } 
-	{ outbuf_num_data_valid sc_in sc_lv 7 signal 6 } 
-	{ outbuf_fifo_cap sc_in sc_lv 7 signal 6 } 
-	{ outbuf_full_n sc_in sc_logic 1 signal 6 } 
-	{ outbuf_write sc_out sc_logic 1 signal 6 } 
+	{ outbuf_din sc_out sc_lv 33 signal 5 } 
+	{ outbuf_num_data_valid sc_in sc_lv 7 signal 5 } 
+	{ outbuf_fifo_cap sc_in sc_lv 7 signal 5 } 
+	{ outbuf_full_n sc_in sc_logic 1 signal 5 } 
+	{ outbuf_write sc_out sc_logic 1 signal 5 } 
 	{ count sc_in sc_lv 32 signal 0 } 
 	{ sext_ln94 sc_in sc_lv 62 signal 2 } 
 	{ select_ln94_cast sc_in sc_lv 32 signal 3 } 
 	{ zext_ln94 sc_in sc_lv 4 signal 4 } 
-	{ in_m2s_len sc_in sc_lv 32 signal 5 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -148,7 +145,7 @@ set NewPortList {[
  	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
  	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
  	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
- 	{ "name": "outbuf_din", "direction": "out", "datatype": "sc_lv", "bitwidth":40, "type": "signal", "bundle":{"name": "outbuf", "role": "din" }} , 
+ 	{ "name": "outbuf_din", "direction": "out", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "outbuf", "role": "din" }} , 
  	{ "name": "outbuf_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outbuf", "role": "num_data_valid" }} , 
  	{ "name": "outbuf_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "outbuf", "role": "fifo_cap" }} , 
  	{ "name": "outbuf_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "outbuf", "role": "full_n" }} , 
@@ -156,8 +153,7 @@ set NewPortList {[
  	{ "name": "count", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "count", "role": "default" }} , 
  	{ "name": "sext_ln94", "direction": "in", "datatype": "sc_lv", "bitwidth":62, "type": "signal", "bundle":{"name": "sext_ln94", "role": "default" }} , 
  	{ "name": "select_ln94_cast", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "select_ln94_cast", "role": "default" }} , 
- 	{ "name": "zext_ln94", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "zext_ln94", "role": "default" }} , 
- 	{ "name": "in_m2s_len", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "in_m2s_len", "role": "default" }}  ]}
+ 	{ "name": "zext_ln94", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "zext_ln94", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
@@ -182,7 +178,6 @@ set RtlHierarchyInfo {[
 			{"Name" : "sext_ln94", "Type" : "None", "Direction" : "I"},
 			{"Name" : "select_ln94_cast", "Type" : "None", "Direction" : "I"},
 			{"Name" : "zext_ln94", "Type" : "None", "Direction" : "I"},
-			{"Name" : "in_m2s_len", "Type" : "None", "Direction" : "I"},
 			{"Name" : "outbuf", "Type" : "Fifo", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "outbuf_blk_n", "Type" : "RtlSignal"}]}],
@@ -199,7 +194,6 @@ set ArgLastReadFirstWriteLatency {
 		sext_ln94 {Type I LastRead 0 FirstWrite -1}
 		select_ln94_cast {Type I LastRead 0 FirstWrite -1}
 		zext_ln94 {Type I LastRead 0 FirstWrite -1}
-		in_m2s_len {Type I LastRead 0 FirstWrite -1}
 		outbuf {Type O LastRead -1 FirstWrite 3}}}
 
 set hasDtUnsupportedChannel 0
@@ -219,6 +213,5 @@ set Spec2ImplPortList {
 	sext_ln94 { ap_none {  { sext_ln94 in_data 0 62 } } }
 	select_ln94_cast { ap_none {  { select_ln94_cast in_data 0 32 } } }
 	zext_ln94 { ap_none {  { zext_ln94 in_data 0 4 } } }
-	in_m2s_len { ap_none {  { in_m2s_len in_data 0 32 } } }
-	outbuf { ap_fifo {  { outbuf_din fifo_port_we 1 40 }  { outbuf_num_data_valid fifo_status_num_data_valid 0 7 }  { outbuf_fifo_cap fifo_update 0 7 }  { outbuf_full_n fifo_status 0 1 }  { outbuf_write fifo_data 1 1 } } }
+	outbuf { ap_fifo {  { outbuf_din fifo_port_we 1 33 }  { outbuf_num_data_valid fifo_status_num_data_valid 0 7 }  { outbuf_fifo_cap fifo_update 0 7 }  { outbuf_full_n fifo_status 0 1 }  { outbuf_write fifo_data 1 1 } } }
 }

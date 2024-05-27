@@ -1176,7 +1176,7 @@ s = formatData((unsigned char*)(__xlx_apatb_param_inStreamTop_V_keep_V_stream_bu
 aesl_fh.write(AUTOTB_TVIN_inStreamTop_V_keep_V, s);
 s = formatData((unsigned char*)(__xlx_apatb_param_inStreamTop_V_strb_V_stream_buf.data()+i), 4);
 aesl_fh.write(AUTOTB_TVIN_inStreamTop_V_strb_V, s);
-s = formatData((unsigned char*)(__xlx_apatb_param_inStreamTop_V_user_V_stream_buf.data()+i), 7);
+s = formatData((unsigned char*)(__xlx_apatb_param_inStreamTop_V_user_V_stream_buf.data()+i), 2);
 aesl_fh.write(AUTOTB_TVIN_inStreamTop_V_user_V, s);
 s = formatData((unsigned char*)(__xlx_apatb_param_inStreamTop_V_last_V_stream_buf.data()+i), 1);
 aesl_fh.write(AUTOTB_TVIN_inStreamTop_V_last_V, s);
@@ -1369,7 +1369,7 @@ s = formatData((unsigned char*)(__xlx_apatb_param_outStreamTop_V_keep_V_stream_b
 aesl_fh.write(AUTOTB_TVOUT_outStreamTop_V_keep_V, s);
 s = formatData((unsigned char*)(__xlx_apatb_param_outStreamTop_V_strb_V_stream_buf.data()+__xlx_apatb_param_outStreamTop_stream_buf_size+i), 4);
 aesl_fh.write(AUTOTB_TVOUT_outStreamTop_V_strb_V, s);
-s = formatData((unsigned char*)(__xlx_apatb_param_outStreamTop_V_user_V_stream_buf.data()+__xlx_apatb_param_outStreamTop_stream_buf_size+i), 7);
+s = formatData((unsigned char*)(__xlx_apatb_param_outStreamTop_V_user_V_stream_buf.data()+__xlx_apatb_param_outStreamTop_stream_buf_size+i), 2);
 aesl_fh.write(AUTOTB_TVOUT_outStreamTop_V_user_V, s);
 s = formatData((unsigned char*)(__xlx_apatb_param_outStreamTop_V_last_V_stream_buf.data()+__xlx_apatb_param_outStreamTop_stream_buf_size+i), 1);
 aesl_fh.write(AUTOTB_TVOUT_outStreamTop_V_last_V, s);
