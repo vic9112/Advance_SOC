@@ -10,4 +10,9 @@
 - On-Board (KV260) <br>
 ![result_1PE](https://github.com/vic9112/Advance_SOC/assets/137171415/0dba7572-2d9c-4a85-8002-7d4700a284ec)
 - Compare to original software <br>
-![螢幕擷取畫面 2024-06-29 134618](https://github.com/vic9112/Advance_SOC/assets/137171415/fc1f6976-c9f7-4c76-9784-4d47972e74c4)
+(Unit: ms)
+| Flow | KeyGen | Sign | Verify |
+| ---- | ------ | ---- | ------ |
+| Original software | 100.4 | 2053.3 | 139.9 |
+| HW/SW with middleware | 18.9 | 747.5 | 60.7 |
+
