@@ -1,9 +1,10 @@
 # Advance_SOC
-NTHU cource - Advance SOC
+NTHU course - Advance SOC
+
 | Student | [陳冠晰/Vic Chen](https://github.com/vic9112) |
 | ------- | -------------------------------------------- |
 
-- Labs to experiment Caravel SoC FPGA module design with Verilog & HLS
+- Labs to experiment with Caravel SoC FPGA module design with Verilog & HLS
 
 ## Background Prerequisites
 - Vitis HLS
