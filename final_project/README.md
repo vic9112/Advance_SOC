@@ -1,6 +1,8 @@
 # Final Project - FPGA Implementation of HighLevel Synthesis in Post-Quantum Cryptography: Hardware Acceleration for Falcon Digital Signature
 
-**Author: [Vic Chen](https://github.com/vic9112)**
+| Author |
+| ------ |
+| [Vic Chen](https://github.com/vic9112)|
 
 ## Introduction
 - Due to the advent of quantum computers, existing encryption systems face significant threats. To counteract quantum computers, post-quantum cryptography has emerged. Falcon is one of the algorithms in post-quantum cryptography. The main reasons for choosing the Falcon digital signature are its speed and scalability. In terms of speed, Falcon, using Fast Fourier Sampling, can perform thousands of signatures per second. Additionally, regarding scalability, Falcon's security parameters can be adjusted according to user needs, with official versions including 256, 512, and 1024.
