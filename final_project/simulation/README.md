@@ -21,7 +21,8 @@
 
 ## Block Design
 - After running `run_vivado_fsic` at `/vivado/`, open vivado block design and add `UserDMA` (connect `updma_so` to `inStreamTop`, `outStreamTop` to `updma_si`)
-  ![up/downstream](https://github.com/vic9112/Advance_SOC/assets/137171415/77a5a3f6-88a4-4c5c-8ee7-c0191654c60a)
+  ![downstream](https://github.com/vic9112/Advance_SOC/assets/137171415/0f4f2043-153b-487a-abae-87d6846bd0bd)
+  ![upstream](https://github.com/vic9112/Advance_SOC/assets/137171415/b2aa20de-931d-46f5-bb7c-f37e3e1d678d)
 - Add **AXI Interrupt Controller**, connect pin **`aa_mb_irq`** on **ps_axil** to the input of AXI Interrupt Controller, then concatenate to pin **`IRQ_F2P`** on **ZYNQ(PS)**<br>
 ![block](https://github.com/vic9112/PQC_Falcon/assets/137171415/d9fa1946-94a5-4f01-ad87-729e874b2dab)
 - ZYNQ Configuration<br>
