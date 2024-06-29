@@ -4,6 +4,7 @@ Labs to experiment with Caravel SoC FPGA module design with Verilog & HLS
 
 | Student | [陳冠晰/Vic Chen](https://github.com/vic9112) |
 | ------- | -------------------------------------------- |
+| Email   | vicchen9112@gmail.com |
 
 ## Background Prerequisites
 - Vitis HLS
