@@ -1,4 +1,4 @@
-# SOC / FPGA Mailbox Interrupt 
+# FSIC-FPGA Falcon Simulation with SOC / FPGA Mailbox Interrupt 
 
 - Here I implement IRQ on FSIC Mailbox
   ![waveform](https://github.com/vic9112/PQC_Falcon/assets/137171415/c0aa035a-f3db-47fb-a9df-a87798b35ed1)
@@ -18,6 +18,11 @@
    - FPGA side needs to release **`aa_mb_irq_en`** located at **`0x3000_2100`** to cancel the interrupt.
    - [fsic_tb.sv](https://github.com/vic9112/PQC_Falcon/blob/main/impl_ASIC/irq_test/vivado/fsic_tb.sv)
    - ![release](https://github.com/vic9112/PQC_Falcon/assets/137171415/8e5aead7-a724-41a7-b5dd-25c0bed04ae3)
+- Directly simulating fiFFNTT, do the following:
+``` bash=
+$ cd vivado
+$ source run_vivado_fsic_sim
+```
 
 ## Block Design
 - After running `run_vivado_fsic` at `/vivado/`, open `/vivado/vvd_caravel_fpga/vvd_caravel_fpga.xpr` using vivado and open block design, then add `UserDMA` under `/vivado/vitis_prj`(connect `updma_so` to `inStreamTop`, `outStreamTop` to `updma_si`)
