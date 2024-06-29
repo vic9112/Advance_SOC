@@ -18,7 +18,7 @@
 
 ## Folder Explanation
 
-- `hls_src`: Catapult HLS source code
+- `hls_src`: Catapult/Vitis HLS source code
 - `simulation`: FSIC-FPGA simulation files
 - `validation`: On-Board(PYNQ) validation files
 
