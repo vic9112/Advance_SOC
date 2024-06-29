@@ -25,7 +25,7 @@ $ source run_vivado_fsic_sim
 $ cd vivado
 $ source run_vivado_fsic
 ```
-- After running `run_vivado_fsic` under `/vivado/`, open `/vivado/vvd_caravel_fpga/vvd_caravel_fpga.xpr` using vivado and open block design, then add `UserDMA` under `/vivado/vitis_prj`(connect `updma_so` to `inStreamTop`, `outStreamTop` to `updma_si`)
+- After running `run_vivado_fsic` under `/vivado`, open `/vivado/vvd_caravel_fpga/vvd_caravel_fpga.xpr` using vivado GUI and open block design, then add `UserDMA` under `/vivado/vitis_prj`(connect `updma_so` to `inStreamTop`, `outStreamTop` to `updma_si`)
   ![downstream](https://github.com/vic9112/Advance_SOC/assets/137171415/0f4f2043-153b-487a-abae-87d6846bd0bd)
   ![upstream](https://github.com/vic9112/Advance_SOC/assets/137171415/b2aa20de-931d-46f5-bb7c-f37e3e1d678d)
 - Add **AXI Interrupt Controller**, connect pin **`aa_mb_irq`** on **ps_axil** to the input of AXI Interrupt Controller, then concatenate to pin **`IRQ_F2P`** on **ZYNQ(PS)**<br>
