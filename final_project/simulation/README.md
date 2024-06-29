@@ -15,7 +15,7 @@
 3. Read Mailbox
    - Interrupt will pull down after a reading cycle to Mailbox (0x30002000)
 - Directly simulating fiFFNTT, do the following:
-``` bash=
+```
 $ cd vivado
 $ source run_vivado_fsic_sim
 ```
