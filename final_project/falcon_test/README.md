@@ -8,10 +8,8 @@
 
 ## Performance
 
-(Unit: ms)
-
-| Flow | KeyGen | Sign | Verify |
-| ---- | ------ | ---- | ------ |
+| Flow | KeyGen(ms) | Sign(ms) | Verify(ms) |
+| ---- | ---------- | -------- | ---------- |
 | Original software | 100.4 | 2053.3 | 139.9 |
 | HW/SW with middleware | 18.9 | 747.5 | 60.7 |
 
