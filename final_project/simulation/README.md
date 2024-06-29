@@ -14,7 +14,7 @@
    - ![firmware write MB](https://github.com/vic9112/PQC_Falcon/assets/137171415/2887d0f6-202a-45aa-ad73-8ecb9f36b1f5)
 3. Read Mailbox
    - Interrupt will pull down after a reading cycle to Mailbox (0x30002000)
-- Directly simulating fiFFNTT, do the following:
+### Directly simulating fiFFNTT, do the following:
 ```
 $ cd vivado
 $ source run_vivado_fsic_sim
