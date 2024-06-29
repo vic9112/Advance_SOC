@@ -1,4 +1,4 @@
-# FSIC-FPGA Falcon Simulation with SOC / FPGA Mailbox Interrupt 
+# Falcon FSIC-FPGA Simulation with SOC / FPGA Mailbox Interrupt 
 
 - Here I implement IRQ on FSIC Mailbox
   ![waveform](https://github.com/vic9112/PQC_Falcon/assets/137171415/c0aa035a-f3db-47fb-a9df-a87798b35ed1)
@@ -9,7 +9,7 @@
    - At [fsic_tb.sv](https://github.com/vic9112/PQC_Falcon/blob/main/impl_ASIC/irq_test/vivado/fsic_tb.sv)
    - ![enable](https://github.com/vic9112/PQC_Falcon/assets/137171415/be40dc4f-2cb4-45bc-aaad-0607b2cfd340)
 
-2. SOC write local MailBox
+2. SOC writes local MailBox
    - SOC side (firmware) writes specific patterns to the local MailBox, then it will sync to other side (FPGA) and generate interrupt (**`aa_mb_irq`**)
    - [fsic.c](https://github.com/vic9112/PQC_Falcon/blob/main/impl_ASIC/irq_test/testbench/fsic/fsic.c)
    - ![firmware write MB](https://github.com/vic9112/PQC_Falcon/assets/137171415/2887d0f6-202a-45aa-ad73-8ecb9f36b1f5)
