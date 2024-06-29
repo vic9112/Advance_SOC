@@ -21,6 +21,7 @@
 - `hls_src`: Catapult/Vitis HLS source code
 - `simulation`: FSIC-FPGA simulation files
 - `validation`: On-Board(PYNQ) validation files
+- `falcon_test`: Improved software code (3 APIs) and on-board(KV260) validation files
 
 ## Reference
 - [Falcon](https://falcon-sign.info/)
