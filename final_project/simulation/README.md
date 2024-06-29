@@ -1,4 +1,4 @@
-![螢幕擷取畫面 2024-06-29 141643](https://github.com/vic9112/Advance_SOC/assets/137171415/d1b14967-42ca-484d-8041-9728a9672d30)# SOC / FPGA MailBox Interrupt
+# SOC / FPGA Mailbox Interrupt 
 
 - Here I implement IRQ on FSIC Mailbox
   ![waveform](https://github.com/vic9112/PQC_Falcon/assets/137171415/c0aa035a-f3db-47fb-a9df-a87798b35ed1)
