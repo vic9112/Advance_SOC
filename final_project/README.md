@@ -13,7 +13,7 @@
 
 ## Block Diagram
 ![block diagram](https://github.com/vic9112/Advance_SOC/assets/137171415/b3c1903c-c585-4bd2-b556-8c25c8e20afd)
-- The yellow dashed box highlights the entire system validation box. On the SoC side, we integrated the accelerators and FSIC into the SoC's user project. The middleware was also written as firmware and loaded into the RISC-V CPU. Since everything is on the PL side, we avoided the previous PS-PL communication overhead.
+- The yellow dashed box highlights the entire system validation box. On the SoC side, we integrated the accelerators and FSIC into the SoC's user project. The middleware was also written as firmware and loaded into the RISC-V CPU. Since everything is on the PL side, we avoided the previous PS-PL communication overhead(describe in `/falcon_test`).
 - On the FPGA side, we also placed multiple IPs and designed a DMA to handle the data transmission required for kernel computation. The DMA transfers data through AXI-Master via the interconnect to read data from the DDR memory on the PS side, and then sends the data to the kernel on the SoC side via AXI-Stream.
 
 ## Folder Explanation
