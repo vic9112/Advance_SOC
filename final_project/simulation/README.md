@@ -1,4 +1,4 @@
-# SOC / FPGA MailBox Interrupt
+![螢幕擷取畫面 2024-06-29 141643](https://github.com/vic9112/Advance_SOC/assets/137171415/d1b14967-42ca-484d-8041-9728a9672d30)# SOC / FPGA MailBox Interrupt
 
 - Here I implement IRQ on FSIC Mailbox
   ![waveform](https://github.com/vic9112/PQC_Falcon/assets/137171415/c0aa035a-f3db-47fb-a9df-a87798b35ed1)
@@ -20,10 +20,11 @@
    - ![release](https://github.com/vic9112/PQC_Falcon/assets/137171415/8e5aead7-a724-41a7-b5dd-25c0bed04ae3)
 
 ## Block Design
-
-- Add **AXI Interrupt Controller**, connect pin **`aa_mb_irq`** on **ps_axil** to the input of AXI Interrupt Controller, then concatenate to pin **`IRQ_F2P`** on **ZYNQ(PS)**
+- After running `run_vivado_fsic` at `/vivado/`, open vivado block design and add `UserDMA` (connect `updma_so` to `inStreamTop`, `outStreamTop` to `updma_si`)
+  ![up/downstream](https://github.com/vic9112/Advance_SOC/assets/137171415/77a5a3f6-88a4-4c5c-8ee7-c0191654c60a)
+- Add **AXI Interrupt Controller**, connect pin **`aa_mb_irq`** on **ps_axil** to the input of AXI Interrupt Controller, then concatenate to pin **`IRQ_F2P`** on **ZYNQ(PS)**<br>
 ![block](https://github.com/vic9112/PQC_Falcon/assets/137171415/d9fa1946-94a5-4f01-ad87-729e874b2dab)
-- ZYNQ Configuration
+- ZYNQ Configuration<br>
 ![zynq](https://github.com/vic9112/PQC_Falcon/assets/137171415/ef55a847-ba3d-432a-aa46-f377afcd041c)
 
 ## On Board Validation
