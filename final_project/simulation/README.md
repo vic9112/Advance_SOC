@@ -27,7 +27,7 @@
 ![zynq](https://github.com/vic9112/PQC_Falcon/assets/137171415/ef55a847-ba3d-432a-aa46-f377afcd041c)
 
 ## On Board Validation
-
+**Note that included files are not for fiFFNTT, but for FIR since it's just a demonstration about the interrupt service routine**
 - Include bitstream `fsicIRQ_v1.bit` and metadata file `fsicIRQ_v1.hwh` under `./level_trigger`.
 - Include firmware `fsic.hex` under `./firmware_test`, which only write a value `0x3a3a3a3a` into mailbox
 - Include host code `fsicIRQ_test.ipynb`
