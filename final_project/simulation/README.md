@@ -1,6 +1,6 @@
 # SOC / FPGA MailBox Interrupt
 
-- Here I implement IRQ with FIR
+- Here I implement IRQ on FSIC Mailbox
   ![waveform](https://github.com/vic9112/PQC_Falcon/assets/137171415/c0aa035a-f3db-47fb-a9df-a87798b35ed1)
 
 ## Simulation Step:
