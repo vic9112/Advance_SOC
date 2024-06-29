@@ -1,4 +1,4 @@
-# Final Project - FPGA Implementation of HighLevel Synthesis in Post-Quantum Cryptography: Hardware Acceleration for Falcon Digital Signature
+# FPGA Implementation of High-Level Synthesis in Post-Quantum Cryptography: Hardware Acceleration for Falcon Digital Signature
 
 | Author | [陳冠晰/Vic Chen](https://github.com/vic9112)|
 | ------ | ------------------------------------- |
